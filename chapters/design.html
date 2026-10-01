@@ -73,21 +73,21 @@
         <thead><tr><th>항목</th><th>SB-50M 값</th><th>무엇을 뜻하나 · 어디서 배웠나</th></tr></thead>
         <tbody>
           <tr><td>픽셀 크기</td><td class="val">1.0 µm × 1.0 µm</td><td>픽셀 피치(pixel pitch). 면적이 1 µm²이므로 같은 조도에서 1.4 µm 픽셀의 약 절반의 광자를 받는다. <a href="../chapters/pixel.html">Ch.03 픽셀 구조</a></td></tr>
-          <tr><td>유효 화소</td><td class="val">8160 × 6144<br>(50.1 MP)</td><td>가로×세로 활성 픽셀 수. 가장자리에는 광학 블랙(OB) 픽셀과 더미 픽셀이 추가로 있다. <a href="../chapters/isp.html">Ch.09 블랙 레벨</a></td></tr>
+          <tr><td>유효 화소</td><td class="val">8160 × 6144<br>(50.1 MP)</td><td>가로×세로 활성 픽셀 수. 가장자리에는 광학 블랙(OB) 픽셀과 더미 픽셀이 추가로 있다. <a href="../chapters/isp.html">Ch.10 블랙 레벨</a></td></tr>
           <tr><td>광학 포맷</td><td class="val">1/1.56"<br>(대각 10.2 mm)</td><td>활성 영역 8.16 × 6.14 mm. “인치” 표기는 옛 촬상관 규격에서 온 관습으로, 대략 <b>대각(mm) ≈ 16 mm ÷ 인치 분모</b>로 환산한다. 렌즈의 이미지 서클이 이 대각을 덮어야 한다. <a href="../chapters/optics.html">Ch.05 광학</a></td></tr>
-          <tr><td>컬러 필터</td><td class="val">Quad Bayer<br>(2×2 동색)</td><td>같은 색 4개가 모인 배열. 밤에는 4개를 합쳐 12.5 MP·2.0 µm 등가로, 낮에는 리모자이크(remosaic)해서 50 MP로 출력한다. <a href="../chapters/color.html">Ch.04 CFA</a> · <a href="../chapters/advanced.html">Ch.10</a></td></tr>
-          <tr><td>구조</td><td class="val">BSI, 2층 적층,<br>풀 DTI</td><td>배선을 뒤로 보낸 이면 조사형, 로직 웨이퍼를 아래에 붙인 적층형, 픽셀 사이를 깊은 트렌치로 격리해 크로스토크를 줄인다. <a href="../chapters/pixel.html">Ch.03</a> · <a href="../chapters/advanced.html">Ch.10</a></td></tr>
+          <tr><td>컬러 필터</td><td class="val">Quad Bayer<br>(2×2 동색)</td><td>같은 색 4개가 모인 배열. 밤에는 4개를 합쳐 12.5 MP·2.0 µm 등가로, 낮에는 리모자이크(remosaic)해서 50 MP로 출력한다. <a href="../chapters/color.html">Ch.04 CFA</a> · <a href="../chapters/advanced.html">Ch.11</a></td></tr>
+          <tr><td>구조</td><td class="val">BSI, 2층 적층,<br>풀 DTI</td><td>배선을 뒤로 보낸 이면 조사형, 로직 웨이퍼를 아래에 붙인 적층형, 픽셀 사이를 깊은 트렌치로 격리해 크로스토크를 줄인다. <a href="../chapters/pixel.html">Ch.03</a> · <a href="../chapters/advanced.html">Ch.11</a></td></tr>
           <tr><td>풀웰 용량 (FWC)</td><td class="val">6,000 e⁻<br>(비닝 24,000 e⁻)</td><td>포토다이오드가 포화되기 전 담을 수 있는 최대 전자 수. 밝은 쪽 한계와 최대 SNR(\(\sqrt{6000}\approx 77\), 37.8 dB)을 정한다. <a href="../chapters/photodiode.html">Ch.02</a> · <a href="../chapters/noise.html">Ch.07</a></td></tr>
           <tr><td>읽기 노이즈</td><td class="val">1.2 e⁻ rms<br>(HCG, 16× 게인)</td><td>빛이 없어도 읽을 때마다 섞이는 노이즈(소스 팔로워, kTC 잔여, ADC). 보통 가장 높은 아날로그 게인에서 측정한 값을 적는다. <a href="../chapters/noise.html">Ch.07 노이즈</a></td></tr>
-          <tr><td>변환 이득 (CG)</td><td class="val">95 µV/e⁻ (HCG)<br>24 µV/e⁻ (LCG)</td><td>전자 1개가 FD 전압을 얼마나 바꾸는가, \(CG=q/C_{FD}\). HCG/LCG 두 값이 있으면 이중 변환 이득(DCG) 픽셀이다. <a href="../chapters/readout.html">Ch.06 리드아웃</a> · <a href="../chapters/shutter.html">Ch.08 HDR</a></td></tr>
+          <tr><td>변환 이득 (CG)</td><td class="val">95 µV/e⁻ (HCG)<br>24 µV/e⁻ (LCG)</td><td>전자 1개가 FD 전압을 얼마나 바꾸는가, \(CG=q/C_{FD}\). HCG/LCG 두 값이 있으면 이중 변환 이득(DCG) 픽셀이다. <a href="../chapters/readout.html">Ch.06 리드아웃</a> · <a href="../chapters/shutter.html">Ch.09 HDR</a></td></tr>
           <tr><td>다이내믹 레인지</td><td class="val">74 dB (단일 노출)<br>≥ 90 dB (DCG HDR)</td><td>\(20\log_{10}(\text{FWC}/\sigma_{\text{read}}) = 20\log_{10}(6000/1.2) \approx 74\) dB. HDR 모드 수치와 단일 노출 수치를 구분해서 읽어야 한다. <a href="../chapters/noise.html">Ch.07</a></td></tr>
           <tr><td>양자효율 (QE)</td><td class="val">78 % @ 530 nm<br>(G 채널)</td><td>컬러 필터·마이크로렌즈 손실까지 포함한 “픽셀 전체” QE. 실리콘 자체 QE와 헷갈리지 말 것. <a href="../chapters/photodiode.html">Ch.02 QE</a></td></tr>
           <tr><td>암전류</td><td class="val">5 e⁻/s @ 60 °C</td><td>온도가 약 6~8 °C 오를 때마다 두 배. 폰 내부는 쉽게 50 °C를 넘기 때문에 60 °C 기준으로 적는 경우가 많다. <a href="../chapters/noise.html">Ch.07</a></td></tr>
-          <tr><td>프레임률</td><td class="val">30 fps @ 50 MP<br>120 fps @ 12.5 MP<br>60 fps @ 4K</td><td>행 단위로 읽는 롤링 셔터라서 라인 타임 × 행 수가 프레임 시간을 정한다. 비닝하면 행 수가 줄어 빨라진다. <a href="../chapters/shutter.html">Ch.08 셔터</a></td></tr>
+          <tr><td>프레임률</td><td class="val">30 fps @ 50 MP<br>120 fps @ 12.5 MP<br>60 fps @ 4K</td><td>행 단위로 읽는 롤링 셔터라서 라인 타임 × 행 수가 프레임 시간을 정한다. 비닝하면 행 수가 줄어 빨라진다. <a href="../chapters/shutter.html">Ch.09 셔터</a></td></tr>
           <tr><td>ADC</td><td class="val">10 / 12-bit<br>컬럼 병렬 single-slope</td><td>열마다 ADC가 하나씩 있어 한 행을 동시에 변환한다. 비트 수가 높으면 양자화 노이즈가 줄지만 변환 시간이 \(2^b\)에 비례해 길어진다. <a href="../chapters/readout.html">Ch.06</a></td></tr>
-          <tr><td>인터페이스</td><td class="val">MIPI CSI-2<br>C-PHY 3-trio /<br>D-PHY 4-lane</td><td>50 MP × 10 bit × 30 fps ≈ 15 Gbps. D-PHY 한 레인이 2.5~4.5 Gbps이므로 4레인으로도 빠듯하다. <a href="../chapters/isp.html">Ch.09</a></td></tr>
+          <tr><td>인터페이스</td><td class="val">MIPI CSI-2<br>C-PHY 3-trio /<br>D-PHY 4-lane</td><td>50 MP × 10 bit × 30 fps ≈ 15 Gbps. D-PHY 한 레인이 2.5~4.5 Gbps이므로 4레인으로도 빠듯하다. <a href="../chapters/isp.html">Ch.10</a></td></tr>
           <tr><td>최대 CRA</td><td class="val">35°</td><td>센서 가장자리에서 들어오는 주광선 각도. 렌즈 설계와 반드시 맞아야 하며, 마이크로렌즈를 그만큼 시프트한다. <a href="../chapters/optics.html">Ch.05 CRA</a></td></tr>
-          <tr><td>AF</td><td class="val">2×2 OCL<br>전 화소 PDAF</td><td>한 마이크로렌즈 아래 네 픽셀의 신호 차이로 위상차를 구해 초점을 맞춘다. <a href="../chapters/advanced.html">Ch.10 PDAF</a></td></tr>
+          <tr><td>AF</td><td class="val">2×2 OCL<br>전 화소 PDAF</td><td>한 마이크로렌즈 아래 네 픽셀의 신호 차이로 위상차를 구해 초점을 맞춘다. <a href="../chapters/advanced.html">Ch.11 PDAF</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -302,7 +302,7 @@
         </tbody>
       </table>
     </div>
-    <p>이 가운데 요구사항이 가장 극단적인 두 분야는 따로 장을 두었다. 차량용은 <a href="../chapters/automotive.html">12장 차량용 센서</a>, 과학·천문용은 <a href="../chapters/space.html">13장 우주·천문 센서</a>에서 다룬다. 표의 숫자들을 실제로 어떻게 재는지는 <a href="../chapters/characterization.html">11장 센서 특성 평가</a>를 보자.</p>
+    <p>이 가운데 요구사항이 가장 극단적인 두 분야는 따로 장을 두었다. 차량용은 <a href="../chapters/automotive.html">12장 차량용 센서</a>, 과학·천문용은 <a href="../chapters/space.html">13장 우주·천문 센서</a>에서 다룬다. 표의 숫자들을 실제로 어떻게 재는지는 <a href="../chapters/characterization.html">8장 센서 특성 평가</a>를 보자.</p>
     <div class="callout tip"><strong>플레이그라운드로 확인하기</strong>
       <p>“자동차 ADAS” 프리셋의 LOFIC을 끄면 DR이 약 30 dB 떨어진다. 터널 출구처럼 밝기 차가 10⁵배를 넘는 장면을 찍으려면 단일 노출로는 불가능하다는 뜻이다. “보안 CCTV”는 1 lux의 야간 장면에서 픽셀 SNR이 10 dB 남짓이다. 그래서 CCTV는 F/1.4 이하의 밝은 렌즈, NIR 보조광, 긴 노출을 함께 쓴다.</p>
     </div>

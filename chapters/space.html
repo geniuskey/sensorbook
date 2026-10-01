@@ -359,7 +359,7 @@
     </div>
 
     <h3>하이브리드 구조</h3>
-    <p>HgCdTe로는 좋은 트랜지스터를 만들 수 없다. 그래서 빛을 받는 층과 읽는 회로를 따로 만들어 붙인다. HgCdTe 포토다이오드 어레이의 픽셀마다 인듐 범프를 올리고, 실리콘 CMOS로 만든 <span class="term">판독 집적회로</span><span class="en">(Readout Integrated Circuit, ROIC)</span>에 뒤집어 눌러 접합한다. <a href="advanced.html">10장</a>에서 본 적층형 센서의 픽셀 단위 접합과 같은 발상이며, 적외선 검출기는 이를 수십 년 먼저 썼다.</p>
+    <p>HgCdTe로는 좋은 트랜지스터를 만들 수 없다. 그래서 빛을 받는 층과 읽는 회로를 따로 만들어 붙인다. HgCdTe 포토다이오드 어레이의 픽셀마다 인듐 범프를 올리고, 실리콘 CMOS로 만든 <span class="term">판독 집적회로</span><span class="en">(Readout Integrated Circuit, ROIC)</span>에 뒤집어 눌러 접합한다. <a href="advanced.html">11장</a>에서 본 적층형 센서의 픽셀 단위 접합과 같은 발상이며, 적외선 검출기는 이를 수십 년 먼저 썼다.</p>
 
     <figure class="diagram fig-lg">
       <svg viewBox="0 0 680 270" role="img" aria-label="HgCdTe 하이브리드 적외선 어레이 단면">
@@ -499,7 +499,7 @@
     <p>따라서 EMCCD는 신호가 읽기 노이즈의 제곱보다 작은 극저조도에서만 일반 CCD를 이긴다. 광자가 픽셀당 프레임당 0.1개 이하로 드물면 출력에 문턱값을 걸어 ‘있다/없다’만 세는 광자 계수 모드로 과잉 잡음도 피할 수 있다. 그때는 전송 중 생기는 클록 유도 전하<span class="en">(Clock-Induced Charge)</span>가 바닥 노이즈가 된다.</p>
 
     <h3>sCMOS와 스키퍼 CCD</h3>
-    <p><span class="term">sCMOS</span><span class="en">(scientific CMOS)</span>는 높은 변환 이득의 4T 픽셀과 저잡음 컬럼 증폭기로 증배 없이 1 e⁻ 안팎의 읽기 노이즈를 낸다. 과잉 잡음이 없고 빠르지만, 픽셀마다 증폭기가 달라 읽기 노이즈가 분포를 가지며 RTS 노이즈가 큰 픽셀이 꼬리로 남는다(<a href="characterization.html">11장</a>). 최근에는 0.3 e⁻ 안팎까지 내려가 광전자 수를 정수로 구분하는 CMOS 센서도 나왔다.</p>
+    <p><span class="term">sCMOS</span><span class="en">(scientific CMOS)</span>는 높은 변환 이득의 4T 픽셀과 저잡음 컬럼 증폭기로 증배 없이 1 e⁻ 안팎의 읽기 노이즈를 낸다. 과잉 잡음이 없고 빠르지만, 픽셀마다 증폭기가 달라 읽기 노이즈가 분포를 가지며 RTS 노이즈가 큰 픽셀이 꼬리로 남는다(<a href="characterization.html">8장</a>). 최근에는 0.3 e⁻ 안팎까지 내려가 광전자 수를 정수로 구분하는 CMOS 센서도 나왔다.</p>
     <p><span class="term">스키퍼 CCD</span><span class="en">(Skipper CCD)</span>는 출력단의 플로팅 게이트 증폭기로 같은 전하 패킷을 지우지 않고 \(N\)번 반복해 재고 평균한다. 읽기 노이즈가 \(\sigma_1/\sqrt N\)로 줄어 수천 번 반복하면 0.1 e⁻ 아래로 내려간다. 대신 한 픽셀을 읽는 데 그만큼 오래 걸리므로, 암흑 물질 탐색처럼 속도가 필요 없는 실험에 쓰인다.</p>
 
     <div class="table-wrap"><table>
@@ -547,7 +547,7 @@
     <p>그렇다고 CCD와 하이브리드 어레이가 사라진 것은 아니다. 최고 수준의 균일도와 선형성, 완전한 필 팩터가 필요한 광시야 탐사(유클리드의 가시광 카메라, 루빈 천문대)는 여전히 CCD를 택했고, 적외선에서는 HgCdTe 하이브리드 어레이가 4096 × 4096 화소·10 µm 피치까지 커져 낸시 그레이스 로먼 우주망원경에 18장이 들어간다. 흐름을 한 줄로 요약하면, 검출 재료는 파장이 정하고 판독 회로는 CMOS로 수렴하고 있다.</p>
     <div class="callout">
       <strong>다음 장과의 연결</strong>
-      <p>이 장의 주제들은 지상 센서의 평가 항목과 이어진다. 암전류의 온도 의존성, 핫 픽셀과 RTS 분포, 선형성 측정은 <a href="characterization.html">11장 센서 특성 평가</a>에서, 고온과 장기 신뢰성이라는 또 다른 극한 환경은 <a href="automotive.html">12장 차량용 센서</a>에서 다룬다. 응용별 요구사항을 한 표로 비교한 것은 <a href="design.html">14장</a>에 있다.</p>
+      <p>이 장의 주제들은 지상 센서의 평가 항목과 이어진다. 암전류의 온도 의존성, 핫 픽셀과 RTS 분포, 선형성 측정은 <a href="characterization.html">8장 센서 특성 평가</a>에서, 고온과 장기 신뢰성이라는 또 다른 극한 환경은 <a href="automotive.html">12장 차량용 센서</a>에서 다룬다. 응용별 요구사항을 한 표로 비교한 것은 <a href="design.html">14장</a>에 있다.</p>
     </div>
   </section>
 

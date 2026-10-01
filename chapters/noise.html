@@ -536,7 +536,7 @@
     <div class="formula">$$ \mathrm{DR} = 20\log_{10}\frac{\mathrm{FWC}}{\sigma_{floor}}\ [\text{dB}], \qquad \text{stops} = \log_2\frac{\mathrm{FWC}}{\sigma_{floor}}, \qquad \mathrm{SNR_{max}} \approx \sqrt{\mathrm{FWC}} $$
       <div class="where">\(\sigma_{floor} = \sqrt{\sigma_r^2 + Dt}\) (노이즈 바닥). 1 stop = 2배 ≈ 6.02 dB.</div>
     </div>
-    <p><strong>예제.</strong> FWC 6000 e⁻, 읽기 노이즈 1.5 e⁻ → DR = 20 log(4000) = 72 dB ≈ 12 stops. 최대 SNR = √6000 ≈ 77(37.8 dB). 풀웰을 두 배로 늘리면 DR은 6 dB, 최대 SNR은 3 dB만 늘지만, 읽기 노이즈를 반으로 줄여도 DR이 6 dB 는다. 자연 장면(역광, 터널 출구)은 100~120 dB를 요구하므로 단일 노출로는 부족하고 8장의 HDR 기법이 필요하다.</p>
+    <p><strong>예제.</strong> FWC 6000 e⁻, 읽기 노이즈 1.5 e⁻ → DR = 20 log(4000) = 72 dB ≈ 12 stops. 최대 SNR = √6000 ≈ 77(37.8 dB). 풀웰을 두 배로 늘리면 DR은 6 dB, 최대 SNR은 3 dB만 늘지만, 읽기 노이즈를 반으로 줄여도 DR이 6 dB 는다. 자연 장면(역광, 터널 출구)은 100~120 dB를 요구하므로 단일 노출로는 부족하고 9장의 HDR 기법이 필요하다.</p>
     <div class="sim" id="sim-dr">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>다이내믹 레인지 계산기</h3></div>
       <div class="sim-body side">
@@ -715,7 +715,7 @@
       <li><strong>노이즈 바닥을 낮춘다.</strong> 높은 CG(작은 C_FD, DCG의 고이득 모드), CDS, 전하 비닝, 필요한 만큼의 아날로그 게인으로 뒷단 노이즈를 묻는다.</li>
       <li><strong>암전류를 억제한다.</strong> 센서 온도 관리, 긴 노출에서는 다크 프레임 차감.</li>
       <li><strong>여러 프레임을 합친다.</strong> 스마트폰의 야간 모드처럼 N장을 정렬·평균하면 시간적 노이즈가 \(\sqrt{N}\)배 줄어든다. 단, 매 프레임마다 읽기 노이즈가 더해지므로 극저조도에서는 긴 노출 한 장보다 불리할 수 있다(디지털 비닝과 같은 논리).</li>
-      <li><strong>영상처리로 다듬는다.</strong> 공간·시간 노이즈 제거(9장). 단, 제거는 디테일을 함께 지우므로 원천 SNR이 높을수록 좋다.</li>
+      <li><strong>영상처리로 다듬는다.</strong> 공간·시간 노이즈 제거(10장). 단, 제거는 디테일을 함께 지우므로 원천 SNR이 높을수록 좋다.</li>
     </ol>
   </section>
 

@@ -21,10 +21,10 @@ python3 -m http.server 8000   # → http://localhost:8000
 | 05 | chapters/optics.html | 결상, F-넘버·심도, 회절, MTF, CRA, 렌즈 쉐이딩 |
 | 06 | chapters/readout.html | 4T APS, CDS, 변환 이득, 컬럼 ADC, 칩 구조 |
 | 07 | chapters/noise.html | 샷/읽기/암전류 노이즈, SNR, DR, PTC |
-| 08 | chapters/shutter.html | 롤링/글로벌 셔터, 플리커, HDR |
-| 09 | chapters/isp.html | RAW→JPEG ISP 파이프라인, 3A |
-| 10 | chapters/advanced.html | 적층 센서 3D, PDAF, 비닝, SPAD/dToF, 이벤트 센서 |
-| 11 | chapters/characterization.html | 선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블랙 선, SNR10 |
+| 08 | chapters/characterization.html | 선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블랙 선, SNR10 |
+| 09 | chapters/shutter.html | 롤링/글로벌 셔터, 플리커, HDR |
+| 10 | chapters/isp.html | RAW→JPEG ISP 파이프라인, 3A |
+| 11 | chapters/advanced.html | 적층 센서 3D, PDAF, 비닝, SPAD/dToF, 이벤트 센서 |
 | 12 | chapters/automotive.html | LED 플리커 억제, 차량용 HDR 픽셀, 고온 동작, 기능 안전, DMS |
 | 13 | chapters/space.html | 과학용 CCD, 방사선 손상과 CTE, HgCdTe·up-the-ramp, TDI, 광자 계수 |
 | 14 | chapters/design.html | 센서 설계 플레이그라운드, 스펙시트 읽기 |

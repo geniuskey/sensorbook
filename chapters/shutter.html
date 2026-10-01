@@ -22,7 +22,7 @@
 <body data-chapter="shutter">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 08</div>
+    <div class="eyebrow">Chapter 09</div>
     <h1>셔터와 HDR</h1>
     <p class="lead">CMOS 센서에는 기계식 셔터가 없어도 된다. 픽셀을 비우고(리셋) 빛을 모은 뒤(적분) 읽어 내는 타이밍이 곧 셔터다. 이 장에서는 그 타이밍이 만드는 롤링 셔터 왜곡과 플리커, 이를 없애는 글로벌 셔터, 그리고 한 장면의 밝기 차가 센서 능력을 넘어설 때 쓰는 여러 HDR 기술을 다룬다.</p>
     <ul class="objectives">
@@ -69,7 +69,7 @@
         <text x="330" y="172" class="t-dim" text-anchor="middle">② 광전자 적분</text>
         <text x="600" y="72" class="t-dim" text-anchor="middle">③ 전송·읽기</text>
       </svg>
-      <figcaption><b>그림 8-1.</b> 4T 픽셀의 노출. 첫 TX 펄스(PD 리셋)가 끝나는 순간부터 읽기 때의 TX 펄스가 끝나는 순간까지가 노출 시간이다. SHR/SHS는 CDS의 리셋·신호 샘플링 시점.</figcaption>
+      <figcaption><b>그림 9-1.</b> 4T 픽셀의 노출. 첫 TX 펄스(PD 리셋)가 끝나는 순간부터 읽기 때의 TX 펄스가 끝나는 순간까지가 노출 시간이다. SHR/SHS는 CDS의 리셋·신호 샘플링 시점.</figcaption>
     </figure>
     <p>전자 셔터는 기계 셔터와 달리 마모가 없고 1/100,000초 같은 초단 노출도 쉽다. 하지만 모든 픽셀이 <b>같은 시각에</b> 리셋·읽기될 수는 없다. 컬럼 ADC가 한 번에 한 행(또는 몇 행)만 변환하기 때문이다. 이 제약에서 롤링 셔터가 나온다.</p>
   </section>
@@ -107,7 +107,7 @@
         <line x1="70" y1="100" x2="660" y2="100" stroke="var(--warn)" stroke-dasharray="2 4"/>
         <text x="656" y="94" class="t-mono" text-anchor="end">행 r의 노출 구간</text>
       </svg>
-      <figcaption><b>그림 8-2.</b> 롤링 셔터 타이밍 차트. 초록선(리셋)과 빨간선(읽기)이 같은 기울기로 내려가며, 두 선 사이의 평행사변형이 각 행의 노출 구간이다. 기울기 = 행 시간.</figcaption>
+      <figcaption><b>그림 9-2.</b> 롤링 셔터 타이밍 차트. 초록선(리셋)과 빨간선(읽기)이 같은 기울기로 내려가며, 두 선 사이의 평행사변형이 각 행의 노출 구간이다. 기울기 = 행 시간.</figcaption>
     </figure>
 
     <p>장면이 정지해 있으면 아무 문제가 없다. 그러나 판독 시간 동안 물체나 카메라가 움직이면 윗행과 아랫행이 서로 다른 순간의 장면을 담아 왜곡이 생긴다.</p>
@@ -185,7 +185,7 @@
           <text x="150" y="230" class="t-dim" text-anchor="middle">시간 →</text>
         </g>
       </svg>
-      <figcaption><b>그림 8-3.</b> 전하 영역 글로벌 셔터. 노출 구간이 수직 직사각형이라 행 사이 시간 차가 없다. 대신 아래쪽 행일수록 전하가 메모리 노드에서 오래 기다리며, 그동안 스며드는 빛(PLS)과 암전류가 오차가 된다.</figcaption>
+      <figcaption><b>그림 9-3.</b> 전하 영역 글로벌 셔터. 노출 구간이 수직 직사각형이라 행 사이 시간 차가 없다. 대신 아래쪽 행일수록 전하가 메모리 노드에서 오래 기다리며, 그동안 스며드는 빛(PLS)과 암전류가 오차가 된다.</figcaption>
     </figure>
 
     <p>동시 노출의 대가는 여럿이다.</p>
@@ -287,7 +287,7 @@
         <text x="120" y="205" class="t-dim" text-anchor="middle">노이즈에 묻힘</text>
         <text x="610" y="205" class="t-dim" text-anchor="middle">포화</text>
       </svg>
-      <figcaption><b>그림 8-4.</b> 장면 휘도 범위(보라)와 센서 한 번 노출이 담는 범위(파랑). 노출을 조절하면 파란 창을 좌우로 옮길 수 있을 뿐 넓힐 수는 없다.</figcaption>
+      <figcaption><b>그림 9-4.</b> 장면 휘도 범위(보라)와 센서 한 번 노출이 담는 범위(파랑). 노출을 조절하면 파란 창을 좌우로 옮길 수 있을 뿐 넓힐 수는 없다.</figcaption>
     </figure>
   </section>
 
@@ -327,7 +327,7 @@
           <text x="214" y="216" class="t-dim" text-anchor="middle">간격 ≈ 수 행 ~ 수 ms</text>
         </g>
       </svg>
-      <figcaption><b>그림 8-5.</b> 순차 프레임 HDR(왼쪽)은 Long·Short 사이 시간 차가 한 프레임이지만, DOL(오른쪽)은 Long 읽기 선 바로 뒤를 Short 읽기 선이 따라가며 한 행 단위로 번갈아 출력한다.</figcaption>
+      <figcaption><b>그림 9-5.</b> 순차 프레임 HDR(왼쪽)은 Long·Short 사이 시간 차가 한 프레임이지만, DOL(오른쪽)은 Long 읽기 선 바로 뒤를 Short 읽기 선이 따라가며 한 행 단위로 번갈아 출력한다.</figcaption>
     </figure>
 
     <h3>공간·회로 분할: 한 번의 노출로 두 감도</h3>
@@ -379,7 +379,7 @@
           <text x="100" y="232" class="t-dim" text-anchor="middle">커패시터에 적분 → 120 dB+</text>
         </g>
       </svg>
-      <figcaption><b>그림 8-6.</b> 단일 노출 HDR 픽셀. DCG는 FD 용량을, 분할 픽셀은 감도를, LOFIC은 전하 저장 용량을 두 갈래로 나눈다.</figcaption>
+      <figcaption><b>그림 9-6.</b> 단일 노출 HDR 픽셀. DCG는 FD 용량을, 분할 픽셀은 감도를, LOFIC은 전하 저장 용량을 두 갈래로 나눈다.</figcaption>
     </figure>
 
     <div class="table-wrap"><table>
@@ -462,7 +462,7 @@
         <text x="455" y="100" class="t" text-anchor="middle">→</text>
         <text x="340" y="212" class="t-dim" text-anchor="middle">창(포화) 영역에서는 Short를, 실내에서는 Long을 쓰므로 물체가 두 위치에 나타난다</text>
       </svg>
-      <figcaption><b>그림 8-7.</b> 고스트의 원리. 포화 여부로 노출을 고르는 합성은 움직이는 물체에서 두 시각의 영상을 이어 붙인다.</figcaption>
+      <figcaption><b>그림 9-7.</b> 고스트의 원리. 포화 여부로 노출을 고르는 합성은 움직이는 물체에서 두 시각의 영상을 이어 붙인다.</figcaption>
     </figure>
 
     <p>대책은 센서 단과 알고리즘 단 양쪽에 있다.</p>

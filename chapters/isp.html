@@ -38,7 +38,7 @@
 <body data-chapter="isp">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 09</div>
+    <div class="eyebrow">Chapter 10</div>
     <h1>ISP 파이프라인</h1>
     <p class="lead">센서가 내보내는 RAW는 어둡고, 초록빛이 돌고, 가장자리가 어둡고, 노이즈와 결함 픽셀이 섞인 흑백 모자이크입니다. 이것을 우리가 아는 "사진"으로 만드는 일련의 계산을 <strong>영상 신호 처리기</strong><span class="en">(Image Signal Processor, ISP)</span>가 합니다. 이 장에서는 각 단계를 직접 켜고 끄며 왜 그 단계가 필요한지, 어떤 수학이 들어 있는지 살펴봅니다.</p>
     <ul class="objectives">
@@ -88,7 +88,7 @@
         </g>
         <text x="400" y="322" text-anchor="middle" class="t-dim">통계(히스토그램·패치 평균·초점값)는 여러 지점에서 추출되어 3A 알고리즘으로 간다.</text>
       </svg>
-      <figcaption><b>그림 9-1.</b> 대표적인 ISP 블록 순서. 실제 제품은 블록이 훨씬 많고(HDR 합성, 시간 NR, 색도 NR, 국소 톤 매핑, 얼굴 인식 기반 보정 등) 순서도 벤더마다 조금씩 다르다. 많은 ISP는 WB 게인을 디모자이크 <em>전에</em> 베이어 도메인에서 적용한다.</figcaption>
+      <figcaption><b>그림 10-1.</b> 대표적인 ISP 블록 순서. 실제 제품은 블록이 훨씬 많고(HDR 합성, 시간 NR, 색도 NR, 국소 톤 매핑, 얼굴 인식 기반 보정 등) 순서도 벤더마다 조금씩 다르다. 많은 ISP는 WB 게인을 디모자이크 <em>전에</em> 베이어 도메인에서 적용한다.</figcaption>
     </figure>
     <p>순서에는 이유가 있습니다. <strong>선형성이 필요한 보정은 먼저</strong>, <strong>비선형 변환은 나중에</strong> 합니다. 블랙 레벨, 쉐이딩, 화이트 밸런스, 색 보정은 모두 "광자 수에 비례하는 신호"라는 가정 위에서만 올바르게 동작하므로 감마보다 앞에 둬야 합니다. 결함 픽셀은 디모자이크가 이웃으로 퍼뜨리기 전에 제거해야 하고, 샤프닝은 노이즈를 먼저 줄인 뒤에 해야 노이즈를 키우지 않습니다.</p>
   </section>
@@ -138,7 +138,7 @@
         <text x="680" y="100" class="t-dim">BLC: 64을 뺌</text>
         <text x="400" y="225" text-anchor="middle" class="t-dim">가로축: 암흑 픽셀의 디지털 값(DN), 세로축: 빈도</text>
       </svg>
-      <figcaption><b>그림 9-2.</b> 암흑 프레임 히스토그램. 페디스털 덕분에 음의 노이즈가 보존된다. 실제 센서는 차광된 OB(optical black) 픽셀 행으로 블랙 레벨을 프레임마다 측정한다.</figcaption>
+      <figcaption><b>그림 10-2.</b> 암흑 프레임 히스토그램. 페디스털 덕분에 음의 노이즈가 보존된다. 실제 센서는 차광된 OB(optical black) 픽셀 행으로 블랙 레벨을 프레임마다 측정한다.</figcaption>
     </figure>
     <div class="formula">$$x_{\text{norm}}=\frac{\mathrm{DN}-\mathrm{BL}}{\mathrm{WL}-\mathrm{BL}}\qquad(\mathrm{BL}=64,\ \mathrm{WL}=1023)$$
       <div class="where">BL: 블랙 레벨, WL: 화이트 레벨(포화값). 결과는 0~1로 정규화된 선형 신호. BL을 빼지 않으면 모든 값에 약 0.06이 더해져 대비가 떨어지고, 뒤의 WB 게인이 이 오프셋에도 곱해져 그림자에 색이 낀다.</div>
@@ -173,7 +173,7 @@
         <text x="460" y="278" class="t-mono" text-anchor="middle">0°</text><text x="610" y="278" class="t-mono" text-anchor="middle">20°</text><text x="760" y="278" class="t-mono" text-anchor="middle">40°</text>
         <text x="452" y="64" class="t-mono" text-anchor="end">1.0</text><text x="452" y="164" class="t-mono" text-anchor="end">0.5</text>
       </svg>
-      <figcaption><b>그림 9-3.</b> 자연 비네팅. 화각 끝(θ ≈ 37°)에서 조도가 중심의 약 40%로 떨어진다. LSC는 채널별 게인 맵(보통 17×13 격자를 쌍선형 보간)을 곱해 이를 되돌린다(게인 축은 1/2.5 배율).</figcaption>
+      <figcaption><b>그림 10-3.</b> 자연 비네팅. 화각 끝(θ ≈ 37°)에서 조도가 중심의 약 40%로 떨어진다. LSC는 채널별 게인 맵(보통 17×13 격자를 쌍선형 보간)을 곱해 이를 되돌린다(게인 축은 1/2.5 배율).</figcaption>
     </figure>
     <div class="formula">$$E(\theta)=E_0\cos^4\theta,\qquad x'_c(i,j)=x_c(i,j)\cdot G_c(i,j),\quad G_c=\frac{1}{V_c(i,j)}$$
       <div class="where">\(V_c\): 균일 광원(적분구)을 찍어 측정한 채널별 쉐이딩 맵. 게인이 2~3배까지 커지므로 모서리 노이즈도 같은 배율로 커진다 — 그래서 실무에서는 100% 보정 대신 약간 덜 보정하기도 한다.</div>
@@ -198,7 +198,7 @@
         <text x="605" y="102" text-anchor="middle" class="t-mono">1.00  1.00  1.00</text>
         <text x="605" y="215" text-anchor="middle" class="t-dim">WB 후: 중성색 R = G = B</text>
       </svg>
-      <figcaption><b>그림 9-4.</b> 화이트 밸런스는 채널별 게인이다. G를 기준(1)으로 두고 R, B 게인만 조절하는 것이 일반적이다 — G의 SNR이 가장 좋아 증폭하지 않는 편이 유리하기 때문이다.</figcaption>
+      <figcaption><b>그림 10-4.</b> 화이트 밸런스는 채널별 게인이다. G를 기준(1)으로 두고 R, B 게인만 조절하는 것이 일반적이다 — G의 SNR이 가장 좋아 증폭하지 않는 편이 유리하기 때문이다.</figcaption>
     </figure>
     <div class="formula">$$\begin{bmatrix}R'\\G'\\B'\end{bmatrix}=\begin{bmatrix}g_R&0&0\\0&1&0\\0&0&g_B\end{bmatrix}\begin{bmatrix}R\\G\\B\end{bmatrix},\qquad g_R=\frac{G_w}{R_w},\quad g_B=\frac{G_w}{B_w}$$
       <div class="where">\((R_w,G_w,B_w)\): 장면 조명(흰색)의 카메라 응답. 이것을 어떻게 추정하느냐가 AWB 알고리즘의 핵심이다.</div>
@@ -288,7 +288,7 @@
         </g>
         <text x="430" y="275" class="t-dim">감마 인코딩은 코드를 어두운 스톱으로 재분배한다.</text>
       </svg>
-      <figcaption><b>그림 9-5.</b> sRGB OETF(파랑)와 선형(점선). 18% 반사율 회색이 코드 중간 부근(118)에 놓인다. 오른쪽 표는 8-bit에서 밝기 한 스톱(2배)마다 배정되는 코드 수.</figcaption>
+      <figcaption><b>그림 10-5.</b> sRGB OETF(파랑)와 선형(점선). 18% 반사율 회색이 코드 중간 부근(118)에 놓인다. 오른쪽 표는 8-bit에서 밝기 한 스톱(2배)마다 배정되는 코드 수.</figcaption>
     </figure>
     <p>감마 곡선 위에 <strong>톤 커브</strong>를 더해 사진의 "룩"을 만듭니다. S자 곡선은 중간톤 대비를 올리고 암부·명부를 부드럽게 압축합니다. 센서의 다이내믹 레인지(12~14 스톱)가 디스플레이(약 8 스톱)보다 넓을 때는 하이라이트를 부드럽게 눌러 주는 전역 톤 매핑(예: Reinhard \(L/(1+L)\))이나, 영역마다 다른 곡선을 쓰는 국소 톤 매핑(LTM)을 씁니다. 파이프라인 시뮬레이터의 ⑧ 단계에서 곡선 모양을 직접 확인해 보세요. 구의 반사 하이라이트가 Reinhard에서 어떻게 달라지는지도 눈여겨보세요.</p>
   </section>
@@ -313,7 +313,7 @@
         <text x="420" y="184" class="t-dim">· ColorMatrix1/2(2개 조명) 보간 → ⑥ CCM</text>
         <text x="420" y="208" class="t-dim">· 톤·NR·샤프닝은 현상기의 선택</text>
       </svg>
-      <figcaption><b>그림 9-6.</b> DNG의 구성. 핵심 태그는 센서의 "물리"를 기술하고, 사진의 "해석"은 현상 소프트웨어에 맡긴다.</figcaption>
+      <figcaption><b>그림 10-6.</b> DNG의 구성. 핵심 태그는 센서의 "물리"를 기술하고, 사진의 "해석"은 현상 소프트웨어에 맡긴다.</figcaption>
     </figure>
     <p>비트 깊이가 왜 중요할까요? ADC 비트 수 \(n\)은 표현 가능한 최대 명암비 \(2^n\)을 정합니다(12-bit ≈ 72 dB, 14-bit ≈ 84 dB). 선형 RAW에서는 가장 밝은 스톱이 전체 코드의 절반을 차지하고 한 스톱 어두워질 때마다 코드가 절반으로 줄어듭니다. 12-bit RAW라도 10스톱 아래에는 4개 코드만 남습니다. 그러나 이 영역은 대개 노이즈가 코드 간격보다 커서(디더링 효과), 적절한 비트 수는 <strong>양자화 간격 ≲ 읽기 노이즈</strong>가 되도록 고릅니다.</p>
     <div class="formula">$$\sigma_q=\frac{\Delta}{\sqrt{12}},\qquad \Delta = \frac{\text{풀웰}}{2^n}\ [\mathrm{e^-/DN}]$$
@@ -363,13 +363,13 @@
         <line x1="390" y1="120" x2="678" y2="140" stroke="none"/>
         <path d="M390 140 C 450 100, 640 100, 678 140" fill="none" stroke="var(--text-faint)" stroke-dasharray="2 4"/>
       </svg>
-      <figcaption><b>그림 9-7.</b> 3A 제어 루프. ISP 하드웨어가 격자별 통계를 뽑고, 소프트웨어(3A 알고리즘)가 다음 프레임의 센서·렌즈·ISP 파라미터를 결정한다. 한 번에 수렴하지 않고 여러 프레임에 걸쳐 부드럽게 수렴시켜 프리뷰가 깜박이지 않게 한다.</figcaption>
+      <figcaption><b>그림 10-7.</b> 3A 제어 루프. ISP 하드웨어가 격자별 통계를 뽑고, 소프트웨어(3A 알고리즘)가 다음 프레임의 센서·렌즈·ISP 파라미터를 결정한다. 한 번에 수렴하지 않고 여러 프레임에 걸쳐 부드럽게 수렴시켜 프리뷰가 깜박이지 않게 한다.</figcaption>
     </figure>
     <p><strong>AE</strong>의 기본 목표는 장면의 평균 반사율이 약 18%라는 가정 아래, 측광 영역의 평균 휘도를 18% 회색(sRGB 약 118/255)에 맞추는 것입니다. 로그 영역에서 비례 제어를 하면</p>
     <div class="formula">$$\mathrm{EV}_{n+1}=\mathrm{EV}_n + k\,\log_2\!\frac{Y_{\text{target}}}{\bar Y_n},\qquad 0 \lt k\le 1$$
       <div class="where">\(\bar Y_n\): \(n\)번째 프레임의 측광 휘도(선형), \(k\): 수렴 속도(작을수록 부드럽지만 느림). 포화된 영역은 실제 밝기를 알 수 없으므로 과노출 시에는 큰 폭으로 줄인다.</div>
     </div>
-    <p>평균 측광은 역광에서 실패합니다. 밝은 하늘이 평균을 끌어올려 피사체가 어둡게 찍히죠. 그래서 중앙 중점 측광, 얼굴 우선 측광, 하이라이트 보호(상위 백분위가 포화되지 않도록 제한) 같은 전략을 섞습니다. <strong>AWB</strong>는 WB 절에서 본 조명 추정을 매 프레임 돌리며, <strong>AF</strong>는 영상 대비(콘트라스트 AF)나 듀얼 픽셀의 위상차(PDAF, 10장)를 이용해 초점을 찾습니다.</p>
+    <p>평균 측광은 역광에서 실패합니다. 밝은 하늘이 평균을 끌어올려 피사체가 어둡게 찍히죠. 그래서 중앙 중점 측광, 얼굴 우선 측광, 하이라이트 보호(상위 백분위가 포화되지 않도록 제한) 같은 전략을 섞습니다. <strong>AWB</strong>는 WB 절에서 본 조명 추정을 매 프레임 돌리며, <strong>AF</strong>는 영상 대비(콘트라스트 AF)나 듀얼 픽셀의 위상차(PDAF, 11장)를 이용해 초점을 찾습니다.</p>
 
     <div class="sim" id="sim-ae">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>AE 수렴: 18% 회색 목표의 반복 노출 조정</h3></div>
@@ -396,7 +396,7 @@
   <!-- ============================================================ 10 -->
   <section id="computational">
     <h2>컴퓨테이셔널 포토그래피</h2>
-    <p>작은 스마트폰 센서가 큰 카메라에 근접한 화질을 내는 비결은 한 장이 아니라 <strong>여러 장을 찍어 계산으로 합치는</strong> 데 있습니다. 셔터를 누르기 전부터 ZSL(zero shutter lag) 버퍼에 프레임을 계속 쌓아 두고, 짧은 노출 프레임 여러 장을 정렬·병합하면 흔들림 없이 긴 노출과 같은 광량을 얻습니다. \(N\)장을 평균하면 노이즈는 \(1/\sqrt N\)로 줄어, 8장이면 SNR이 약 9 dB 좋아집니다. 이것이 <span class="term">야간 모드</span>의 원리이며, 노출이 다른 프레임을 합치면 HDR이 됩니다(8장).</p>
+    <p>작은 스마트폰 센서가 큰 카메라에 근접한 화질을 내는 비결은 한 장이 아니라 <strong>여러 장을 찍어 계산으로 합치는</strong> 데 있습니다. 셔터를 누르기 전부터 ZSL(zero shutter lag) 버퍼에 프레임을 계속 쌓아 두고, 짧은 노출 프레임 여러 장을 정렬·병합하면 흔들림 없이 긴 노출과 같은 광량을 얻습니다. \(N\)장을 평균하면 노이즈는 \(1/\sqrt N\)로 줄어, 8장이면 SNR이 약 9 dB 좋아집니다. 이것이 <span class="term">야간 모드</span>의 원리이며, 노출이 다른 프레임을 합치면 HDR이 됩니다(9장).</p>
     <figure class="diagram">
       <svg viewBox="0 0 800 200" role="img" aria-label="버스트 촬영, 정렬, 병합, 톤 매핑의 멀티프레임 흐름">
         <defs><marker id="ic" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--text-dim)"/></marker></defs>
@@ -412,7 +412,7 @@
         <rect x="580" y="56" width="180" height="60" rx="8" class="f-acc-soft"/><text x="670" y="82" text-anchor="middle" class="t">ISP / AI 톤 매핑</text><text x="670" y="100" text-anchor="middle" class="t-mono">σ ∝ 1/√N</text>
         <text x="400" y="180" text-anchor="middle" class="t-dim">RAW 도메인에서 합치면 디모자이크 전에 노이즈를 줄여, 위색과 노이즈 증폭을 함께 막는다.</text>
       </svg>
-      <figcaption><b>그림 9-8.</b> 멀티프레임 합성의 흐름(HDR+, 야간 모드 계열). 흔들린 프레임이나 움직이는 피사체 영역은 병합 가중치를 낮춰 고스트를 막는다.</figcaption>
+      <figcaption><b>그림 10-8.</b> 멀티프레임 합성의 흐름(HDR+, 야간 모드 계열). 흔들린 프레임이나 움직이는 피사체 영역은 병합 가중치를 낮춰 고스트를 막는다.</figcaption>
     </figure>
     <p>최근에는 ISP 블록 일부 또는 전체를 신경망으로 대체하는 <strong>AI ISP</strong>가 확산되고 있습니다. 디모자이킹과 노이즈 제거를 하나의 네트워크로 동시에 푸는 공동 디모자이킹(joint demosaicking & denoising), 장면 인식 기반 AWB, 멀티프레임 초해상도, 얼굴·하늘 영역별 톤 조절이 대표적입니다. 신경망은 이 장에서 본 수작업 가정(그레이 월드, 매끄러운 색차 등)을 대량의 데이터로 학습한 사전 지식으로 바꿉니다. 다만 모바일 NPU의 전력·지연 제약 때문에, 실제 제품은 고정 하드웨어 블록과 신경망을 섞어 쓰는 하이브리드 구조가 일반적입니다.</p>
   </section>

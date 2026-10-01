@@ -135,7 +135,7 @@
       <figcaption><b>그림 12-2.</b> 주행 장면의 휘도 범위. 70 dB 창 하나로는 터널 출구도, 야간 전조등 장면도 한꺼번에 담을 수 없다. 20 dB가 10배이므로 140 dB는 1000만 : 1이다.</figcaption>
     </figure>
 
-    <p>장면이 넓으면 <a href="shutter.html#hdr-methods">8장의 HDR</a>을 쓰면 된다. 문제는 차량에서는 가장 손쉬운 HDR, 즉 긴 노출과 짧은 노출을 합치는 방법이 LED 광원과 정면으로 충돌한다는 점이다. 아래 시뮬레이터로 먼저 터널 출구에서 HDR이 왜 필요한지 확인하고, 다음 절에서 그 충돌을 살펴보자.</p>
+    <p>장면이 넓으면 <a href="shutter.html#hdr-methods">9장의 HDR</a>을 쓰면 된다. 문제는 차량에서는 가장 손쉬운 HDR, 즉 긴 노출과 짧은 노출을 합치는 방법이 LED 광원과 정면으로 충돌한다는 점이다. 아래 시뮬레이터로 먼저 터널 출구에서 HDR이 왜 필요한지 확인하고, 다음 절에서 그 충돌을 살펴보자.</p>
 
     <div class="sim" id="sim-tn">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>터널 출구: 단일 노출 대 HDR</h3></div>
@@ -162,7 +162,7 @@
   <section id="lfm">
     <h2>LED 플리커: 켜져 있는데 꺼져 보이는 신호등</h2>
     <p>LED는 밝기를 전류 크기가 아니라 <span class="term">펄스 폭 변조</span><span class="en">(PWM, Pulse Width Modulation)</span>로 조절하는 경우가 많다. 사람 눈이 알아채지 못하는 빠르기로 켜고 끄기를 반복하되, 켜진 시간의 비율인 <span class="term">듀티</span><span class="en">(Duty Cycle)</span>로 평균 밝기를 정한다. 신호등, 차량 후미등·주간주행등, 도로 전광판이 대체로 수십 Hz에서 수 kHz 사이의 PWM으로 동작하며 주파수와 듀티는 제품마다 다르다. 통일된 규격이 없다는 점이 문제를 어렵게 한다.</p>
-    <p><a href="shutter.html#flicker">8장</a>에서 본 형광등 플리커는 밝기가 사인 모양으로 출렁이는 정도였다. PWM LED는 <b>완전히 꺼지는 구간</b>이 있다. 노출 창이 그 구간 안에 통째로 들어가면 센서는 빛을 전혀 받지 못한다.</p>
+    <p><a href="shutter.html#flicker">9장</a>에서 본 형광등 플리커는 밝기가 사인 모양으로 출렁이는 정도였다. PWM LED는 <b>완전히 꺼지는 구간</b>이 있다. 노출 창이 그 구간 안에 통째로 들어가면 센서는 빛을 전혀 받지 못한다.</p>
 
     <figure class="diagram fig-lg">
       <svg viewBox="0 0 680 280" role="img" aria-label="PWM LED와 노출 창의 관계">
@@ -239,7 +239,7 @@
   <!-- =============================================================== 4 -->
   <section id="hdr-pixel">
     <h2>차량용 HDR 픽셀: 한 번의 노출, 서너 개의 신호</h2>
-    <p>DCG, 분할 픽셀, LOFIC 각각의 원리는 <a href="shutter.html#hdr-methods">8장</a>에서 다루었다. 차량용 센서의 특징은 이들을 <b>하나의 픽셀 안에 함께</b> 넣어, 같은 노출 시간 동안 감도와 용량이 다른 신호를 서너 개 얻는다는 점이다. 모든 신호가 같은 시간 창을 공유하므로 LED 플리커와 모션 고스트가 원리적으로 생기지 않는다.</p>
+    <p>DCG, 분할 픽셀, LOFIC 각각의 원리는 <a href="shutter.html#hdr-methods">9장</a>에서 다루었다. 차량용 센서의 특징은 이들을 <b>하나의 픽셀 안에 함께</b> 넣어, 같은 노출 시간 동안 감도와 용량이 다른 신호를 서너 개 얻는다는 점이다. 모든 신호가 같은 시간 창을 공유하므로 LED 플리커와 모션 고스트가 원리적으로 생기지 않는다.</p>
 
     <figure class="diagram fig-lg">
       <svg viewBox="0 0 680 330" role="img" aria-label="차량용 HDR 픽셀 구성과 조도별 담당 신호">
@@ -334,7 +334,7 @@
         <tr><td>125 °C</td><td>약 12,500 e⁻/s</td><td>137 e⁻</td><td>43 e⁻</td><td>49 dB</td></tr>
       </tbody>
     </table></div>
-    <p>고온에서는 <span class="term">핫 픽셀</span><span class="en">(Hot Pixel)</span>도 늘어난다. 결함이 있는 픽셀은 암전류가 평균의 수십~수백 배다. 상온에서는 눈에 띄지 않던 픽셀이 온도가 오르면 임계값을 넘어 흰 점으로 나타난다. 차량용 센서는 그래서 표면 결함을 줄이는 공정, 접합 전계를 낮춘 설계, 온도에 따라 블랙 레벨과 결함 보정 임계값을 바꾸는 회로를 함께 쓴다. 암전류와 핫 픽셀을 측정하는 방법은 <a href="characterization.html">11장 센서 특성 평가</a>에서 다룬다.</p>
+    <p>고온에서는 <span class="term">핫 픽셀</span><span class="en">(Hot Pixel)</span>도 늘어난다. 결함이 있는 픽셀은 암전류가 평균의 수십~수백 배다. 상온에서는 눈에 띄지 않던 픽셀이 온도가 오르면 임계값을 넘어 흰 점으로 나타난다. 차량용 센서는 그래서 표면 결함을 줄이는 공정, 접합 전계를 낮춘 설계, 온도에 따라 블랙 레벨과 결함 보정 임계값을 바꾸는 회로를 함께 쓴다. 암전류와 핫 픽셀을 측정하는 방법은 <a href="characterization.html">8장 센서 특성 평가</a>에서 다룬다.</p>
 
     <div class="sim" id="sim-tp">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>접합 온도와 야간 화질</h3></div>
@@ -498,7 +498,7 @@
     <p><span class="term">운전자 모니터링 시스템</span><span class="en">(DMS, Driver Monitoring System)</span>은 눈꺼풀이 감기는 정도, 시선 방향, 고개 움직임으로 졸음과 전방 주시 태만을 판단한다. 탑승자 모니터링(OMS)은 뒷좌석에 남겨진 아이, 안전띠 착용 여부를 본다. 이 카메라의 조건은 바깥 카메라와 전혀 다르다.</p>
     <ul>
       <li>한밤에도 동작해야 하지만 가시광 조명을 켜서 운전자를 방해할 수 없다 → <b>근적외선(NIR) 조명</b>.</li>
-      <li>눈동자의 빠른 움직임과 눈 깜박임을 왜곡 없이 잡아야 한다 → <b>글로벌 셔터</b>(<a href="shutter.html#global">8장</a>).</li>
+      <li>눈동자의 빠른 움직임과 눈 깜박임을 왜곡 없이 잡아야 한다 → <b>글로벌 셔터</b>(<a href="shutter.html#global">9장</a>).</li>
       <li>대낮에 창으로 들어오는 직사광 속에서도 조명 반사를 구분해야 한다 → <b>짧은 노출과 조명 동기</b>.</li>
     </ul>
     <p>조명 파장은 850 nm와 940 nm가 쓰인다. 850 nm는 실리콘 감도가 높지만 LED가 희미한 붉은 빛으로 보인다. 940 nm는 눈에 보이지 않고, 대기 중 수증기가 이 근처 파장을 흡수하므로 지표에 닿는 태양광이 약하다는 이점도 있다. 대신 실리콘의 흡수 깊이가 수십 µm에 이르러(<a href="photodiode.html">2장</a>) 두께 3 µm 안팎의 BSI 픽셀로는 빛 대부분이 그대로 빠져나간다.</p>
