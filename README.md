@@ -34,3 +34,18 @@ python3 -m http.server 8000   # → http://localhost:8000
 챕터 작성 규칙은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
 
 시뮬레이터의 수치는 교육용 근사 모델입니다.
+
+## 라이선스
+
+Copyright © 2026 geniuskey. SensorBook은 코드와 교재 콘텐츠에 서로 다른 라이선스를 적용합니다.
+
+- **코드: [MIT](LICENSE)** — JavaScript, CSS, Python, HTML 구조·레이아웃, HTML 안의 스크립트와 이벤트 핸들러에 적용합니다. 실행 코드의 사용 예시와 개발 문서(`CONTRIBUTING.md`, README의 실행·개발 안내)도 MIT입니다. 수정·재배포·상업적 이용이 가능하며, 저작권 및 라이선스 고지를 유지해야 합니다.
+- **교재 콘텐츠: [CC BY 4.0](LICENSE-CONTENT.txt)** — 본문, 수식 설명, 표, 문제·정답·해설, 그림(인라인 SVG 포함), 프로젝트가 직접 제작한 이미지에 적용합니다. 코드 안에 포함된 교재 문구·문제·해설과 시뮬레이터가 표현하는 원본 교육용 그림도 콘텐츠에 해당합니다. 복제·번역·수정·상업적 이용이 가능하며, 저작자와 출처, 라이선스 링크를 표시하고 변경한 경우 그 사실을 밝혀야 합니다. [공식 한국어 요약](https://creativecommons.org/licenses/by/4.0/deed.ko)을 참고하세요.
+
+HTML 파일은 위 기준에 따라 코드와 콘텐츠를 구분합니다. 이 두 라이선스 중 하나를 임의로 선택하는 방식이 아닙니다. KaTeX, three.js, 외부 폰트 및 별도 출처·라이선스가 표시된 제3자 자료에는 해당 자료의 기존 라이선스가 적용됩니다.
+
+콘텐츠 출처 표기 예시:
+
+> SensorBook — geniuskey, https://sensorbook.euiyun.com/, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). 원문을 번역하고 일부 내용을 수정함.
+
+수정하지 않은 경우에는 마지막 변경 설명을 생략하고, 특정 챕터를 이용했다면 해당 챕터의 링크를 표시하세요.
