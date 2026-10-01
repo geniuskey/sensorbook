@@ -429,7 +429,7 @@
       </div>
       <div class="sim-note">가운데 픽셀(선택한 파장과 같은 색)의 렌즈 위에 균일하게 광자를 쏜다. 광자는 렌즈에서 굴절하고, 옆 픽셀 컬러 필터로 들어가면 대부분 흡수되며, 금속 그리드에 닿으면 흡수·반사되고, 실리콘에서는 파장별 흡수 길이(청 0.4 / 녹 1.0 / 적 3.0 µm)를 따르는 지수분포 거리에서 흡수된다. 생성된 전자는 옆으로 확산한 뒤 가장 가까운 PD에 수집된다. 점 색: <span style="color:var(--ok)">■</span> 자기 픽셀 수집, <span style="color:var(--bad)">■</span> 이웃 픽셀 수집. 세로 방향은 축척을 줄여 그렸다. 해볼 것: 적색·입사각 25°에서 DTI를 끄고 켜 보자. 청색에서는 무엇이 달라지는가?</div>
     </div>
-    <p>시뮬레이터에서 확인할 수 있는 경향을 정리하면: (1) 입사각과 스택 높이가 커질수록 광학적 크로스토크가 급격히 늘고, 금속 그리드가 적층 내 누설을 크게 줄인다. (2) 적색광은 실리콘 깊이 들어가므로 실리콘 내 광학 누설이 크고, DTI가 이를 전반사로 되돌린다. (3) 청색광은 BSI 후면 근처, 즉 PD 접합에서 먼 곳에서 흡수되므로 전자가 확산할 거리가 길어 전기적 크로스토크가 상대적으로 크다. DTI는 전자의 확산 경로도 막는다.</p>
+    <p>시뮬레이터에서 확인할 수 있는 경향을 정리하면: (1) 입사각과 스택 높이가 커질수록 광학적 크로스토크가 급격히 늘고, 금속 그리드가 적층 내 누설을 크게 줄인다. (2) 적색광은 실리콘 깊이 들어가므로 실리콘 내 광학 누설이 크고, DTI가 이를 대부분 반사해 되돌린다. (3) 청색광은 BSI 후면 근처, 즉 PD 접합에서 먼 곳에서 흡수되므로 전자가 확산할 거리가 길어 전기적 크로스토크가 상대적으로 크다. DTI는 전자의 확산 경로도 막는다.</p>
   </section>
 
   <!-- ============================================================ 6 -->
@@ -437,7 +437,7 @@
     <h2>딥 트렌치 아이솔레이션(DTI)</h2>
     <p>픽셀이 1 µm 이하로 작아지면 실리콘 두께(3~6 µm)가 폭의 수 배가 되어, 픽셀은 가느다란 기둥 모양이 된다. 이 기둥들 사이를 깊은 도랑(trench)으로 파서 절연물로 채운 것이 <span class="term">DTI</span>다. 기존의 얕은 소자 분리(STI, ~0.3 µm)나 p형 도핑 분리(junction isolation)로는 깊은 곳의 전자 확산과 빛의 누설을 막을 수 없었다.</p>
     <figure class="diagram">
-      <svg viewBox="0 0 720 330" role="img" aria-label="FDTI와 BDTI 비교 및 전반사">
+      <svg viewBox="0 0 720 330" role="img" aria-label="FDTI와 BDTI 비교 및 트렌치 벽의 반사">
         <text x="170" y="22" text-anchor="middle" class="lbl" style="font-weight:700">BDTI (후면 DTI)</text>
         <text x="530" y="22" text-anchor="middle" class="lbl" style="font-weight:700">FDTI (전면·전체 깊이 DTI)</text>
         <!-- BDTI -->
@@ -458,15 +458,17 @@
         <rect x="390" y="280" width="280" height="14" fill="#d05a4e" opacity=".35"/>
         <path d="M510 60 L572 160" class="ray"/><path d="M572 160 L586 184" class="ray"/><path d="M586 184 L556 236" class="ray"/>
         <circle cx="586" cy="184" r="16" fill="none" stroke="var(--accent)" stroke-dasharray="3 3"/>
-        <text x="604" y="176" class="lbl-dim" style="font-size:12px">전반사</text>
+        <text x="604" y="176" class="lbl-dim" style="font-size:12px">강한 반사</text>
         <path d="M520 126 q10 10 0 20 q-10 10 4 22 q16 10 4 26" fill="none" stroke="var(--bad)" stroke-width="1.5" stroke-dasharray="3 2"/>
         <circle cx="520" cy="126" r="4" class="elec"/>
         <text x="390" y="316" class="lbl-dim">픽셀을 완전히 분리해 빛·전자 누설을 모두 막고, PD를 트렌치 끝까지 키울 수 있다.</text>
       </svg>
-      <figcaption><b>그림 3-6.</b> DTI의 두 방식. BDTI는 박막화 후 후면에서 트렌치를 파고, FDTI는 트랜지스터 공정 전에 전면에서 Si 전체 두께를 관통하도록 판다. 트렌치 벽은 굴절률이 낮은 산화물이라 비스듬한 빛을 전반사로 되돌려 보낸다.</figcaption>
+      <figcaption><b>그림 3-6.</b> DTI의 두 방식. BDTI는 박막화 후 후면에서 트렌치를 파고, FDTI는 트랜지스터 공정 전에 전면에서 Si 전체 두께를 관통하도록 판다. 트렌치 벽은 굴절률이 낮은 산화물이라 비스듬한 빛을 전반사에 가까운 높은 반사로 대부분 되돌려 보낸다.</figcaption>
     </figure>
-    <p>DTI가 빛을 가두는 원리는 광섬유와 같다. 실리콘(\(n_{Si}≈4.0\), 가시광)에서 산화막(\(n_{ox}≈1.46\))으로 가는 빛은 입사각이 임계각보다 크면 전부 반사된다.</p>
-    <div class="formula">$$\theta_c = \arcsin\frac{n_{ox}}{n_{Si}} \approx \arcsin\frac{1.46}{4.0} \approx 21^\circ$$<div class="where">입사각은 벽의 법선(수평 방향) 기준이다. 실리콘 안에서 수직에 가깝게 진행하는 빛은 벽에 거의 스치듯(입사각 80° 이상) 닿으므로 거의 전부 전반사된다.</div></div>
+    <p>DTI가 빛을 가두는 원리는 광섬유와 닮았다. 실리콘(\(n_{Si}≈4.0\), 가시광)에서 산화막(\(n_{ox}≈1.46\))으로 가는 빛은 입사각이 임계각보다 크면, 산화막이 충분히 두꺼울 때 전부 반사된다.</p>
+    <div class="formula">$$\theta_c = \arcsin\frac{n_{ox}}{n_{Si}} \approx \arcsin\frac{1.46}{4.0} \approx 21^\circ$$<div class="where">입사각은 벽의 법선(수평 방향) 기준이다. 실리콘 안에서 수직에 가깝게 진행하는 빛은 벽에 거의 스치듯(입사각 80° 이상) 닿으므로 거의 전부 반사된다.</div></div>
+    <p>다만 클래딩이 두꺼운 광섬유와 달리 DTI의 산화막은 수십~백여 nm로 얇아서 엄밀한 전반사는 아니다. 임계각 이상에서도 산화막 안에는 지수 감쇠하는 에바네센트장(evanescent field)이 남고, 이것이 반대편 실리콘에 닿으면 다시 진행파로 결합해 일부가 투과한다(<span class="term">frustrated TIR</span>, 광자 터널링). 산화막 두께를 \(d\)라 하면 누설은 대략 다음에 비례한다.</p>
+    <div class="formula">$$T \propto e^{-2\kappa d},\qquad \kappa = \frac{2\pi}{\lambda}\sqrt{n_{Si}^2\sin^2\theta - n_{ox}^2}$$<div class="where">650 nm에서 세기 감쇠 길이 \(1/2\kappa\)는 스치는 입사(80°)일 때 약 15 nm, 임계각 근처(25°)일 때 약 70 nm다. 산화막 100 nm 기준으로 지수 인자는 80°에서 0.1% 수준이지만 25°에서는 수십 %에 이른다. 막이 얇을수록, 입사각이 임계각에 가까울수록 많이 샌다.</div></div>
     <p>한편 트렌치를 파면 실리콘 표면적이 크게 늘고, 식각 손상 계면은 암전류의 원천이 된다. 그래서 트렌치 벽에 HfO₂ 같은 음전하 막을 입히거나 벽 주변을 p⁺로 도핑해 계면을 패시베이션한다. 역으로, 벽면 p⁺ 도핑과 PD의 n 영역 사이에 측벽 접합이 생겨 <strong>PD 커패시턴스가 늘어나는 효과</strong>도 있어, 작은 픽셀에서 풀웰 용량을 확보하는 데 도움이 된다.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>분리 방식</th><th>깊이</th><th>광학 분리</th><th>전기 분리</th><th>비고</th></tr></thead>
@@ -553,7 +555,7 @@
       <li>필 팩터는 감광 면적 비율이며, 마이크로렌즈(\(R=(a^2+s^2)/2s\), \(f'≈nR/(n-1)\))는 초점을 PD 깊이에 맞춰 광학 효율을 FF 이상으로 끌어올린다.</li>
       <li>BSI는 웨이퍼를 뒤집어 배선을 PD 아래로 보내 광학 스택을 1~2 µm로 낮추고, 필 팩터와 입사각 허용도를 크게 개선했다.</li>
       <li>크로스토크는 광자가 넘어가는 광학적 성분과 전자가 확산해 넘어가는 전기적 성분으로 나뉘며, 측면 이동 \(\Delta x = H\tan\theta_m\)가 광학 성분의 척도다.</li>
-      <li>금속 그리드는 적층 내 누설을, DTI는 산화막 벽의 전반사(\(\theta_c≈21°\))와 물리적 분리로 실리콘 내 광학·전기 누설을 막는다.</li>
+      <li>금속 그리드는 적층 내 누설을, DTI는 산화막 벽의 전반사에 가까운 반사(\(\theta_c≈21°\))와 물리적 분리로 실리콘 내 광학·전기 누설을 줄인다. 산화막이 얇아 에바네센트장을 통한 누설(\(\propto e^{-2\kappa d}\))은 남는다.</li>
       <li>풀웰은 대략 면적에 비례(\(\text{FWC}≈\rho_A p^2\))하므로 소형 픽셀은 최대 SNR과 다이내믹 레인지에서 불리하다.</li>
     </ol>
   </section>
@@ -586,9 +588,9 @@
       <div class="quiz-q"><p>4. DTI 벽이 실리콘 안의 비스듬한 빛을 가둘 수 있는 광학적 원리는?</p><div class="opts">
         <button class="opt">트렌치를 채운 금속이 빛을 흡수해서</button>
         <button class="opt">트렌치의 p⁺ 도핑이 광자를 반발해서</button>
-        <button class="opt" data-correct>저굴절 산화막(n≈1.46)과 Si(n≈4)의 경계에서 임계각(≈21°)보다 큰 각으로 닿는 빛이 전반사되어서</button>
+        <button class="opt" data-correct>저굴절 산화막(n≈1.46)과 Si(n≈4)의 경계에서 임계각(≈21°)보다 큰 각으로 닿는 빛이 전반사에 가깝게 반사되어서</button>
         <button class="opt">트렌치가 빛의 파장을 바꿔서</button>
-      </div><div class="quiz-exp">광섬유와 같은 전반사 원리다. 실리콘 안에서 거의 수직으로 진행하는 빛은 벽에 스치듯 닿기 때문에 대부분 반사되어 제 픽셀로 돌아간다. 도핑은 전자에만 영향을 준다.</div></div>
+      </div><div class="quiz-exp">광섬유와 같은 전반사 원리다. 실리콘 안에서 거의 수직으로 진행하는 빛은 벽에 스치듯 닿기 때문에 대부분 반사되어 제 픽셀로 돌아간다. 다만 광섬유의 클래딩과 달리 산화막이 얇아, 에바네센트장을 통해 일부가 이웃 픽셀로 새는 것까지 막지는 못한다. 도핑은 전자에만 영향을 준다.</div></div>
 
       <div class="quiz-q"><p>5. 면적당 용량이 같다고 할 때, 픽셀 피치를 1.0 µm에서 0.7 µm로 줄이면 풀웰 용량은 대략 어떻게 되는가?</p><div class="opts">
         <button class="opt">70%로 준다</button>
