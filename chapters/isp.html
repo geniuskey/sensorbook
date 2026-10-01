@@ -366,7 +366,7 @@
       <figcaption><b>그림 9-7.</b> 3A 제어 루프. ISP 하드웨어가 격자별 통계를 뽑고, 소프트웨어(3A 알고리즘)가 다음 프레임의 센서·렌즈·ISP 파라미터를 결정한다. 한 번에 수렴하지 않고 여러 프레임에 걸쳐 부드럽게 수렴시켜 프리뷰가 깜박이지 않게 한다.</figcaption>
     </figure>
     <p><strong>AE</strong>의 기본 목표는 장면의 평균 반사율이 약 18%라는 가정 아래, 측광 영역의 평균 휘도를 18% 회색(sRGB 약 118/255)에 맞추는 것입니다. 로그 영역에서 비례 제어를 하면</p>
-    <div class="formula">$$\mathrm{EV}_{n+1}=\mathrm{EV}_n + k\,\log_2\!\frac{Y_{\text{target}}}{\bar Y_n},\qquad 0<k\le 1$$
+    <div class="formula">$$\mathrm{EV}_{n+1}=\mathrm{EV}_n + k\,\log_2\!\frac{Y_{\text{target}}}{\bar Y_n},\qquad 0 \lt k\le 1$$
       <div class="where">\(\bar Y_n\): \(n\)번째 프레임의 측광 휘도(선형), \(k\): 수렴 속도(작을수록 부드럽지만 느림). 포화된 영역은 실제 밝기를 알 수 없으므로 과노출 시에는 큰 폭으로 줄인다.</div>
     </div>
     <p>평균 측광은 역광에서 실패합니다. 밝은 하늘이 평균을 끌어올려 피사체가 어둡게 찍히죠. 그래서 중앙 중점 측광, 얼굴 우선 측광, 하이라이트 보호(상위 백분위가 포화되지 않도록 제한) 같은 전략을 섞습니다. <strong>AWB</strong>는 WB 절에서 본 조명 추정을 매 프레임 돌리며, <strong>AF</strong>는 영상 대비(콘트라스트 AF)나 듀얼 픽셀의 위상차(PDAF, 10장)를 이용해 초점을 찾습니다.</p>
