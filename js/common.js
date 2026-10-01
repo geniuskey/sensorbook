@@ -495,7 +495,7 @@
       <br>© 2026 <a href="https://github.com/geniuskey">geniuskey</a> ·
       콘텐츠 <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="license">CC BY 4.0</a> ·
       코드 <a href="https://github.com/geniuskey/sensorbook/blob/main/LICENSE-MIT">MIT</a> ·
-      <a href="https://github.com/geniuskey/sensorbook#라이선스">라이선스 안내</a>`;
+      <a href="https://github.com/geniuskey/sensorbook/blob/main/LICENSE.md">라이선스 안내</a>`;
     body.appendChild(foot);
 
     // quiz
