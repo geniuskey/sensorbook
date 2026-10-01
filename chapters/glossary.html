@@ -7,7 +7,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>용어집 &amp; 종합 퀴즈 · SensorBook</title>
-<meta name="description" content="이미지 센서 핵심 용어 100개를 한국어·영어·약어로 검색하고, 전 챕터를 아우르는 20문항 종합 퀴즈로 실력을 점검한다.">
+<meta name="description" content="이미지 센서 핵심 용어 140여 개를 한국어·영어·약어로 검색하고, 전 챕터를 아우르는 26문항 종합 퀴즈로 실력을 점검한다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -59,7 +59,7 @@
 <body data-chapter="glossary">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 12</div>
+    <div class="eyebrow">Chapter 15</div>
     <h1>용어집 &amp; 종합 퀴즈</h1>
     <p class="lead">이미지 센서 분야는 약어의 숲이다. PPD, FD, CDS, DCG, LOFIC, PDAF, DTI… 이 장은 책 전체에 흩어진 핵심 용어를 한곳에 모은 사전이자, 전 범위를 점검하는 마무리 시험이다.</p>
     <ul class="objectives">
@@ -89,7 +89,10 @@
           <button data-value="shutter">08 셔터·HDR</button>
           <button data-value="isp">09 ISP</button>
           <button data-value="advanced">10 최신 기술</button>
-          <button data-value="design">11 설계</button>
+          <button data-value="characterization">11 특성 평가</button>
+          <button data-value="automotive">12 차량용</button>
+          <button data-value="space">13 우주·천문</button>
+          <button data-value="design">14 설계</button>
         </div>
       </div>
       <div class="row">
@@ -103,9 +106,9 @@
 
   <section id="final-quiz">
     <h2>종합 퀴즈</h2>
-    <p>전 챕터에서 고른 20문항이다. 한 문제씩 풀고 나면 해설과 관련 챕터 링크가 나온다. 끝까지 풀면 챕터별 정답률 그래프와 “등급”을 보여 준다. 다시 풀기를 누르면 문제와 보기 순서가 섞인다.</p>
+    <p>전 챕터에서 고른 26문항이다. 한 문제씩 풀고 나면 해설과 관련 챕터 링크가 나온다. 끝까지 풀면 챕터별 정답률 그래프와 “등급”을 보여 준다. 다시 풀기를 누르면 문제와 보기 순서가 섞인다.</p>
     <div class="fq" id="fq">
-      <div class="fq-top"><span id="fq-count">문제 1 / 20</span><span id="fq-score">정답 0</span></div>
+      <div class="fq-top"><span id="fq-count">문제 1 / 26</span><span id="fq-score">정답 0</span></div>
       <div class="fq-bar"><i id="fq-fill"></i></div>
       <div class="fq-card" id="fq-card">
         <div class="fq-ch" id="fq-ch"></div>
@@ -258,7 +261,38 @@
     { ko: "간접 ToF", en: "Indirect time-of-flight", abbr: "iToF", def: "변조된 빛의 위상 지연을 여러 탭(tap)의 전하 비로 측정해 거리를 구하는 방식. 해상도가 높지만 최대 거리는 변조 주파수에 따른 모호성이 있다.", ch: "advanced" },
     { ko: "이벤트 센서", en: "Event-based vision sensor", abbr: "DVS / EVS", def: "프레임 대신 각 픽셀의 로그 밝기 변화가 문턱을 넘을 때만 비동기 이벤트를 내는 센서. µs 시간 분해능, 120 dB 이상 DR, 낮은 데이터율이 장점이다.", ch: "advanced" },
     { ko: "단파 적외선", en: "Short-wave infrared", abbr: "SWIR", def: "약 1~2.5 µm 파장 대역. 실리콘은 흡수하지 못하므로 InGaAs, Ge, 양자점(QD) 등의 광흡수층을 쓴다.", ch: "advanced" },
-    // 11 설계
+    // 11 특성 평가
+    { ko: "선형성 오차", en: "Linearity error", abbr: "LE", def: "응답 곡선이 최소자승 직선에서 벗어난 정도(%). EMVA 1288은 포화의 5~95 % 구간에서 편차의 (최대−최소)/2로 정의한다.", ch: "characterization" },
+    { ko: "선형 풀웰", en: "Linear full well capacity", abbr: "", def: "응답이 직선에서 정해진 기준(1~5 %) 이상 벗어나기 직전의 신호. 포화 풀웰보다 작으며 정량 측정과 HDR 합성의 실제 상한이다.", ch: "characterization" },
+    { ko: "배증 온도", en: "Doubling temperature", abbr: "", def: "암전류가 두 배가 되는 온도 간격. ΔT ≈ kT²ln2/Ea로, 300 K에서 확산 성분 약 5 K, 생성 성분 약 10 K다.", ch: "characterization" },
+    { ko: "활성화 에너지", en: "Activation energy", abbr: "Ea", def: "암전류의 온도 의존성을 정하는 에너지. 확산 전류는 약 1.1 eV, 결함에 의한 생성 전류는 약 0.56 eV다.", ch: "characterization" },
+    { ko: "이미지 래그", en: "Image lag", abbr: "", def: "전송되지 못하고 PD에 남은 전하가 다음 프레임에 나오는 잔상. 밝은 프레임 직후 암 프레임의 잔류 신호 비율(%)로 잰다.", ch: "characterization" },
+    { ko: "행 노이즈", en: "Temporal row noise", abbr: "", def: "한 행이 같은 순간에 샘플링되어 전원·기준 전압의 흔들림이 행 전체에 더해지는 노이즈. 줄무늬라 눈에 잘 띄어 픽셀 노이즈의 1/10 이하로 억제해야 한다.", ch: "characterization" },
+    { ko: "블랙 선", en: "Black sun / eclipse", abbr: "", def: "극단적으로 밝은 곳이 검게 나오는 현상. 리셋 레벨 샘플링 순간 FD 전압이 빛에 끌려 내려가 CDS 차가 줄어든다.", ch: "characterization" },
+    { ko: "에탈로닝", en: "Etaloning / fringing", abbr: "", def: "얇은 BSI 실리콘에서 근적외선이 위아래 면 사이를 왕복하며 간섭해 QE가 파장·위치에 따라 출렁이는 현상. 주기 Δλ ≈ λ²/(2nd).", ch: "characterization" },
+    { ko: "경사 에지법", en: "Slanted-edge method", abbr: "", def: "약 5° 기울인 에지 영상에서 초해상 에지 응답을 만들어 MTF를 구하는 측정법.", ch: "characterization" },
+    { ko: "SNR10", en: "SNR10", abbr: "", def: "정해진 렌즈·노출 조건에서 색 처리 후 휘도 SNR이 10이 되는 장면 조도(lux). 작을수록 저조도 성능이 좋다.", ch: "characterization" },
+    // 12 차량용 센서
+    { ko: "펄스 폭 변조", en: "Pulse width modulation", abbr: "PWM", def: "LED를 빠르게 켜고 끄며 켜진 시간 비율(듀티)로 밝기를 조절하는 방식. 꺼진 구간이 있어 짧은 노출의 카메라에 꺼진 것으로 찍힐 수 있다.", ch: "automotive" },
+    { ko: "듀티", en: "Duty cycle", abbr: "D", def: "PWM 한 주기 중 켜져 있는 시간의 비율. 낮을수록 짧은 노출이 꺼진 구간에 걸릴 확률이 커진다.", ch: "automotive" },
+    { ko: "분할 노출", en: "Chopped exposure", abbr: "", def: "한 PWM 주기 이상에 걸쳐 짧은 노출 조각을 흩어 누적하는 LFM 기법. 포화 없이 LED의 여러 위상을 표본으로 얻지만 움직이는 물체가 끊겨 보일 수 있다.", ch: "automotive" },
+    { ko: "전환점 SNR 딥", en: "SNR drop at transition", abbr: "", def: "다중 신호 HDR에서 한 신호가 포화해 감도가 낮은 다음 신호로 넘어갈 때 SNR이 급락하는 현상. 차량용 센서는 전환점 최소 SNR을 사양으로 관리한다.", ch: "automotive" },
+    { ko: "운전자 모니터링 시스템", en: "Driver monitoring system", abbr: "DMS", def: "실내 NIR 카메라로 시선·눈꺼풀·고개를 추적해 졸음과 부주의를 판단하는 시스템. 940 nm 펄스 조명과 글로벌 셔터를 쓴다.", ch: "automotive" },
+    { ko: "첨단 운전자 보조 시스템", en: "Advanced driver assistance systems", abbr: "ADAS", def: "전방 카메라 등으로 차선·차량·보행자·신호를 인식해 제동과 조향을 보조하는 기능의 총칭.", ch: "automotive" },
+    { ko: "단일점 고장 지표", en: "Single-point fault metric", abbr: "SPFM", def: "위험한 단일 고장 중 안전 메커니즘이 검출·제어하는 비율. ASIL B는 90 %, C는 97 %, D는 99 % 이상을 요구한다.", ch: "automotive" },
+    { ko: "RYYCy 필터", en: "Red-Yellow-Yellow-Cyan CFA", abbr: "RYYCy", def: "녹색·청색 대신 투과 대역이 넓은 노랑·청록을 쓴 CFA. 감도를 높이면서 세 채널 색 분리를 유지하지만 색 보정 시 노이즈가 증폭된다.", ch: "automotive" },
+    { ko: "접합 온도", en: "Junction temperature", abbr: "Tj", def: "칩 내부 반도체 접합의 실제 온도. 주위 온도에 자체 발열이 더해지며 차량용 센서는 약 125 °C까지 동작을 보장한다.", ch: "automotive" },
+    // 13 우주·천문 센서
+    { ko: "전하 전송 효율", en: "Charge transfer efficiency", abbr: "CTE", def: "CCD에서 한 번 전송할 때 다음 우물로 넘어가는 전하의 비율. 1−CTE가 CTI이며 N번 전송 후 (1−CTI)^N만 남는다.", ch: "space" },
+    { ko: "전하 트레일", en: "Charge trail", abbr: "", def: "트랩이 붙잡았던 전자를 뒤 픽셀에 놓아 별상이 증폭기 반대쪽으로 꼬리를 끄는 현상. 측광 손실과 중심 이동을 일으킨다.", ch: "space" },
+    { ko: "변위 손상", en: "Displacement damage", abbr: "DD", def: "양성자·중성자가 실리콘 원자를 격자에서 튕겨 내 벌크 트랩을 만드는 방사선 손상. CTE 열화와 핫 픽셀의 원인이다.", ch: "space" },
+    { ko: "전리 손상", en: "Total ionizing dose", abbr: "TID", def: "방사선이 산화막에 전하를 가두고 계면 상태를 늘리는 손상. 문턱 전압 이동과 표면 암전류 증가로 나타난다.", ch: "space" },
+    { ko: "딥 디플리션 CCD", en: "Deep-depletion CCD", abbr: "", def: "두꺼운 고저항 실리콘을 완전 공핍시킨 CCD. 근적외선 QE가 높고 프린징이 적다.", ch: "space" },
+    { ko: "수은 카드뮴 텔루라이드", en: "Mercury cadmium telluride", abbr: "HgCdTe", def: "Cd 조성으로 밴드갭과 차단 파장을 조절하는 적외선 검출 재료. 인듐 범프로 Si ROIC에 접합해 쓴다.", ch: "space" },
+    { ko: "Up-the-ramp 샘플링", en: "Up-the-ramp sampling", abbr: "UTR", def: "비파괴 판독으로 노출 중 N번 읽고 누적 신호의 기울기를 피팅하는 방식. 읽기 노이즈가 약 √(12/N)배로 줄고 우주선 히트를 계단으로 검출한다.", ch: "space" },
+    { ko: "시간 지연 적분", en: "Time delay and integration", abbr: "TDI", def: "상의 이동 속도에 맞춰 전하를 옮기며 N단에 걸쳐 적분하는 스캔 방식. 읽기는 한 번이라 SNR이 √N 이상 좋아진다.", ch: "space" },
+    { ko: "전자 증배 CCD", en: "Electron-multiplying CCD", abbr: "EMCCD", def: "증배 레지스터의 충돌 이온화로 읽기 전에 신호를 수백 배 키우는 CCD. 읽기 노이즈는 사실상 사라지지만 과잉 잡음 √2가 붙는다.", ch: "space" },
+    // 14 설계
     { ko: "MIPI CSI-2", en: "Camera Serial Interface 2", abbr: "CSI-2", def: "모바일 카메라의 표준 영상 전송 프로토콜. 물리층으로 D-PHY(레인당 수 Gbps) 또는 C-PHY(3선 트리오)를 쓴다.", ch: "design" },
     { ko: "데이터율", en: "Data rate", abbr: "", def: "센서가 초당 내보내는 비트 수 ≈ 화소 수 × 비트 수 × fps(+ 오버헤드). 50 MP·10비트·30 fps면 약 15 Gbps다.", ch: "design" },
     { ko: "회절 한계 조리개", en: "Diffraction-limited aperture", abbr: "DLA", def: "Airy 디스크가 픽셀 약 2개 폭이 되는 F-넘버(≈ 2p/(2.44λ)). 이보다 조리개를 조이면 픽셀을 줄여도 해상도가 늘지 않는다.", ch: "design" },
@@ -349,6 +383,12 @@
     { ch: "isp", q: "일반적인 ISP 파이프라인에서 가장 먼저 수행되는 단계에 가까운 것은?", o: ["감마 보정", "블랙 레벨 보정(BLC)", "색 보정 행렬(CCM)", "톤 매핑"], a: 1, e: "선형 연산(WB, CCM)이 올바르려면 먼저 오프셋을 빼 0을 맞춰야 한다. BLC → DPC → LSC → 디모자이크 → WB → CCM → 감마 순이 전형적이다." },
     { ch: "isp", q: "CCM의 비대각 성분이 큰(센서 분광 감도가 많이 겹치는) 경우의 부작용은?", o: ["해상도가 오른다", "색 보정 과정에서 노이즈가 증폭된다", "플리커가 생긴다", "FWC가 준다"], a: 1, e: "채널 간 큰 음수 계수로 빼기를 하면 신호보다 노이즈 분산이 더 커진다. 색 분리가 좋은 CFA가 저조도 화질에 유리한 이유다." },
     { ch: "advanced", q: "적층(stacked) 센서의 장점이 아닌 것은?", o: ["픽셀과 로직에 각각 최적 공정 사용", "같은 활성 영역에서 다이 크기 감소", "하부 층에 메모리·고속 회로 탑재로 고속 판독", "광자 샷 노이즈 제거"], a: 3, e: "샷 노이즈는 광자 통계에서 오는 물리적 한계라 어떤 회로 구조로도 제거할 수 없다. 나머지는 모두 적층 구조의 실제 장점이다." },
+    { ch: "characterization", q: "데이터시트에 읽기 노이즈가 \"1.0 e⁻(중앙값)\"으로 적힌 센서의 RMS 읽기 노이즈는?", o: ["항상 1.0 e⁻", "보통 더 작다", "보통 더 크다", "중앙값과 무관해 알 수 없다"], a: 2, e: "픽셀별 읽기 노이즈 분포는 RTS 픽셀 때문에 오른쪽 꼬리가 길다. 중앙값은 꼬리를 무시하지만 RMS는 분산의 평균이라 꼬리에 끌려 올라간다." },
+    { ch: "characterization", q: "암전류의 확산 성분(Ea ≈ 1.1 eV)과 결함 생성 성분(Ea ≈ 0.56 eV) 중 온도에 더 민감한 것과, 300 K 부근에서의 배증 온도는?", o: ["생성 성분, 약 5 K", "확산 성분, 약 5 K", "확산 성분, 약 10 K", "둘 다 같다, 약 7 K"], a: 1, e: "ΔT ≈ kT²ln2/Ea이므로 활성화 에너지가 큰 확산 성분이 약 5 K마다 두 배로 더 민감하다. 생성형인 핫 픽셀은 약 10 K마다 두 배여서 냉각해도 상대적으로 덜 줄어든다." },
+    { ch: "automotive", q: "90 Hz, 듀티 20 %로 구동되는 LED 신호등을 노출 1 ms로 찍으면 신호등이 완전히 꺼져 찍히는 프레임의 비율은?", o: ["약 9 %", "약 20 %", "약 71 %", "0 %"], a: 2, e: "P₀ = 1 − D − t/T = 1 − 0.2 − 1/11.1 ≈ 0.71. 그래서 차량용 센서는 노출을 길게 유지하고 저감도 PD나 LOFIC으로 포화를 피한다." },
+    { ch: "automotive", q: "차량용 HDR 픽셀에서 LOFIC 신호를 큰 PD와 작은 PD 신호 사이에 넣는 주된 목적은?", o: ["읽기 노이즈를 1 e⁻ 아래로 낮추기 위해", "큰 PD 포화 직후 SNR이 급락하는 전환점 딥을 메우기 위해", "롤링 셔터 왜곡을 없애기 위해", "NIR 감도를 높이기 위해"], a: 1, e: "작은 PD는 감도가 1/100 수준이라 전환 직후 신호가 작아 SNR이 크게 떨어진다. LOFIC은 큰 PD와 같은 감도로 넘친 전하까지 담으므로 전환 직후에도 큰 신호를 유지한다." },
+    { ch: "space", q: "궤도에서 여러 해를 보낸 CCD에서 별상이 증폭기 반대쪽으로 꼬리를 끄는 주된 원인은?", o: ["읽기 노이즈 증가", "변위 손상으로 생긴 트랩이 전하를 붙잡았다 늦게 방출해서(CTE 열화)", "암전류 샷 노이즈", "마이크로렌즈 열화"], a: 1, e: "양성자가 만든 벌크 트랩이 전송 중인 전하 패킷에서 전자를 포획해 뒤 픽셀에 놓는다. 전송 횟수가 많고 별이 어두울수록 심하다." },
+    { ch: "space", q: "제임스 웹의 근적외선 검출기가 실리콘이 아니라 HgCdTe를 쓰는 이유는?", o: ["읽기 노이즈가 낮아서", "방사선에 강해서", "Si는 밴드갭 1.12 eV 때문에 약 1.1 µm보다 긴 파장을 흡수하지 못해서", "값이 싸서"], a: 2, e: "HgCdTe는 Cd 조성으로 밴드갭을 좁혀 차단 파장을 2.5 µm나 5 µm로 맞출 수 있다. 판독은 인듐 범프로 접합한 실리콘 CMOS ROIC가 맡는다." },
     { ch: "design", q: "포맷을 고정한 채 픽셀 피치를 1.0 µm에서 0.7 µm로 줄였다. 풀해상도 픽셀당 신호 전자는 대략 몇 배가 되나?", o: ["0.7배", "약 0.5배", "약 0.35배", "변화 없음"], a: 1, e: "신호는 픽셀 면적 p²에 비례: (0.7)² = 0.49 → 약 절반. 화소 수는 약 2배가 된다. 샷 노이즈 한계 SNR은 √0.49 = 0.7배(−3 dB)." },
   ];
 
@@ -424,16 +464,16 @@
 
   var RANKS = [
     [0, "센서 입문자", "이제 막 광자를 세기 시작했다. 1장부터 차근차근 시뮬레이터를 만져 보자."],
-    [8, "광자 수집가", "기본 개념은 잡혔다. 틀린 챕터를 골라 다시 읽으면 금방 올라간다."],
-    [14, "픽셀 엔지니어", "센서 스펙시트를 읽고 설계 트레이드오프를 논할 수 있는 수준이다."],
-    [18, "이미지 센서 전문가!", "광자에서 ISP까지 꿰뚫고 있다. 이제 실제 데이터시트와 논문을 읽어 볼 차례다."],
+    [10, "광자 수집가", "기본 개념은 잡혔다. 틀린 챕터를 골라 다시 읽으면 금방 올라간다."],
+    [18, "픽셀 엔지니어", "센서 스펙시트를 읽고 설계 트레이드오프를 논할 수 있는 수준이다."],
+    [23, "이미지 센서 전문가!", "광자에서 ISP까지 꿰뚫고 있다. 이제 실제 데이터시트와 논문을 읽어 볼 차례다."],
   ];
   function perChapter() {
     var m = {};
     fq.results.forEach(function (r) { (m[r.ch] = m[r.ch] || { n: 0, ok: 0 }); m[r.ch].n++; if (r.ok) m[r.ch].ok++; });
     return SB.CHAPTERS.filter(function (c) { return m[c.slug]; }).map(function (c) { return { c: c, n: m[c.slug].n, ok: m[c.slug].ok }; });
   }
-  var SHORT = { light: "빛과 광자", photodiode: "포토다이오드", pixel: "픽셀 구조", color: "컬러 필터", optics: "광학", readout: "리드아웃", noise: "노이즈·SNR", shutter: "셔터·HDR", isp: "ISP", advanced: "최신 기술", design: "센서 설계" };
+  var SHORT = { light: "빛과 광자", photodiode: "포토다이오드", pixel: "픽셀 구조", color: "컬러 필터", optics: "광학", readout: "리드아웃", noise: "노이즈·SNR", shutter: "셔터·HDR", isp: "ISP", advanced: "최신 기술", characterization: "특성 평가", automotive: "차량용", space: "우주·천문", design: "센서 설계" };
   function drawResult(ctx, w, h) {
     var P = SB.palette(), rows = perChapter();
     var left = Math.min(150, Math.max(92, w * 0.32)), right = 46, top = 12, rh = (h - top - 8) / Math.max(1, rows.length);
@@ -467,7 +507,7 @@
     var weak = perChapter().filter(function (r) { return r.ok < r.n; });
     fq.el("fq-review").innerHTML = weak.length
       ? "다시 볼 챕터: " + weak.map(function (r) { return '<a href="../chapters/' + r.c.slug + '.html">Ch.' + r.c.num + " " + esc(r.c.title) + "</a>"; }).join(" · ")
-      : "모든 챕터 만점! 11장 플레이그라운드에서 자신만의 센서를 설계해 보자.";
+      : "모든 챕터 만점! 14장 플레이그라운드에서 자신만의 센서를 설계해 보자.";
     var rowsN = perChapter().length;
     if (!fq.cv) fq.cv = SB.canvas("#cv-fq", drawResult, { height: rowsN * 28 + 20 });
     else fq.cv.resize();

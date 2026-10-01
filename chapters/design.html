@@ -51,7 +51,7 @@
 <body data-chapter="design">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 11</div>
+    <div class="eyebrow">Chapter 14</div>
     <h1>센서 설계 플레이그라운드</h1>
     <p class="lead">지금까지 광자, 포토다이오드, 픽셀 구조, 컬러 필터, 광학, 리드아웃, 노이즈, 셔터, ISP를 하나씩 따로 배웠다. 실제 센서 설계는 이 모든 것이 한 장의 스펙시트 안에서 서로 발목을 잡는 일이다. 이 장에서는 스펙시트를 읽는 법부터 시작해, 직접 센서를 “설계”해 보고 두 설계를 나란히 비교한다.</p>
     <ul class="objectives">
@@ -235,7 +235,7 @@
           <text x="85" y="208" text-anchor="middle" class="t" style="font-size:16px">1.0 µm × 4 (σ_r² 4번)</text>
         </g>
       </svg>
-      <figcaption><b>그림 11-1.</b> 같은 실리콘 면적을 어떻게 나누느냐의 문제. 두 경우 모두 광자는 4N개 모이지만, 합친 뒤 노이즈 분산은 큰 픽셀이 \(4N+\sigma_r^2\), 작은 픽셀 4개의 합이 \(4N+4\sigma_r^2\)이다. 밝을 때(\(N\gg\sigma_r^2\))는 거의 같고, 어두울 때만 큰 픽셀이 유리하다. 대신 작은 픽셀은 해상도가 4배다.</figcaption>
+      <figcaption><b>그림 14-1.</b> 같은 실리콘 면적을 어떻게 나누느냐의 문제. 두 경우 모두 광자는 4N개 모이지만, 합친 뒤 노이즈 분산은 큰 픽셀이 \(4N+\sigma_r^2\), 작은 픽셀 4개의 합이 \(4N+4\sigma_r^2\)이다. 밝을 때(\(N\gg\sigma_r^2\))는 거의 같고, 어두울 때만 큰 픽셀이 유리하다. 대신 작은 픽셀은 해상도가 4배다.</figcaption>
     </figure>
 
     <div class="table-wrap">
@@ -302,6 +302,7 @@
         </tbody>
       </table>
     </div>
+    <p>이 가운데 요구사항이 가장 극단적인 두 분야는 따로 장을 두었다. 차량용은 <a href="../chapters/automotive.html">12장 차량용 센서</a>, 과학·천문용은 <a href="../chapters/space.html">13장 우주·천문 센서</a>에서 다룬다. 표의 숫자들을 실제로 어떻게 재는지는 <a href="../chapters/characterization.html">11장 센서 특성 평가</a>를 보자.</p>
     <div class="callout tip"><strong>플레이그라운드로 확인하기</strong>
       <p>“자동차 ADAS” 프리셋의 LOFIC을 끄면 DR이 약 30 dB 떨어진다. 터널 출구처럼 밝기 차가 10⁵배를 넘는 장면을 찍으려면 단일 노출로는 불가능하다는 뜻이다. “보안 CCTV”는 1 lux의 야간 장면에서 픽셀 SNR이 10 dB 남짓이다. 그래서 CCTV는 F/1.4 이하의 밝은 렌즈, NIR 보조광, 긴 노출을 함께 쓴다.</p>
     </div>

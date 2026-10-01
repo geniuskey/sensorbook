@@ -18,8 +18,11 @@
     { slug: "shutter",    num: "08", title: "셔터와 HDR",             desc: "롤링 vs 글로벌 셔터, 젤로 효과, 플리커, 다중 노출·DCG HDR.", tags: ["동작", "sim"] },
     { slug: "isp",        num: "09", title: "ISP 파이프라인",          desc: "RAW에서 사진까지: 블랙레벨, 쉐이딩, 디모자이크, WB, CCM, 감마.", tags: ["영상처리", "sim"] },
     { slug: "advanced",   num: "10", title: "최신 센서 기술",          desc: "적층 센서, 듀얼 픽셀 PDAF, 테트라/노나셀, SPAD·ToF, 이벤트 센서.", tags: ["트렌드", "3d", "sim"] },
-    { slug: "design",     num: "11", title: "센서 설계 플레이그라운드", desc: "픽셀 크기·해상도·광학 포맷을 정하고 성능을 한눈에 비교해 보자.", tags: ["종합", "sim"] },
-    { slug: "glossary",   num: "12", title: "용어집 & 종합 퀴즈",       desc: "핵심 용어 100개 가까이를 검색하고, 실력을 점검하자.", tags: ["정리"] },
+    { slug: "characterization", num: "11", title: "센서 특성 평가", desc: "선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블루밍. 센서를 재고 숫자를 읽는 법.", tags: ["측정", "sim"] },
+    { slug: "automotive", num: "12", title: "차량용 센서",            desc: "LED 플리커 억제, 140 dB HDR 픽셀, 고온 암전류, 기능 안전, NIR 글로벌 셔터.", tags: ["응용", "sim"] },
+    { slug: "space",      num: "13", title: "우주·천문 센서",          desc: "허블의 CCD와 방사선 손상, JWST의 적외선 검출기, TDI 스캔, 광자 계수.", tags: ["응용", "sim"] },
+    { slug: "design",     num: "14", title: "센서 설계 플레이그라운드", desc: "픽셀 크기·해상도·광학 포맷을 정하고 성능을 한눈에 비교해 보자.", tags: ["종합", "sim"] },
+    { slug: "glossary",   num: "15", title: "용어집 & 종합 퀴즈",       desc: "핵심 용어 140여 개를 검색하고, 실력을 점검하자.", tags: ["정리"] },
   ];
 
   const SB = (window.SB = {});

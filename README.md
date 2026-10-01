@@ -1,7 +1,7 @@
 # SensorBook — 인터랙티브 이미지 센서 교과서
 
 광자에서 사진까지. 공대 학부생을 위한 한국어 이미지 센서 학습 사이트입니다.
-12개 챕터, 약 50개의 시뮬레이터, 3D 구조 모델(three.js)로 구성됩니다.
+15개 챕터, 60여 개의 시뮬레이터, 3D 구조 모델(three.js)로 구성됩니다.
 
 ## 실행
 빌드 과정이 없는 정적 사이트입니다.
@@ -24,8 +24,11 @@ python3 -m http.server 8000   # → http://localhost:8000
 | 08 | chapters/shutter.html | 롤링/글로벌 셔터, 플리커, HDR |
 | 09 | chapters/isp.html | RAW→JPEG ISP 파이프라인, 3A |
 | 10 | chapters/advanced.html | 적층 센서 3D, PDAF, 비닝, SPAD/dToF, 이벤트 센서 |
-| 11 | chapters/design.html | 센서 설계 플레이그라운드, 스펙시트 읽기 |
-| 12 | chapters/glossary.html | 용어집(114개), 종합 퀴즈(20문항) |
+| 11 | chapters/characterization.html | 선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블랙 선, SNR10 |
+| 12 | chapters/automotive.html | LED 플리커 억제, 차량용 HDR 픽셀, 고온 동작, 기능 안전, DMS |
+| 13 | chapters/space.html | 과학용 CCD, 방사선 손상과 CTE, HgCdTe·up-the-ramp, TDI, 광자 계수 |
+| 14 | chapters/design.html | 센서 설계 플레이그라운드, 스펙시트 읽기 |
+| 15 | chapters/glossary.html | 용어집(142개), 종합 퀴즈(26문항) |
 
 공통 코드: `css/style.css`(디자인 토큰, 라이트/다크), `js/common.js`(내비게이션, 캔버스·차트·3D 헬퍼).
 챕터 작성 규칙은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
