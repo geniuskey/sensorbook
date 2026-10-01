@@ -494,7 +494,7 @@
     foot.innerHTML = `SensorBook — 공학도를 위한 인터랙티브 이미지 센서 교과서 · 수치는 교육용 근사 모델입니다.
       <br>© 2026 <a href="https://github.com/geniuskey">geniuskey</a> ·
       콘텐츠 <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="license">CC BY 4.0</a> ·
-      코드 <a href="https://github.com/geniuskey/sensorbook/blob/main/LICENSE">MIT</a> ·
+      코드 <a href="https://github.com/geniuskey/sensorbook/blob/main/LICENSE-MIT">MIT</a> ·
       <a href="https://github.com/geniuskey/sensorbook#라이선스">라이선스 안내</a>`;
     body.appendChild(foot);
 
