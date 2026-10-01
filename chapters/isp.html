@@ -146,7 +146,7 @@
 
     <h3>② 결함 픽셀 보정 (Defect Pixel Correction)</h3>
     <p>수천만 픽셀 중 일부는 암전류가 비정상적으로 큰 <span class="term">핫 픽셀</span>이거나 반응이 없는 <span class="term">데드 픽셀</span>입니다. 공장에서 위치를 측정해 OTP 메모리에 저장하는 <em>정적</em> 보정과, 프레임마다 이웃과 비교해 찾는 <em>동적</em> 보정을 함께 씁니다. 동적 DPC는 같은 색 이웃 8개(거리 2)의 범위를 벗어나는 픽셀을 이웃의 중앙값으로 바꿉니다.</p>
-    <div class="formula">$$\hat x = \begin{cases}\operatorname{median}(\mathcal N_8) & x>\max\mathcal N_8+\tau\ \text{또는}\ x<\min\mathcal N_8-\tau\\ x & \text{그 외}\end{cases}$$
+    <div class="formula">$$\hat x = \begin{cases}\operatorname{median}(\mathcal N_8) & x>\max\mathcal N_8+\tau\ \text{or}\ x<\min\mathcal N_8-\tau\\ x & \text{otherwise}\end{cases}$$
       <div class="where">중앙값은 평균과 달리 이상치 하나에 끌려가지 않는다. 임계값 \(\tau\)가 너무 작으면 별빛·가는 하이라이트 같은 진짜 디테일까지 지운다.</div>
     </div>
 
@@ -316,7 +316,7 @@
       <figcaption><b>그림 10-6.</b> DNG의 구성. 핵심 태그는 센서의 "물리"를 기술하고, 사진의 "해석"은 현상 소프트웨어에 맡긴다.</figcaption>
     </figure>
     <p>비트 깊이가 왜 중요할까요? ADC 비트 수 \(n\)은 표현 가능한 최대 명암비 \(2^n\)을 정합니다(12-bit ≈ 72 dB, 14-bit ≈ 84 dB). 선형 RAW에서는 가장 밝은 스톱이 전체 코드의 절반을 차지하고 한 스톱 어두워질 때마다 코드가 절반으로 줄어듭니다. 12-bit RAW라도 10스톱 아래에는 4개 코드만 남습니다. 그러나 이 영역은 대개 노이즈가 코드 간격보다 커서(디더링 효과), 적절한 비트 수는 <strong>양자화 간격 ≲ 읽기 노이즈</strong>가 되도록 고릅니다.</p>
-    <div class="formula">$$\sigma_q=\frac{\Delta}{\sqrt{12}},\qquad \Delta = \frac{\text{풀웰}}{2^n}\ [\mathrm{e^-/DN}]$$
+    <div class="formula">$$\sigma_q=\frac{\Delta}{\sqrt{12}},\qquad \Delta = \frac{\text{FWC}}{2^n}\ [\mathrm{e^-/DN}]$$
       <div class="where">예: 풀웰 6000 e⁻, 10-bit → Δ ≈ 5.9 e⁻/DN, σ<sub>q</sub> ≈ 1.7 e⁻로 읽기 노이즈 2.5 e⁻와 비슷하다. 게인(ISO)을 올리면 Δ가 줄어 같은 비트 수로도 암부를 더 세밀하게 표현한다.</div>
     </div>
     <p>12-bit 선형 데이터를 8-bit 파일로 만들 때는 반드시 <strong>감마를 먼저 적용하고 양자화</strong>해야 합니다. 선형 8-bit로 자르면 암부에 코드가 몇 개밖에 없어, 나중에 밝기를 조금만 올려도 계단 같은 <span class="term">밴딩</span><span class="en">(banding, posterization)</span>이 드러납니다.</p>

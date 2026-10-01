@@ -177,7 +177,7 @@
   <section id="pdaf">
     <h2>위상차 AF: 차광 PDAF → 듀얼 픽셀 → 쿼드 PD</h2>
     <p>콘트라스트 AF는 렌즈를 앞뒤로 움직이며 영상이 가장 선명한 곳을 찾는다. 확실하지만 “어느 쪽으로, 얼마나” 움직여야 하는지 모르기 때문에 느리다. <span class="term">위상차 AF</span><span class="en">(Phase-Detection AF, PDAF)</span>는 렌즈 조리개(동공)의 왼쪽 절반을 지난 빛과 오른쪽 절반을 지난 빛이 만드는 두 영상을 비교한다. 초점이 맞으면 두 영상이 겹치고, 초점이 어긋나면 반대 방향으로 벌어진다. 벌어진 방향이 초점의 방향, 벌어진 양이 초점 오차의 크기를 알려 준다.</p>
-    <div class="formula">$$\Delta x_\text{disp} \approx \frac{b}{N}\,\delta \quad(b\approx 0.42),\qquad \text{렌즈 이동량} \propto -\Delta x_\text{disp}$$<div class="where">\(\delta\)는 상면 쪽 초점 오차(초점면과 센서면의 거리), \(N\)은 F-넘버, \(b\)는 좌·우 반쪽 동공 무게중심 사이의 간격을 동공 지름 \(D\)로 나눈 값이다. 반원의 무게중심은 원 중심에서 \(4R/3\pi\)만큼 떨어져 있으므로 간격은 \(8R/3\pi ≈ 0.42D\)이다. F/1.8에서 초점 오차 10 µm는 약 2.4 µm, 즉 1 µm 픽셀 기준 2.4 픽셀의 시차가 된다.</div></div>
+    <div class="formula">$$\Delta x_\text{disp} \approx \frac{b}{N}\,\delta \quad(b\approx 0.42),\qquad \text{lens shift} \propto -\Delta x_\text{disp}$$<div class="where">\(\delta\)는 상면 쪽 초점 오차(초점면과 센서면의 거리), \(N\)은 F-넘버, \(b\)는 좌·우 반쪽 동공 무게중심 사이의 간격을 동공 지름 \(D\)로 나눈 값이다. 반원의 무게중심은 원 중심에서 \(4R/3\pi\)만큼 떨어져 있으므로 간격은 \(8R/3\pi ≈ 0.42D\)이다. F/1.8에서 초점 오차 10 µm는 약 2.4 µm, 즉 1 µm 픽셀 기준 2.4 픽셀의 시차가 된다.</div></div>
     <figure class="diagram">
       <svg viewBox="0 0 760 290" role="img" aria-label="PDAF 픽셀 방식 비교">
         <text x="120" y="22" text-anchor="middle" class="lbl-b">(a) 차광형 PDAF</text>
@@ -274,7 +274,7 @@
       <li><strong>비닝</strong><span class="en">(Binning)</span> — \(k\times k\) 같은 색 픽셀의 전하를 FD에서 합치거나(전하 비닝) 디지털로 더한다. 해상도는 \(1/k^2\)이지만 신호는 \(k^2\)배, 샷 노이즈 한계 SNR은 \(k\)배(\(20\log_{10}k\) dB)가 된다. 전하 비닝은 읽기 노이즈가 한 번만 더해져 더 유리하다.</li>
       <li><strong>리모자이크</strong><span class="en">(Remosaic)</span> — 같은 색 블록 배열을 일반 베이어 배열로 재배열·보간해 풀 해상도 영상을 만든다. 블록 안에서는 같은 색 정보만 있으므로 순수 베이어보다 색 해상도가 떨어지고, 보간 오류(아티팩트)가 생기기 쉽다.</li>
     </ul>
-    <div class="formula">$$\text{SNR}_\text{bin} = \frac{k^2 S}{\sqrt{k^2 S + \sigma_\text{read}^2}} \;(\text{전하 비닝}),\qquad \frac{k^2 S}{\sqrt{k^2 S + k^2\sigma_\text{read}^2}} \;(\text{디지털 합산})$$<div class="where">\(S\)는 서브픽셀 하나의 신호 전자 수. 광량이 많으면 두 방식 모두 \(k\sqrt{S}\)에 가까워지지만, 저조도에서는 전하 비닝의 이득이 크다.</div></div>
+    <div class="formula">$$\text{SNR}_\text{bin} = \frac{k^2 S}{\sqrt{k^2 S + \sigma_\text{read}^2}} \;(\text{charge binning}),\qquad \frac{k^2 S}{\sqrt{k^2 S + k^2\sigma_\text{read}^2}} \;(\text{digital summing})$$<div class="where">\(S\)는 서브픽셀 하나의 신호 전자 수. 광량이 많으면 두 방식 모두 \(k\sqrt{S}\)에 가까워지지만, 저조도에서는 전하 비닝의 이득이 크다.</div></div>
 
     <div class="sim" id="sim-bin">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>리모자이크 vs 비닝: 해상도와 노이즈</h3></div>
@@ -470,7 +470,7 @@
   <section id="dvs">
     <h2>이벤트 기반 센서(DVS)</h2>
     <p>프레임 카메라는 변화가 있든 없든 정해진 시각마다 모든 픽셀을 읽는다. <span class="term">이벤트 기반 센서</span><span class="en">(Event-based Vision Sensor, Dynamic Vision Sensor)</span>의 각 픽셀은 독립적으로 자기 밝기의 <strong>로그 값</strong>을 감시하다가, 마지막 이벤트 이후 변화가 임계값 \(C\)를 넘으면 그 순간 “(x, y, 시각, 극성)” 이벤트를 내보낸다. 밝아지면 ON(+), 어두워지면 OFF(−) 이벤트다.</p>
-    <div class="formula">$$\left|\ln I(t) - \ln I(t_\text{last})\right| \ge C \;\;\Rightarrow\;\; \text{이벤트 } (x, y, t, \operatorname{sign})$$<div class="where">\(C\)는 보통 10~30%의 밝기 변화(\(\ln 1.1 \approx 0.1\) ~ \(\ln 1.35\approx 0.3\))에 해당한다. 로그를 쓰므로 조명 세기와 무관하게 반사율의 상대 변화에 반응하고, 120 dB 이상의 넓은 DR을 얻는다.</div></div>
+    <div class="formula">$$\left|\ln I(t) - \ln I(t_\text{last})\right| \ge C \;\;\Rightarrow\;\; \text{event } (x, y, t, \operatorname{sign})$$<div class="where">\(C\)는 보통 10~30%의 밝기 변화(\(\ln 1.1 \approx 0.1\) ~ \(\ln 1.35\approx 0.3\))에 해당한다. 로그를 쓰므로 조명 세기와 무관하게 반사율의 상대 변화에 반응하고, 120 dB 이상의 넓은 DR을 얻는다.</div></div>
 
     <div class="sim" id="sim-dvs">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>회전 막대를 보는 이벤트 카메라</h3></div>

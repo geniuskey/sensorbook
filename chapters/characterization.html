@@ -284,7 +284,7 @@
       <thead><tr><th>표기</th><th>계산</th><th>성질</th></tr></thead>
       <tbody>
         <tr><td><b>중앙값</b> (Median)</td><td>픽셀별 σ의 중앙값</td><td>꼬리의 영향을 받지 않는다. "전형적인 픽셀"의 노이즈. 값이 작게 나와 광고에 자주 쓰인다</td></tr>
-        <tr><td><b>RMS</b></td><td>\(\sqrt{\text{픽셀별 }\sigma^2\text{의 평균}}\)</td><td>꼬리가 분산으로 기여한다. 영상 전체에서 느끼는 노이즈, PTC 절편과 일치</td></tr>
+        <tr><td><b>RMS</b></td><td>\(\sqrt{\text{mean of per-pixel }\sigma^2}\)</td><td>꼬리가 분산으로 기여한다. 영상 전체에서 느끼는 노이즈, PTC 절편과 일치</td></tr>
         <tr><td>꼬리 지표</td><td>σ가 기준(예: 중앙값의 3배)을 넘는 픽셀 비율</td><td>RTS·결함 픽셀의 양을 직접 표현</td></tr>
       </tbody>
     </table></div>
@@ -323,7 +323,7 @@
     </ul>
     <p>경험적으로 줄무늬 성분은 픽셀 노이즈의 1/10 이하여야 보이지 않는다. 읽기 노이즈가 1.5 e⁻인 센서라면 행 노이즈는 0.15 e⁻ 아래로 눌러야 한다는 뜻이고, 이는 회로 설계에서 읽기 노이즈 자체만큼 어려운 과제다.</p>
     <p>성분 분리는 평균의 성질을 이용한다. 행 평균을 내면 픽셀 노이즈는 \(1/\sqrt{W}\)로 줄지만 행 성분은 그대로 남는다.</p>
-    <div class="formula">$$\mathrm{Var}(\text{행 평균}) = \sigma_{\text{row}}^2 + \frac{\sigma_{\text{pix}}^2}{W},\qquad \mathrm{Var}(\text{열 평균}) = \sigma_{\text{col}}^2 + \frac{\sigma_{\text{pix}}^2}{H},\qquad \sigma_{\text{tot}}^2 = \sigma_{\text{row}}^2 + \sigma_{\text{col}}^2 + \sigma_{\text{pix}}^2$$
+    <div class="formula">$$\mathrm{Var}(\text{row mean}) = \sigma_{\text{row}}^2 + \frac{\sigma_{\text{pix}}^2}{W},\qquad \mathrm{Var}(\text{column mean}) = \sigma_{\text{col}}^2 + \frac{\sigma_{\text{pix}}^2}{H},\qquad \sigma_{\text{tot}}^2 = \sigma_{\text{row}}^2 + \sigma_{\text{col}}^2 + \sigma_{\text{pix}}^2$$
       <div class="where">\(W\), \(H\): 영상의 가로·세로 픽셀 수. 세 식을 연립하면 세 성분이 나온다. 시간적 성분과 고정 성분을 가르려면 여러 프레임의 평균 영상(고정 성분만 남음)과 프레임 간 차 영상(시간적 성분만 남음)에 각각 이 분리를 적용한다.</div>
     </div>
 

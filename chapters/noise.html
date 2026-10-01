@@ -429,7 +429,7 @@
     <h2>암전류와 온도</h2>
     <p>빛이 전혀 없어도 실리콘은 열에너지로 전자–정공 쌍을 만든다. 이 전자가 포토다이오드에 쌓인 것이 <span class="term">암전류</span><span class="en">(dark current)</span>이며, 보통 픽셀당 초당 전자 수(e⁻/s)나 면적당 전류(pA/cm², nA/cm²)로 표시한다. 암전류는 두 가지 문제를 만든다. ① 평균값 \(D\cdot t\)만큼 오프셋이 더해져 검은색이 떠 보이고(블랙레벨 보정으로 뺄 수 있다), ② 그 전자들 역시 푸아송 사건이라 <span class="term">암전류 샷 노이즈</span> \(\sqrt{D t}\)가 생긴다 — 이것은 뺄 수 없다.</p>
     <p>주된 생성 원인은 실리콘–산화막 계면과 공핍층 안의 결함(깊은 준위 트랩)을 통한 SRH 생성이다. 밴드갭 한가운데 준위를 거치므로 활성화 에너지가 대략 \(E_g/2 \approx 0.56\ \text{eV}\)이다. 반면 중성 영역에서 확산해 들어오는 성분은 \(n_i^2\)에 비례해 \(E_g \approx 1.12\ \text{eV}\)의 활성화 에너지를 갖는다.</p>
-    <div class="formula">$$ D(T) \propto T^{m}\,\exp\!\left(-\frac{E_a}{kT}\right), \qquad E_a \approx \begin{cases} E_g/2 & \text{공핍층 생성} \\ E_g & \text{확산} \end{cases} $$
+    <div class="formula">$$ D(T) \propto T^{m}\,\exp\!\left(-\frac{E_a}{kT}\right), \qquad E_a \approx \begin{cases} E_g/2 & \text{depletion generation} \\ E_g & \text{diffusion} \end{cases} $$
       <div class="where">두 배가 되는 온도 간격: \(\Delta T_2 \approx \ln 2 \,/\, \left(\frac{m}{T} + \frac{E_a}{kT^2}\right)\). 상온 부근에서 \(E_a = 0.56\) eV이면 약 9 °C, 실제 센서에서 흔히 측정되는 0.6~0.7 eV이면 <strong>6~8 °C마다 두 배</strong>가 된다.</div>
     </div>
     <p><strong>예제.</strong> 60 °C에서 암전류가 20 e⁻/s인 픽셀. 7 °C마다 두 배라면 25 °C에서는 \(20 / 2^{35/7} = 20/32 \approx 0.6\ e^-/s\). 차량 카메라처럼 85 °C가 되면 \(20 \times 2^{25/7} \approx 240\ e^-/s\). 33 ms 노출에서 8 e⁻, 샷 노이즈 2.8 e⁻ — 읽기 노이즈(1~2 e⁻)보다 커진다. 1초 장노출 야경이라면 240 e⁻, 노이즈 15 e⁻가 되어 어두운 부분을 완전히 덮는다. 천체 카메라가 센서를 −20 °C 이하로 냉각하는 이유다.</p>

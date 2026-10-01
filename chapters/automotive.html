@@ -277,7 +277,7 @@
     </figure>
 
     <p>여러 신호를 이어 붙일 때 가장 조심할 것이 <span class="term">전환점의 SNR 딥</span><span class="en">(SNR Drop at Transition)</span>이다. 어떤 신호가 포화하는 조도에서 다음 신호로 넘어가면, 다음 신호는 감도가 낮거나 노이즈가 커서 SNR이 갑자기 떨어진다. 대·소 PD만 쓰는 경우를 보자.</p>
-    <div class="formula">$$\mathrm{SNR}_{\text{LPD,포화 직전}} = \sqrt{N_{\text{FWC}}},\qquad \mathrm{SNR}_{\text{SPD,전환 직후}} = \frac{N_{\text{FWC}}/R}{\sqrt{N_{\text{FWC}}/R + \sigma_S^2}}$$
+    <div class="formula">$$\mathrm{SNR}_{\text{LPD, just before saturation}} = \sqrt{N_{\text{FWC}}},\qquad \mathrm{SNR}_{\text{SPD, just after switch}} = \frac{N_{\text{FWC}}/R}{\sqrt{N_{\text{FWC}}/R + \sigma_S^2}}$$
       <div class="where">\(R\): 감도비, \(\sigma_S\): SPD 쪽 노이즈 바닥. 예: \(N_{\text{FWC}}\) = 10,000 e⁻, \(R\) = 100, \(\sigma_S\) = 12 e⁻이면 전환 직전 SNR = 100(40 dB), 직후 SNR = 100/\(\sqrt{100+144}\) = 6.4(16 dB). <b>24 dB</b>가 한순간에 사라진다.</div>
     </div>
     <p>SNR이 16 dB인 밝기 구간에서는 물체의 질감과 색이 노이즈에 흐려진다. 하필 그 구간이 역광 속 보행자의 밝기와 겹치면 검출 성능이 떨어진다. 그래서 차량용 센서 사양에는 최대 DR뿐 아니라 <b>전 구간에서 유지되는 최소 SNR</b>이 함께 들어간다(예를 들어 전환점에서 25 dB 이상). LOFIC은 LPD와 같은 감도로 용량만 키우므로 이 틈을 메우는 데 알맞다. 위 예에서 LPD가 포화한 직후 LOFIC 신호는 10,000 e⁻를 그대로 가지고 있어, 커패시터의 kTC 노이즈가 90 e⁻이더라도 SNR = 10,000/\(\sqrt{10{,}000 + 8100}\) = 74(37 dB)를 유지한다.</p>

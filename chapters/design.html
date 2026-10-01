@@ -94,9 +94,9 @@
 
     <h3>스펙시트에서 바로 검산해 보기</h3>
     <p>좋은 엔지니어는 스펙 숫자를 그냥 믿지 않고 서로 맞는지 검산한다. 위 표만으로 다음 세 가지를 확인할 수 있다.</p>
-    <div class="formula">$$\begin{gathered}W = 8160 \times 1.0\,\mu\text{m} = 8.16\ \text{mm},\quad H = 6.14\ \text{mm}\\[4pt] \text{대각}=\sqrt{W^2+H^2}=10.2\ \text{mm}\ \Rightarrow\ 16/10.2 \approx 1.57\end{gathered}$$
+    <div class="formula">$$\begin{gathered}W = 8160 \times 1.0\,\mu\text{m} = 8.16\ \text{mm},\quad H = 6.14\ \text{mm}\\[4pt] \text{diagonal}=\sqrt{W^2+H^2}=10.2\ \text{mm}\ \Rightarrow\ 16/10.2 \approx 1.57\end{gathered}$$
       <div class="where">대각에서 역산한 인치 분모 1.57이 표기 1/1.56"과 맞는다.</div></div>
-    <div class="formula">$$\begin{gathered}\text{DR} = 20\log_{10}\frac{6000}{1.2} = 74\ \text{dB}\\[4pt] \text{데이터율} = 50.1\text{M}\times 10\ \text{bit}\times 30\ \text{fps} \approx 15\ \text{Gbps}\end{gathered}$$</div>
+    <div class="formula">$$\begin{gathered}\text{DR} = 20\log_{10}\frac{6000}{1.2} = 74\ \text{dB}\\[4pt] \text{data rate} = 50.1\text{M}\times 10\ \text{bit}\times 30\ \text{fps} \approx 15\ \text{Gbps}\end{gathered}$$</div>
     <div class="callout warn"><strong>스펙시트의 함정</strong>
       <p>① DR은 HDR 모드 값인지 단일 노출 값인지, ② 읽기 노이즈는 어느 게인에서 쟀는지, ③ QE는 어느 파장·어느 채널인지, ④ FWC는 비닝 값인지 단일 픽셀 값인지 꼭 확인하자. 같은 센서라도 조건에 따라 숫자가 몇 배씩 달라진다. 제대로 비교하려면 측정 조건을 통일한 표준(EMVA 1288)을 따르는 것이 좋다. <a href="../chapters/noise.html">Ch.07 PTC·EMVA 1288</a></p>
     </div>
@@ -121,7 +121,7 @@
     <p><b>비닝</b>은 \(k\times k\) 픽셀의 디지털 합산으로 모델링한다. 신호는 \(k^2\)배, 모든 노이즈 분산도 \(k^2\)배이므로 SNR과 FWC/노이즈 비는 \(k\)배(2×2면 +6 dB)가 된다. 실제 쿼드 셀처럼 FD에서 전하를 합치면 읽기 노이즈가 한 번만 더해져 저조도에서 이보다 조금 더 좋다. <b>HDR 확장</b>은 노이즈 바닥(고이득 경로)은 그대로 두고 포화 용량만 DCG는 4배, LOFIC은 32배로 늘리는 것으로 단순화했다.</p>
 
     <h3>③ 광학과 대역폭</h3>
-    <div class="formula">$$\begin{gathered}d_{\text{Airy}} = 2.44\,\lambda N,\qquad N_{\text{DLA}} = \frac{2p}{2.44\,\lambda}\\[4pt] f_{\text{Nyq}} = \frac{1}{2p},\qquad \text{데이터율} = N_{\text{px}}\cdot b\cdot \text{fps}\end{gathered}$$
+    <div class="formula">$$\begin{gathered}d_{\text{Airy}} = 2.44\,\lambda N,\qquad N_{\text{DLA}} = \frac{2p}{2.44\,\lambda}\\[4pt] f_{\text{Nyq}} = \frac{1}{2p},\qquad \text{data rate} = N_{\text{px}}\cdot b\cdot \text{fps}\end{gathered}$$
       <div class="where">\(\lambda = 550\) nm. \(N_{\text{DLA}}\)(diffraction-limited aperture)는 Airy 디스크 지름이 픽셀 2개 폭이 되는 F-넘버로, 이보다 조이면 회절이 해상도를 먼저 제한한다. 데이터율은 블랭킹·패킷 오버헤드 없는 순수 픽셀 데이터.</div></div>
   </section>
 
@@ -256,7 +256,7 @@
 
     <h3>원가: 다이 크기와 웨이퍼당 다이 수</h3>
     <p>센서 원가의 큰 몫은 실리콘 면적이다. 300 mm 웨이퍼 한 장의 가공비가 정해져 있으므로, 다이가 클수록 한 장에서 나오는 개수가 줄고, 넓은 다이일수록 결함에 걸릴 확률도 커진다. 웨이퍼당 다이 수(DPW)와 수율은 다음처럼 근사한다.</p>
-    <div class="formula">$$\begin{gathered}\text{DPW} \approx \frac{\pi (d/2)^2}{S} - \frac{\pi d}{\sqrt{2S}},\qquad Y = e^{-A D_0}\\[4pt] \text{다이당 원가} = \frac{C_{\text{wafer}}}{\text{DPW}\cdot Y}\end{gathered}$$
+    <div class="formula">$$\begin{gathered}\text{DPW} \approx \frac{\pi (d/2)^2}{S} - \frac{\pi d}{\sqrt{2S}},\qquad Y = e^{-A D_0}\\[4pt] \text{cost per die} = \frac{C_{\text{wafer}}}{\text{DPW}\cdot Y}\end{gathered}$$
       <div class="where">\(d\): 가장자리 제외 후 유효 지름, \(S\): 스크라이브 레인을 포함한 다이 면적, \(A\): 다이 면적(cm²), \(D_0\): 치명 결함 밀도(개/cm²). 수율은 가장 단순한 포아송 모델이다.</div></div>
 
     <div class="sim" id="sim-wafer">

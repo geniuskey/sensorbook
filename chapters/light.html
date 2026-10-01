@@ -339,12 +339,12 @@
     <h2>광자 수 계산: 와트에서 픽셀까지</h2>
     <h3>파워 → 초당 광자 수</h3>
     <p>단색광의 파워 \(P\)를 광자 하나의 에너지로 나누면 초당 광자 수가 된다.</p>
-    <div class="formula">$$\dot N_{ph} = \frac{P}{E_{ph}} = \frac{P\,\lambda}{hc} \approx 5.03\times10^{15}\,\cdot P\,[\text{W}]\cdot \lambda\,[\text{nm}]\quad \text{(개/s)}$$</div>
+    <div class="formula">$$\dot N_{ph} = \frac{P}{E_{ph}} = \frac{P\,\lambda}{hc} \approx 5.03\times10^{15}\,\cdot P\,[\text{W}]\cdot \lambda\,[\text{nm}]\quad \text{(photons/s)}$$</div>
     <p>예를 들어 550 nm, 1 nW의 빛은 초당 약 \(2.8\times10^{9}\)개의 광자다. 1 nW는 아주 약해 보이지만, 광자 단위로는 엄청난 수다. 반대로 한 픽셀이 받는 빛은 대개 펨토와트(fW) 수준이다.</p>
 
     <h3>조도(lux) → 광자 밀도</h3>
     <p>555 nm 단색광이라면 1 lux = 1/683 W/m²이고, 광자 에너지 \(3.58\times10^{-19}\) J로 나누면</p>
-    <div class="formula">$$1\,\text{lux}\;(555\,\text{nm}) = \frac{1/683\ \text{W/m}^2}{3.58\times10^{-19}\ \text{J}} \approx 4.1\times10^{15}\,\frac{\text{광자}}{\text{m}^2\,\text{s}} = 4.1\times10^{3}\,\frac{\text{광자}}{\mu\text{m}^2\,\text{s}}$$</div>
+    <div class="formula">$$1\,\text{lux}\;(555\,\text{nm}) = \frac{1/683\ \text{W/m}^2}{3.58\times10^{-19}\ \text{J}} \approx 4.1\times10^{15}\,\frac{\text{photons}}{\text{m}^2\,\text{s}} = 4.1\times10^{3}\,\frac{\text{photons}}{\mu\text{m}^2\,\text{s}}$$</div>
     <p>실제 조명은 단색이 아니라 넓은 스펙트럼이다. 백색광은 \(V(\lambda)\)가 작은 청색·적색 광자도 많이 포함하므로 <strong>같은 lux라도 광자가 더 많다</strong>. 5800 K 흑체 스펙트럼을 400–700 nm로 자른 "백색광"으로 계산하면 발광 효율은 약 250 lm/W이고, 1 lux당 약 \(1.1\times10^{4}\) 광자/(µm²·s)가 된다(555 nm 단색의 약 2.7배). 이 장에서는 이 값을 <strong>백색광 근사</strong>로 쓴다. 실제 값은 스펙트럼과 IR 차단 필터에 따라 수십 % 달라진다.</p>
 
     <h3>장면 조도 → 센서면 조도</h3>

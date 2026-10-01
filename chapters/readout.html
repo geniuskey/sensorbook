@@ -423,7 +423,7 @@
     <p><strong>예제.</strong> \(C_{FD}=1.6\ \text{fF}\), 300 K: \(\sqrt{kT/C} = \sqrt{4.14\times10^{-21}/1.6\times10^{-15}} \approx 1.6\ \text{mV}\). 전자로 환산하면 \(1.6\ \text{mV} / 100\ \mu V/e^- \approx 16\ e^-\). 읽기 노이즈 목표가 1~2 e⁻인 센서에서 16 e⁻은 엄청난 값이다. 게다가 픽셀마다 SF의 문턱 전압 \(V_{th}\)가 수 mV씩 다르다(고정 오프셋 → FPN).</p>
     <p>4T 픽셀에서는 두 샘플이 같은 리셋 사건을 공유한다.</p>
     <div class="formula">$$ V_{SHR} = V_{RST} + v_{kTC} + V_{off}, \qquad V_{SHS} = V_{RST} + v_{kTC} + V_{off} - \Delta V $$
-    $$ V_{SHR} - V_{SHS} = \Delta V \quad \quad \text{(kTC와 오프셋 상쇄)} $$
+    $$ V_{SHR} - V_{SHS} = \Delta V \quad \quad \text{(kTC and offset cancel)} $$
       <div class="where">남는 것은 두 번 샘플할 때의 백색 노이즈(\(\sqrt{2}\sigma_w\))와, 두 샘플 사이 간격보다 느린 성분이 제거되고 남은 1/f 노이즈다. CDS는 저주파 노이즈에 대해 \(|H(f)| = 2|\sin(\pi f \Delta t)|\)인 고역 통과 필터로 동작한다.</div>
     </div>
     <p>3T 픽셀도 신호와 리셋을 두 번 읽어 빼기는 하지만 두 리셋 레벨이 <em>서로 다른 리셋 사건</em>이다. 이를 <span class="term">DDS</span>(Double Delta Sampling, 비상관 이중 샘플링)라 하며, 오프셋은 지워지지만 kTC 노이즈는 오히려 \(\sqrt{2}\)배가 된다. 아래 시뮬레이터에서 두 방식을 비교해 보자.</p>

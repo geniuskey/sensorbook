@@ -214,7 +214,7 @@
   <section id="fillfactor">
     <h2>필 팩터와 마이크로렌즈의 존재 이유</h2>
     <p>픽셀 면적 전부가 빛을 전하로 바꾸는 것은 아니다. 특히 초기 FSI 픽셀에서는 트랜지스터(TG, RST, SF, SEL)와 금속 배선이 PD와 같은 면에 놓였기 때문에, 빛을 받을 수 있는 PD 면적은 픽셀의 일부뿐이었다. 픽셀 면적 대비 감광 면적의 비율을 <span class="term">필 팩터</span><span class="en">(Fill Factor, FF)</span>라 한다.</p>
-    <div class="formula">$$\text{FF} = \frac{A_\text{PD, 개구}}{A_\text{pixel}} = \frac{A_\text{PD}}{p^2}$$<div class="where">FSI 4T 픽셀의 필 팩터는 대략 30~60%, 픽셀 공유 구조를 써도 70%를 넘기 어렵다. 렌즈가 없다면 광학 효율의 상한은 곧 FF다.</div></div>
+    <div class="formula">$$\text{FF} = \frac{A_\text{PD, aperture}}{A_\text{pixel}} = \frac{A_\text{PD}}{p^2}$$<div class="where">FSI 4T 픽셀의 필 팩터는 대략 30~60%, 픽셀 공유 구조를 써도 70%를 넘기 어렵다. 렌즈가 없다면 광학 효율의 상한은 곧 FF다.</div></div>
     <figure class="diagram">
       <svg viewBox="0 0 700 320" role="img" aria-label="필 팩터 평면도와 마이크로렌즈 집광 단면">
         <!-- top view -->
@@ -256,7 +256,7 @@
       <figcaption><b>그림 3-3.</b> (a) FSI 4T 픽셀의 평면 배치: PD 주변을 트랜지스터와 배선이 차지해 필 팩터가 낮다. (b) 렌즈가 없으면 배선 위에 떨어진 빛(점선)은 버려지지만, 마이크로렌즈는 픽셀 전체 면적의 빛을 PD 개구로 굴절시킨다.</figcaption>
     </figure>
     <p><span class="term">온칩 마이크로렌즈</span>는 픽셀마다 하나씩 올린 볼록 렌즈다. 감광성 수지를 사각형 섬으로 패터닝한 뒤 가열하면 표면장력으로 둥글게 녹아내리는데(리플로우), 이 모양이 거의 구면이다. 렌즈 밑면 반지름 \(a\)와 높이(sag) \(s\)가 정해지면 곡률 반지름과 초점 거리가 결정된다.</p>
-    <div class="formula">$$R = \frac{a^2 + s^2}{2s}, \qquad f' \approx \frac{n\,R}{n-1}\;(\text{렌즈 꼭대기에서, 매질 내부 기준})$$<div class="where">\(n\)은 렌즈와 그 아래 매질의 굴절률(≈1.6)이다. 공기→렌즈 한 번의 굴절만 고려한 근축(paraxial) 근사다. \(a=0.7\) µm, \(s=0.5\) µm이면 \(R≈0.74\) µm, \(f'≈2.0\) µm이다.</div></div>
+    <div class="formula">$$R = \frac{a^2 + s^2}{2s}, \qquad f' \approx \frac{n\,R}{n-1}\;(\text{from lens vertex, inside the medium})$$<div class="where">\(n\)은 렌즈와 그 아래 매질의 굴절률(≈1.6)이다. 공기→렌즈 한 번의 굴절만 고려한 근축(paraxial) 근사다. \(a=0.7\) µm, \(s=0.5\) µm이면 \(R≈0.74\) µm, \(f'≈2.0\) µm이다.</div></div>
     <p>렌즈 곡률이 너무 작으면(평평하면) 초점이 PD보다 깊이 맺혀 빛이 덜 모이고, 너무 크면 초점이 PD 위에서 맺힌 뒤 다시 퍼져서 개구 밖으로 나간다. 결국 <strong>렌즈 높이와 광학 스택 높이는 한 쌍으로 설계</strong>해야 한다. 아래 시뮬레이터에서 직접 맞춰 보자.</p>
 
     <div class="sim" id="sim-ml">
