@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>센서 설계 플레이그라운드 · SensorBook</title>
 <meta name="description" content="픽셀 크기, 해상도, 광학 포맷, 노이즈, ADC, 렌즈를 직접 정하고 SNR·DR·회절·데이터율·웨이퍼당 다이 수까지 한눈에 비교하는 종합 설계 시뮬레이터.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/design.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="센서 설계 플레이그라운드 · SensorBook">
+<meta property="og:description" content="픽셀 크기, 해상도, 광학 포맷, 노이즈, ADC, 렌즈를 직접 정하고 SNR·DR·회절·데이터율·웨이퍼당 다이 수까지 한눈에 비교하는 종합 설계 시뮬레이터.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/design.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"센서 설계 플레이그라운드","name":"센서 설계 플레이그라운드 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/design.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/design.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":18,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"픽셀 크기, 해상도, 광학 포맷, 노이즈, ADC, 렌즈를 직접 정하고 SNR·DR·회절·데이터율·웨이퍼당 다이 수까지 한눈에 비교하는 종합 설계 시뮬레이터."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"18 센서 설계 플레이그라운드","item":"https://sensorbook.euiyun.com/chapters/design.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -51,7 +63,7 @@
 <body data-chapter="design">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 14</div>
+    <div class="eyebrow">Chapter 18</div>
     <h1>센서 설계 플레이그라운드</h1>
     <p class="lead">지금까지 광자, 포토다이오드, 픽셀 구조, 컬러 필터, 광학, 리드아웃, 노이즈, 셔터, ISP를 하나씩 따로 배웠다. 실제 센서 설계는 이 모든 것이 한 장의 스펙시트 안에서 서로 발목을 잡는 일이다. 이 장에서는 스펙시트를 읽는 법부터 시작해, 직접 센서를 “설계”해 보고 두 설계를 나란히 비교한다.</p>
     <ul class="objectives">
@@ -75,8 +87,8 @@
           <tr><td>픽셀 크기</td><td class="val">1.0 µm × 1.0 µm</td><td>픽셀 피치(pixel pitch). 면적이 1 µm²이므로 같은 조도에서 1.4 µm 픽셀의 약 절반의 광자를 받는다. <a href="../chapters/pixel.html">Ch.03 픽셀 구조</a></td></tr>
           <tr><td>유효 화소</td><td class="val">8160 × 6144<br>(50.1 MP)</td><td>가로×세로 활성 픽셀 수. 가장자리에는 광학 블랙(OB) 픽셀과 더미 픽셀이 추가로 있다. <a href="../chapters/isp.html">Ch.10 블랙 레벨</a></td></tr>
           <tr><td>광학 포맷</td><td class="val">1/1.56"<br>(대각 10.2 mm)</td><td>활성 영역 8.16 × 6.14 mm. “인치” 표기는 옛 촬상관 규격에서 온 관습으로, 대략 <b>대각(mm) ≈ 16 mm ÷ 인치 분모</b>로 환산한다. 렌즈의 이미지 서클이 이 대각을 덮어야 한다. <a href="../chapters/optics.html">Ch.05 광학</a></td></tr>
-          <tr><td>컬러 필터</td><td class="val">Quad Bayer<br>(2×2 동색)</td><td>같은 색 4개가 모인 배열. 밤에는 4개를 합쳐 12.5 MP·2.0 µm 등가로, 낮에는 리모자이크(remosaic)해서 50 MP로 출력한다. <a href="../chapters/color.html">Ch.04 CFA</a> · <a href="../chapters/advanced.html">Ch.11</a></td></tr>
-          <tr><td>구조</td><td class="val">BSI, 2층 적층,<br>풀 DTI</td><td>배선을 뒤로 보낸 이면 조사형, 로직 웨이퍼를 아래에 붙인 적층형, 픽셀 사이를 깊은 트렌치로 격리해 크로스토크를 줄인다. <a href="../chapters/pixel.html">Ch.03</a> · <a href="../chapters/advanced.html">Ch.11</a></td></tr>
+          <tr><td>컬러 필터</td><td class="val">Quad Bayer<br>(2×2 동색)</td><td>같은 색 4개가 모인 배열. 밤에는 4개를 합쳐 12.5 MP·2.0 µm 등가로, 낮에는 리모자이크(remosaic)해서 50 MP로 출력한다. <a href="../chapters/color.html">Ch.04 CFA</a> · <a href="../chapters/advanced.html">Ch.12</a></td></tr>
+          <tr><td>구조</td><td class="val">BSI, 2층 적층,<br>풀 DTI</td><td>배선을 뒤로 보낸 이면 조사형, 로직 웨이퍼를 아래에 붙인 적층형, 픽셀 사이를 깊은 트렌치로 격리해 크로스토크를 줄인다. <a href="../chapters/pixel.html">Ch.03</a> · <a href="../chapters/advanced.html">Ch.12</a></td></tr>
           <tr><td>풀웰 용량 (FWC)</td><td class="val">6,000 e⁻<br>(비닝 24,000 e⁻)</td><td>포토다이오드가 포화되기 전 담을 수 있는 최대 전자 수. 밝은 쪽 한계와 최대 SNR(\(\sqrt{6000}\approx 77\), 37.8 dB)을 정한다. <a href="../chapters/photodiode.html">Ch.02</a> · <a href="../chapters/noise.html">Ch.07</a></td></tr>
           <tr><td>읽기 노이즈</td><td class="val">1.2 e⁻ rms<br>(HCG, 16× 게인)</td><td>빛이 없어도 읽을 때마다 섞이는 노이즈(소스 팔로워, kTC 잔여, ADC). 보통 가장 높은 아날로그 게인에서 측정한 값을 적는다. <a href="../chapters/noise.html">Ch.07 노이즈</a></td></tr>
           <tr><td>변환 이득 (CG)</td><td class="val">95 µV/e⁻ (HCG)<br>24 µV/e⁻ (LCG)</td><td>전자 1개가 FD 전압을 얼마나 바꾸는가, \(CG=q/C_{FD}\). HCG/LCG 두 값이 있으면 이중 변환 이득(DCG) 픽셀이다. <a href="../chapters/readout.html">Ch.06 리드아웃</a> · <a href="../chapters/shutter.html">Ch.09 HDR</a></td></tr>
@@ -87,7 +99,7 @@
           <tr><td>ADC</td><td class="val">10 / 12-bit<br>컬럼 병렬 single-slope</td><td>열마다 ADC가 하나씩 있어 한 행을 동시에 변환한다. 비트 수가 높으면 양자화 노이즈가 줄지만 변환 시간이 \(2^b\)에 비례해 길어진다. <a href="../chapters/readout.html">Ch.06</a></td></tr>
           <tr><td>인터페이스</td><td class="val">MIPI CSI-2<br>C-PHY 3-trio /<br>D-PHY 4-lane</td><td>50 MP × 10 bit × 30 fps ≈ 15 Gbps. D-PHY 한 레인이 2.5~4.5 Gbps이므로 4레인으로도 빠듯하다. <a href="../chapters/isp.html">Ch.10</a></td></tr>
           <tr><td>최대 CRA</td><td class="val">35°</td><td>센서 가장자리에서 들어오는 주광선 각도. 렌즈 설계와 반드시 맞아야 하며, 마이크로렌즈를 그만큼 시프트한다. <a href="../chapters/optics.html">Ch.05 CRA</a></td></tr>
-          <tr><td>AF</td><td class="val">2×2 OCL<br>전 화소 PDAF</td><td>한 마이크로렌즈 아래 네 픽셀의 신호 차이로 위상차를 구해 초점을 맞춘다. <a href="../chapters/advanced.html">Ch.11 PDAF</a></td></tr>
+          <tr><td>AF</td><td class="val">2×2 OCL<br>전 화소 PDAF</td><td>한 마이크로렌즈 아래 네 픽셀의 신호 차이로 위상차를 구해 초점을 맞춘다. <a href="../chapters/advanced.html">Ch.12 PDAF</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -235,7 +247,7 @@
           <text x="85" y="208" text-anchor="middle" class="t" style="font-size:16px">1.0 µm × 4 (σ_r² 4번)</text>
         </g>
       </svg>
-      <figcaption><b>그림 14-1.</b> 같은 실리콘 면적을 어떻게 나누느냐의 문제. 두 경우 모두 광자는 4N개 모이지만, 합친 뒤 노이즈 분산은 큰 픽셀이 \(4N+\sigma_r^2\), 작은 픽셀 4개의 합이 \(4N+4\sigma_r^2\)이다. 밝을 때(\(N\gg\sigma_r^2\))는 거의 같고, 어두울 때만 큰 픽셀이 유리하다. 대신 작은 픽셀은 해상도가 4배다.</figcaption>
+      <figcaption><b>그림 18-1.</b> 같은 실리콘 면적을 어떻게 나누느냐의 문제. 두 경우 모두 광자는 4N개 모이지만, 합친 뒤 노이즈 분산은 큰 픽셀이 \(4N+\sigma_r^2\), 작은 픽셀 4개의 합이 \(4N+4\sigma_r^2\)이다. 밝을 때(\(N\gg\sigma_r^2\))는 거의 같고, 어두울 때만 큰 픽셀이 유리하다. 대신 작은 픽셀은 해상도가 4배다.</figcaption>
     </figure>
 
     <div class="table-wrap">
@@ -302,7 +314,7 @@
         </tbody>
       </table>
     </div>
-    <p>이 가운데 요구사항이 가장 극단적인 두 분야는 따로 장을 두었다. 차량용은 <a href="../chapters/automotive.html">12장 차량용 센서</a>, 과학·천문용은 <a href="../chapters/space.html">13장 우주·천문 센서</a>에서 다룬다. 표의 숫자들을 실제로 어떻게 재는지는 <a href="../chapters/characterization.html">8장 센서 특성 평가</a>를 보자.</p>
+    <p>이 가운데 요구사항이 가장 극단적인 두 분야는 따로 장을 두었다. 차량용은 <a href="../chapters/automotive.html">15장 차량용 센서</a>, 과학·천문용은 <a href="../chapters/space.html">16장 우주·천문 센서</a>에서 다룬다. 표의 숫자들을 실제로 어떻게 재는지는 <a href="../chapters/characterization.html">8장 센서 특성 평가</a>를 보자.</p>
     <div class="callout tip"><strong>플레이그라운드로 확인하기</strong>
       <p>“자동차 ADAS” 프리셋의 LOFIC을 끄면 DR이 약 30 dB 떨어진다. 터널 출구처럼 밝기 차가 10⁵배를 넘는 장면을 찍으려면 단일 노출로는 불가능하다는 뜻이다. “보안 CCTV”는 1 lux의 야간 장면에서 픽셀 SNR이 10 dB 남짓이다. 그래서 CCTV는 F/1.4 이하의 밝은 렌즈, NIR 보조광, 긴 노출을 함께 쓴다.</p>
     </div>

@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>ISP 파이프라인 · SensorBook</title>
 <meta name="description" content="RAW에서 JPEG까지: 블랙 레벨, 결함 픽셀, 렌즈 쉐이딩, 디모자이크, 화이트 밸런스, CCM, 노이즈 저감, 감마, 샤프닝을 직접 켜고 끄며 배우는 ISP 파이프라인과 3A.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/isp.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="ISP 파이프라인 · SensorBook">
+<meta property="og:description" content="RAW에서 JPEG까지: 블랙 레벨, 결함 픽셀, 렌즈 쉐이딩, 디모자이크, 화이트 밸런스, CCM, 노이즈 저감, 감마, 샤프닝을 직접 켜고 끄며 배우는 ISP 파이프라인과 3A.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/isp.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"ISP 파이프라인","name":"ISP 파이프라인 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/isp.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/isp.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":10,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"RAW에서 JPEG까지: 블랙 레벨, 결함 픽셀, 렌즈 쉐이딩, 디모자이크, 화이트 밸런스, CCM, 노이즈 저감, 감마, 샤프닝을 직접 켜고 끄며 배우는 ISP 파이프라인과 3A."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"10 ISP 파이프라인","item":"https://sensorbook.euiyun.com/chapters/isp.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -369,7 +381,7 @@
     <div class="formula">$$\mathrm{EV}_{n+1}=\mathrm{EV}_n + k\,\log_2\!\frac{Y_{\text{target}}}{\bar Y_n},\qquad 0 \lt k\le 1$$
       <div class="where">\(\bar Y_n\): \(n\)번째 프레임의 측광 휘도(선형), \(k\): 수렴 속도(작을수록 부드럽지만 느림). 포화된 영역은 실제 밝기를 알 수 없으므로 과노출 시에는 큰 폭으로 줄인다.</div>
     </div>
-    <p>평균 측광은 역광에서 실패합니다. 밝은 하늘이 평균을 끌어올려 피사체가 어둡게 찍히죠. 그래서 중앙 중점 측광, 얼굴 우선 측광, 하이라이트 보호(상위 백분위가 포화되지 않도록 제한) 같은 전략을 섞습니다. <strong>AWB</strong>는 WB 절에서 본 조명 추정을 매 프레임 돌리며, <strong>AF</strong>는 영상 대비(콘트라스트 AF)나 듀얼 픽셀의 위상차(PDAF, 11장)를 이용해 초점을 찾습니다.</p>
+    <p>평균 측광은 역광에서 실패합니다. 밝은 하늘이 평균을 끌어올려 피사체가 어둡게 찍히죠. 그래서 중앙 중점 측광, 얼굴 우선 측광, 하이라이트 보호(상위 백분위가 포화되지 않도록 제한) 같은 전략을 섞습니다. <strong>AWB</strong>는 WB 절에서 본 조명 추정을 매 프레임 돌리며, <strong>AF</strong>는 영상 대비(콘트라스트 AF)나 듀얼 픽셀의 위상차(PDAF, 12장)를 이용해 초점을 찾습니다.</p>
 
     <div class="sim" id="sim-ae">
       <div class="sim-head"><span class="sim-tag">SIMULATOR</span><h3>AE 수렴: 18% 회색 목표의 반복 노출 조정</h3></div>
@@ -414,7 +426,7 @@
       </svg>
       <figcaption><b>그림 10-8.</b> 멀티프레임 합성의 흐름(HDR+, 야간 모드 계열). 흔들린 프레임이나 움직이는 피사체 영역은 병합 가중치를 낮춰 고스트를 막는다.</figcaption>
     </figure>
-    <p>최근에는 ISP 블록 일부 또는 전체를 신경망으로 대체하는 <strong>AI ISP</strong>가 확산되고 있습니다. 디모자이킹과 노이즈 제거를 하나의 네트워크로 동시에 푸는 공동 디모자이킹(joint demosaicking & denoising), 장면 인식 기반 AWB, 멀티프레임 초해상도, 얼굴·하늘 영역별 톤 조절이 대표적입니다. 신경망은 이 장에서 본 수작업 가정(그레이 월드, 매끄러운 색차 등)을 대량의 데이터로 학습한 사전 지식으로 바꿉니다. 다만 모바일 NPU의 전력·지연 제약 때문에, 실제 제품은 고정 하드웨어 블록과 신경망을 섞어 쓰는 하이브리드 구조가 일반적입니다.</p>
+    <p>최근에는 ISP 블록 일부 또는 전체를 신경망으로 대체하는 <strong>AI ISP</strong>가 확산되고 있습니다. 디모자이킹과 노이즈 제거를 하나의 네트워크로 동시에 푸는 공동 디모자이킹(joint demosaicking & denoising), 장면 인식 기반 AWB, 멀티프레임 초해상도, 얼굴·하늘 영역별 톤 조절이 대표적입니다. 신경망은 이 장에서 본 수작업 가정(그레이 월드, 매끄러운 색차 등)을 대량의 데이터로 학습한 사전 지식으로 바꿉니다. 다만 모바일 NPU의 전력·지연 제약 때문에, 실제 제품은 고정 하드웨어 블록과 신경망을 섞어 쓰는 하이브리드 구조가 일반적입니다. 버스트 정렬과 강건 병합, 초해상도, 합성 심도의 원리는 <a href="computational.html">11장 컴퓨테이셔널 포토그래피</a>에서 자세히 다룹니다.</p>
   </section>
 
   <!-- ============================================================ summary -->

@@ -18,11 +18,15 @@
     { slug: "characterization", num: "08", title: "센서 특성 평가", desc: "선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블루밍. 센서를 재고 숫자를 읽는 법.", tags: ["측정", "sim"] },
     { slug: "shutter",    num: "09", title: "셔터와 HDR",             desc: "롤링 vs 글로벌 셔터, 젤로 효과, 플리커, 다중 노출·DCG HDR.", tags: ["동작", "sim"] },
     { slug: "isp",        num: "10", title: "ISP 파이프라인",          desc: "RAW에서 사진까지: 블랙레벨, 쉐이딩, 디모자이크, WB, CCM, 감마.", tags: ["영상처리", "sim"] },
-    { slug: "advanced",   num: "11", title: "최신 센서 기술",          desc: "적층 센서, 듀얼 픽셀 PDAF, 테트라/노나셀, SPAD·ToF, 이벤트 센서.", tags: ["트렌드", "3d", "sim"] },
-    { slug: "automotive", num: "12", title: "차량용 센서",            desc: "LED 플리커 억제, 140 dB HDR 픽셀, 고온 암전류, 기능 안전, NIR 글로벌 셔터.", tags: ["응용", "sim"] },
-    { slug: "space",      num: "13", title: "우주·천문 센서",          desc: "허블의 CCD와 방사선 손상, JWST의 적외선 검출기, TDI 스캔, 광자 계수.", tags: ["응용", "sim"] },
-    { slug: "design",     num: "14", title: "센서 설계 플레이그라운드", desc: "픽셀 크기·해상도·광학 포맷을 정하고 성능을 한눈에 비교해 보자.", tags: ["종합", "sim"] },
-    { slug: "glossary",   num: "15", title: "용어집 & 종합 퀴즈",       desc: "핵심 용어 140여 개를 검색하고, 실력을 점검하자.", tags: ["정리"] },
+    { slug: "computational", num: "11", title: "컴퓨테이셔널 포토그래피", desc: "버스트 정렬과 강건 병합, 야간 모드, 멀티프레임 초해상도, 합성 보케.", tags: ["영상처리", "sim"] },
+    { slug: "advanced",   num: "12", title: "최신 센서 기술",          desc: "적층 센서, 듀얼 픽셀 PDAF, 테트라/노나셀, SPAD·ToF, 이벤트 센서.", tags: ["트렌드", "3d", "sim"] },
+    { slug: "fabrication", num: "13", title: "제조 공정과 패키징",     desc: "이온 주입, BSI 박막화, DTI 식각, 하이브리드 본딩, 수율 모델, CSP 패키지.", tags: ["공정", "sim"] },
+    { slug: "module",     num: "14", title: "카메라 모듈: AF·OIS·줌",  desc: "VCM 액추에이터, 손떨림 보정 루프, 폴디드 망원, 액티브 얼라인.", tags: ["시스템", "sim"] },
+    { slug: "automotive", num: "15", title: "차량용 센서",            desc: "LED 플리커 억제, 140 dB HDR 픽셀, 고온 암전류, 기능 안전, NIR 글로벌 셔터.", tags: ["응용", "sim"] },
+    { slug: "space",      num: "16", title: "우주·천문 센서",          desc: "허블의 CCD와 방사선 손상, JWST의 적외선 검출기, TDI 스캔, 광자 계수.", tags: ["응용", "sim"] },
+    { slug: "invisible",  num: "17", title: "가시광 너머의 이미징",     desc: "열화상 마이크로볼로미터, X선 검출기, 초분광, 편광 센서.", tags: ["응용", "sim"] },
+    { slug: "design",     num: "18", title: "센서 설계 플레이그라운드", desc: "픽셀 크기·해상도·광학 포맷을 정하고 성능을 한눈에 비교해 보자.", tags: ["종합", "sim"] },
+    { slug: "glossary",   num: "19", title: "용어집 & 종합 퀴즈",       desc: "핵심 용어 190여 개를 검색하고, 실력을 점검하자.", tags: ["정리"] },
   ];
 
   const SB = (window.SB = {});

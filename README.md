@@ -1,7 +1,7 @@
 # SensorBook — 인터랙티브 이미지 센서 교과서
 
 광자에서 사진까지. 공대 학부생을 위한 한국어 이미지 센서 학습 사이트입니다.
-15개 챕터, 60여 개의 시뮬레이터, 3D 구조 모델(three.js)로 구성됩니다.
+19개 챕터, 80여 개의 시뮬레이터, 3D 구조 모델(three.js)로 구성됩니다.
 
 ## 실행
 빌드 과정이 없는 정적 사이트입니다.
@@ -24,14 +24,19 @@ python3 -m http.server 8000   # → http://localhost:8000
 | 08 | chapters/characterization.html | 선형성, 암 특성 분포, RTS, 행 노이즈, 래그, 블랙 선, SNR10 |
 | 09 | chapters/shutter.html | 롤링/글로벌 셔터, 플리커, HDR |
 | 10 | chapters/isp.html | RAW→JPEG ISP 파이프라인, 3A |
-| 11 | chapters/advanced.html | 적층 센서 3D, PDAF, 비닝, SPAD/dToF, 이벤트 센서 |
-| 12 | chapters/automotive.html | LED 플리커 억제, 차량용 HDR 픽셀, 고온 동작, 기능 안전, DMS |
-| 13 | chapters/space.html | 과학용 CCD, 방사선 손상과 CTE, HgCdTe·up-the-ramp, TDI, 광자 계수 |
-| 14 | chapters/design.html | 센서 설계 플레이그라운드, 스펙시트 읽기 |
-| 15 | chapters/glossary.html | 용어집(142개), 종합 퀴즈(26문항) |
+| 11 | chapters/computational.html | 버스트 정렬·병합, 야간 모드, 멀티프레임 초해상도, 합성 보케 |
+| 12 | chapters/advanced.html | 적층 센서 3D, PDAF, 비닝, SPAD/dToF, 이벤트 센서 |
+| 13 | chapters/fabrication.html | 이온 주입, BSI 박막화, DTI, 하이브리드 본딩 공정, 수율, 패키징 |
+| 14 | chapters/module.html | VCM AF, OIS, 폴디드 줌, 액티브 얼라인, 모듈 캘리브레이션 |
+| 15 | chapters/automotive.html | LED 플리커 억제, 차량용 HDR 픽셀, 고온 동작, 기능 안전, DMS |
+| 16 | chapters/space.html | 과학용 CCD, 방사선 손상과 CTE, HgCdTe·up-the-ramp, TDI, 광자 계수 |
+| 17 | chapters/invisible.html | 열화상 마이크로볼로미터, X선 검출기, 초분광, 편광 이미징 |
+| 18 | chapters/design.html | 센서 설계 플레이그라운드, 스펙시트 읽기 |
+| 19 | chapters/glossary.html | 용어집(190개), 종합 퀴즈(34문항) |
 
 공통 코드: `css/style.css`(디자인 토큰, 라이트/다크), `js/common.js`(내비게이션, 캔버스·차트·3D 헬퍼).
 챕터 작성 규칙은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
+챕터를 추가하거나 제목·설명을 바꾼 뒤에는 `python tools/seo.py`로 canonical/OG/JSON-LD 태그와 `sitemap.xml`을 다시 만듭니다.
 
 시뮬레이터의 수치는 교육용 근사 모델입니다.
 

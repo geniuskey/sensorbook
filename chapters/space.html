@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>우주·천문 센서 · SensorBook</title>
 <meta name="description" content="허블과 제임스 웹의 검출기를 따라 과학용 CCD, 딥 디플리션, 방사선 손상과 CTE 열화, HgCdTe 적외선 어레이와 up-the-ramp 샘플링, TDI 스캔, EMCCD·sCMOS·스키퍼 CCD의 광자 계수 경쟁을 시뮬레이터로 배운다.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/space.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="우주·천문 센서 · SensorBook">
+<meta property="og:description" content="허블과 제임스 웹의 검출기를 따라 과학용 CCD, 딥 디플리션, 방사선 손상과 CTE 열화, HgCdTe 적외선 어레이와 up-the-ramp 샘플링, TDI 스캔, EMCCD·sCMOS·스키퍼 CCD의 광자 계수 경쟁을 시뮬레이터로 배운다.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/space.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"우주·천문 센서","name":"우주·천문 센서 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/space.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/space.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":16,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"허블과 제임스 웹의 검출기를 따라 과학용 CCD, 딥 디플리션, 방사선 손상과 CTE 열화, HgCdTe 적외선 어레이와 up-the-ramp 샘플링, TDI 스캔, EMCCD·sCMOS·스키퍼 CCD의 광자 계수 경쟁을 시뮬레이터로 배운다."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"16 우주·천문 센서","item":"https://sensorbook.euiyun.com/chapters/space.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -22,7 +34,7 @@
 <body data-chapter="space">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 13</div>
+    <div class="eyebrow">Chapter 16</div>
     <h1>우주·천문 센서</h1>
     <p class="lead">스마트폰 센서는 1/100초 동안 픽셀마다 수천 개의 광자를 받는다. 허블 우주망원경이 보는 가장 어두운 은하는 100초에 광전자 한 개를 준다. 광자가 이만큼 귀해지면 센서 설계의 우선순위가 완전히 바뀐다. 이 장에서는 과학용 CCD, 방사선 손상, 적외선 검출기, TDI 스캔, 광자 계수 검출기를 허블과 제임스 웹, 가이아의 실제 사례로 살펴본다.</p>
     <ul class="objectives">
@@ -76,7 +88,7 @@
         </g>
         <text x="350" y="206" class="t-dim" text-anchor="middle">같은 실리콘 검출기지만 신호 수준이 10⁶배 이상 다르다</text>
       </svg>
-      <figcaption><b>그림 13-1.</b> 픽셀당 광전자 유입률의 대략적인 범위. 천문 관측은 암전류(냉각 전 수백 e⁻/s)와 읽기 노이즈가 신호보다 훨씬 클 수 있는 영역에서 일한다.</figcaption>
+      <figcaption><b>그림 16-1.</b> 픽셀당 광전자 유입률의 대략적인 범위. 천문 관측은 암전류(냉각 전 수백 e⁻/s)와 읽기 노이즈가 신호보다 훨씬 클 수 있는 영역에서 일한다.</figcaption>
     </figure>
 
     <div class="table-wrap"><table>
@@ -137,7 +149,7 @@
           <text x="120" y="248" class="t-dim" text-anchor="middle">셔터 없이 연속 촬영 가능</text>
         </g>
       </svg>
-      <figcaption><b>그림 13-2.</b> 과학용 CCD의 두 구조. 전체 프레임 CCD는 면적 전부가 감광 영역이라 감도가 최대지만 판독 중 빛을 막을 셔터가 필요하다. 프레임 트랜스퍼 CCD는 면적의 절반을 차광한 저장 영역으로 쓰는 대신 셔터가 필요 없다.</figcaption>
+      <figcaption><b>그림 16-2.</b> 과학용 CCD의 두 구조. 전체 프레임 CCD는 면적 전부가 감광 영역이라 감도가 최대지만 판독 중 빛을 막을 셔터가 필요하다. 프레임 트랜스퍼 CCD는 면적의 절반을 차광한 저장 영역으로 쓰는 대신 셔터가 필요 없다.</figcaption>
     </figure>
 
     <h3>뒷면 조사와 박막화</h3>
@@ -179,7 +191,7 @@
           <text x="120" y="228" class="t-mono" text-anchor="middle">QE(1000 nm) ≈ 수십 %</text>
         </g>
       </svg>
-      <figcaption><b>그림 13-3.</b> 박막 CCD(왼쪽)와 딥 디플리션 CCD(오른쪽). 두꺼운 완전 공핍 실리콘은 근적외선 QE를 높이고 프린징을 없앤다. 점선 화살표는 전계를 따라 게이트 쪽 우물로 드리프트하는 전자.</figcaption>
+      <figcaption><b>그림 16-3.</b> 박막 CCD(왼쪽)와 딥 디플리션 CCD(오른쪽). 두꺼운 완전 공핍 실리콘은 근적외선 QE를 높이고 프린징을 없앤다. 점선 화살표는 전계를 따라 게이트 쪽 우물로 드리프트하는 전자.</figcaption>
     </figure>
     <p>대가도 있다. 두꺼운 실리콘은 우주선과 방사성 붕괴 입자의 궤적을 더 길게 기록하고, 드리프트 거리가 길어 전하가 옆으로 조금 퍼진다. 밝은 별일수록 이미 모인 전하가 뒤따르는 전하를 밀어내 별상이 미세하게 커지는 현상(Brighter-Fatter 효과)도 정밀 측광에서는 보정 대상이다. 베라 루빈 천문대의 3.2기가픽셀 카메라는 두께 약 100 µm의 딥 디플리션 CCD 189장으로 초점면을 채웠다.</p>
 
@@ -214,7 +226,7 @@
         <text x="570" y="156" class="t-dim" text-anchor="middle">CCD + HgCdTe 적외선</text>
         <text x="345" y="30" class="t-dim" text-anchor="middle">허블 광시야 카메라의 세대 교체</text>
       </svg>
-      <figcaption><b>그림 13-4.</b> 허블의 주력 가시광 카메라 연표. WFPC2는 주경 구면수차를 보정하는 광학계를 내장하고 1993년 설치되었고, 2002년 ACS, 2009년 WFC3가 차례로 더해졌다.</figcaption>
+      <figcaption><b>그림 16-4.</b> 허블의 주력 가시광 카메라 연표. WFPC2는 주경 구면수차를 보정하는 광학계를 내장하고 1993년 설치되었고, 2002년 ACS, 2009년 WFC3가 차례로 더해졌다.</figcaption>
     </figure>
 
     <div class="table-wrap"><table>
@@ -280,7 +292,7 @@
         <text x="340" y="214" class="t-dim" text-anchor="middle">패킷이 지나갈 때 포획 → 수 ms~수 s 뒤 방출</text>
         <text x="340" y="238" class="t-dim" text-anchor="middle">배경 전하가 있으면 트랩이 미리 채워져 손실이 준다</text>
       </svg>
-      <figcaption><b>그림 13-5.</b> CTE 열화의 원리. 전송 채널의 트랩이 지나가는 패킷에서 전자를 붙잡았다가 뒤 픽셀에 놓아준다. 패킷이 작을수록 잃는 비율이 크다.</figcaption>
+      <figcaption><b>그림 16-5.</b> CTE 열화의 원리. 전송 채널의 트랩이 지나가는 패킷에서 전자를 붙잡았다가 뒤 픽셀에 놓아준다. 패킷이 작을수록 잃는 비율이 크다.</figcaption>
     </figure>
 
     <div class="sim" id="sim-cte">
@@ -343,7 +355,7 @@
         <text x="455" y="100" class="t" text-anchor="middle">→</text>
         <text x="340" y="212" class="t-dim" text-anchor="middle">별은 두 장에서 같은 자리에, 우주선은 매번 다른 자리에 찍힌다</text>
       </svg>
-      <figcaption><b>그림 13-6.</b> CR-split. 노출을 나누면 판독 횟수가 늘어 읽기 노이즈가 한 번 더 더해지지만, 우주선으로 잃는 픽셀을 되찾는 이득이 훨씬 크다.</figcaption>
+      <figcaption><b>그림 16-6.</b> CR-split. 노출을 나누면 판독 횟수가 늘어 읽기 노이즈가 한 번 더 더해지지만, 우주선으로 잃는 픽셀을 되찾는 이득이 훨씬 크다.</figcaption>
     </figure>
   </section>
 
@@ -359,7 +371,7 @@
     </div>
 
     <h3>하이브리드 구조</h3>
-    <p>HgCdTe로는 좋은 트랜지스터를 만들 수 없다. 그래서 빛을 받는 층과 읽는 회로를 따로 만들어 붙인다. HgCdTe 포토다이오드 어레이의 픽셀마다 인듐 범프를 올리고, 실리콘 CMOS로 만든 <span class="term">판독 집적회로</span><span class="en">(Readout Integrated Circuit, ROIC)</span>에 뒤집어 눌러 접합한다. <a href="advanced.html">11장</a>에서 본 적층형 센서의 픽셀 단위 접합과 같은 발상이며, 적외선 검출기는 이를 수십 년 먼저 썼다.</p>
+    <p>HgCdTe로는 좋은 트랜지스터를 만들 수 없다. 그래서 빛을 받는 층과 읽는 회로를 따로 만들어 붙인다. HgCdTe 포토다이오드 어레이의 픽셀마다 인듐 범프를 올리고, 실리콘 CMOS로 만든 <span class="term">판독 집적회로</span><span class="en">(Readout Integrated Circuit, ROIC)</span>에 뒤집어 눌러 접합한다. <a href="advanced.html">12장</a>에서 본 적층형 센서의 픽셀 단위 접합과 같은 발상이며, 적외선 검출기는 이를 수십 년 먼저 썼다.</p>
 
     <figure class="diagram fig-lg">
       <svg viewBox="0 0 680 270" role="img" aria-label="HgCdTe 하이브리드 적외선 어레이 단면">
@@ -382,7 +394,7 @@
           <text x="200" y="222" class="t-dim" text-anchor="middle">검출은 HgCdTe가, 증폭·다중화는 실리콘이 맡는다</text>
         </g>
       </svg>
-      <figcaption><b>그림 13-7.</b> 하이브리드 적외선 어레이. 성장용 기판(CdZnTe)을 제거하면 가시광까지 감도가 넓어지고, 기판에서 우주선이 내는 형광도 사라진다.</figcaption>
+      <figcaption><b>그림 16-7.</b> 하이브리드 적외선 어레이. 성장용 기판(CdZnTe)을 제거하면 가시광까지 감도가 넓어지고, 기판에서 우주선이 내는 형광도 사라진다.</figcaption>
     </figure>
 
     <p>제임스 웹 우주망원경의 근적외선 기기들(NIRCam, NIRSpec, NIRISS, 정밀 유도 센서)은 모두 2048 × 2048 화소, 18 µm 피치의 HgCdTe 어레이 15장을 쓴다. 차단 파장은 약 2.5 µm와 약 5 µm 두 종류이고, 태양 가림막 뒤에서 복사 냉각만으로 약 40 K까지 내려간다. 5~28 µm를 보는 중적외선 기기 MIRI는 비소를 도핑한 실리콘 불순물 대역 검출기(Si:As)를 쓰는데, 불순물 준위의 작은 에너지 간격을 이용하므로 기계식 냉동기로 약 7 K까지 식혀야 한다.</p>
@@ -453,7 +465,7 @@
           <text x="245" y="192" class="t-dim" text-anchor="middle">상 이동 속도 ≠ 전하 이동 속도이면 N단에 걸쳐 번진다.</text>
         </g>
       </svg>
-      <figcaption><b>그림 13-8.</b> TDI의 원리. 전하 패킷이 별상(노랑)과 같은 속도로 이동하며 N단에 걸쳐 신호를 누적한다.</figcaption>
+      <figcaption><b>그림 16-8.</b> TDI의 원리. 전하 패킷이 별상(노랑)과 같은 속도로 이동하며 N단에 걸쳐 신호를 누적한다.</figcaption>
     </figure>
 
     <div class="formula">$$f_{\text{line}} = \frac{v_{\text{image}}}{p},\qquad \mathrm{SNR}_{\text{TDI}} = \frac{N s}{\sqrt{N s + \sigma_r^2}},\qquad \mathrm{MTF}_{\text{smear}}(f) = \left|\mathrm{sinc}\!\left(f\,N\,\varepsilon\right)\right|$$
@@ -547,7 +559,7 @@
     <p>그렇다고 CCD와 하이브리드 어레이가 사라진 것은 아니다. 최고 수준의 균일도와 선형성, 완전한 필 팩터가 필요한 광시야 탐사(유클리드의 가시광 카메라, 루빈 천문대)는 여전히 CCD를 택했고, 적외선에서는 HgCdTe 하이브리드 어레이가 4096 × 4096 화소·10 µm 피치까지 커져 낸시 그레이스 로먼 우주망원경에 18장이 들어간다. 흐름을 한 줄로 요약하면, 검출 재료는 파장이 정하고 판독 회로는 CMOS로 수렴하고 있다.</p>
     <div class="callout">
       <strong>다음 장과의 연결</strong>
-      <p>이 장의 주제들은 지상 센서의 평가 항목과 이어진다. 암전류의 온도 의존성, 핫 픽셀과 RTS 분포, 선형성 측정은 <a href="characterization.html">8장 센서 특성 평가</a>에서, 고온과 장기 신뢰성이라는 또 다른 극한 환경은 <a href="automotive.html">12장 차량용 센서</a>에서 다룬다. 응용별 요구사항을 한 표로 비교한 것은 <a href="design.html">14장</a>에 있다.</p>
+      <p>이 장의 주제들은 지상 센서의 평가 항목과 이어진다. 암전류의 온도 의존성, 핫 픽셀과 RTS 분포, 선형성 측정은 <a href="characterization.html">8장 센서 특성 평가</a>에서, 고온과 장기 신뢰성이라는 또 다른 극한 환경은 <a href="automotive.html">15장 차량용 센서</a>에서 다룬다. 응용별 요구사항을 한 표로 비교한 것은 <a href="design.html">18장</a>에 있다.</p>
     </div>
   </section>
 

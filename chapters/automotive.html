@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>차량용 센서 · SensorBook</title>
 <meta name="description" content="차량 카메라의 종류와 요구사항, LED 플리커 억제(LFM), 분할 픽셀·LOFIC을 조합한 120 dB 이상 HDR, 고온 암전류, RCCB·RYYCy CFA, 기능 안전(ASIL)과 자가 진단, NIR 글로벌 셔터 실내 모니터링을 시뮬레이터로 배운다.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/automotive.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="차량용 센서 · SensorBook">
+<meta property="og:description" content="차량 카메라의 종류와 요구사항, LED 플리커 억제(LFM), 분할 픽셀·LOFIC을 조합한 120 dB 이상 HDR, 고온 암전류, RCCB·RYYCy CFA, 기능 안전(ASIL)과 자가 진단, NIR 글로벌 셔터 실내 모니터링을 시뮬레이터로 배운다.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/automotive.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"차량용 센서","name":"차량용 센서 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/automotive.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/automotive.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":15,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"차량 카메라의 종류와 요구사항, LED 플리커 억제(LFM), 분할 픽셀·LOFIC을 조합한 120 dB 이상 HDR, 고온 암전류, RCCB·RYYCy CFA, 기능 안전(ASIL)과 자가 진단, NIR 글로벌 셔터 실내 모니터링을 시뮬레이터로 배운다."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"15 차량용 센서","item":"https://sensorbook.euiyun.com/chapters/automotive.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -25,7 +37,7 @@
 <body data-chapter="automotive">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 12</div>
+    <div class="eyebrow">Chapter 15</div>
     <h1>차량용 센서</h1>
     <p class="lead">스마트폰 센서는 사진이 예쁘게 나오면 성공이다. 차량용 센서는 터널 출구의 역광, 한밤의 헤드라이트, 깜박이는 LED 신호등, 한여름 대시보드 위의 열기 속에서도 <b>한 프레임도 놓치지 않아야</b> 성공이다. 이 장에서는 같은 CMOS 이미지 센서가 자동차라는 환경을 만나 어떻게 달라지는지를 본다.</p>
     <ul class="objectives">
@@ -77,7 +89,7 @@
         <text x="20" y="320" class="t-dim">NIR 글로벌 셔터</text>
         <line x1="150" y1="296" x2="334" y2="172" stroke="var(--bad)" stroke-dasharray="3 3"/>
       </svg>
-      <figcaption><b>그림 12-1.</b> 차량 카메라 배치. 전방 카메라(파랑)는 먼 곳을 보는 좁은 화각과 교차로를 보는 넓은 화각을 함께 쓰고, 서라운드 뷰(보라)는 어안 렌즈 네 대로 차 둘레를 덮는다. 실내에는 근적외선 조명과 짝을 이룬 모니터링 카메라가 있다.</figcaption>
+      <figcaption><b>그림 15-1.</b> 차량 카메라 배치. 전방 카메라(파랑)는 먼 곳을 보는 좁은 화각과 교차로를 보는 넓은 화각을 함께 쓰고, 서라운드 뷰(보라)는 어안 렌즈 네 대로 차 둘레를 덮는다. 실내에는 근적외선 조명과 짝을 이룬 모니터링 카메라가 있다.</figcaption>
     </figure>
 
     <div class="table-wrap"><table>
@@ -132,7 +144,7 @@
         <line x1="300" y1="244" x2="503" y2="244" stroke="var(--accent)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
         <text x="400" y="276" class="t-acc" text-anchor="middle">단일 노출 센서 ≈ 70 dB</text>
       </svg>
-      <figcaption><b>그림 12-2.</b> 주행 장면의 휘도 범위. 70 dB 창 하나로는 터널 출구도, 야간 전조등 장면도 한꺼번에 담을 수 없다. 20 dB가 10배이므로 140 dB는 1000만 : 1이다.</figcaption>
+      <figcaption><b>그림 15-2.</b> 주행 장면의 휘도 범위. 70 dB 창 하나로는 터널 출구도, 야간 전조등 장면도 한꺼번에 담을 수 없다. 20 dB가 10배이므로 140 dB는 1000만 : 1이다.</figcaption>
     </figure>
 
     <p>장면이 넓으면 <a href="shutter.html#hdr-methods">9장의 HDR</a>을 쓰면 된다. 문제는 차량에서는 가장 손쉬운 HDR, 즉 긴 노출과 짧은 노출을 합치는 방법이 LED 광원과 정면으로 충돌한다는 점이다. 아래 시뮬레이터로 먼저 터널 출구에서 HDR이 왜 필요한지 확인하고, 다음 절에서 그 충돌을 살펴보자.</p>
@@ -191,7 +203,7 @@
         <text x="210" y="256" class="t-dim" text-anchor="middle">t_exp = T → 항상 D·T만큼</text>
         <text x="500" y="256" class="t-dim" text-anchor="middle">위상과 무관하게 같은 양</text>
       </svg>
-      <figcaption><b>그림 12-3.</b> PWM LED와 노출 창. 꺼진 구간보다 짧은 노출은 위상에 따라 빛을 하나도 못 받을 수 있다. 노출이 한 주기와 같으면 어디서 시작하든 켜진 구간을 정확히 한 번 덮는다.</figcaption>
+      <figcaption><b>그림 15-3.</b> PWM LED와 노출 창. 꺼진 구간보다 짧은 노출은 위상에 따라 빛을 하나도 못 받을 수 있다. 노출이 한 주기와 같으면 어디서 시작하든 켜진 구간을 정확히 한 번 덮는다.</figcaption>
     </figure>
 
     <p>노출 시작 시각은 LED 위상과 무관하므로 한 주기 안에서 균일하게 분포한다고 볼 수 있다. 주기 \(T\), 듀티 \(D\)인 LED를 노출 시간 \(t_{\text{exp}}\)로 찍을 때, 노출 창이 꺼진 구간 \((1-D)T\) 안에 완전히 들어가 <b>빛을 전혀 받지 못할 확률</b>은</p>
@@ -273,7 +285,7 @@
         <text x="20" y="280" class="t-dim">③ 넘친 전하까지 합쳐 읽는다. 용량이 수십 배.</text>
         <text x="20" y="304" class="t-dim">④ 감도 1/100짜리 PD. 전조등과 태양 반사 담당.</text>
       </svg>
-      <figcaption><b>그림 12-4.</b> 차량용 HDR 픽셀의 한 구성 예. 한 노출에서 네 신호를 차례로 읽고, 센서 안의 합성 회로가 조도 구간마다 가장 SNR이 좋은 신호를 골라 20~24비트 선형 값을 만든다. 실제 제품은 이 가운데 일부만 조합하기도 한다.</figcaption>
+      <figcaption><b>그림 15-4.</b> 차량용 HDR 픽셀의 한 구성 예. 한 노출에서 네 신호를 차례로 읽고, 센서 안의 합성 회로가 조도 구간마다 가장 SNR이 좋은 신호를 골라 20~24비트 선형 값을 만든다. 실제 제품은 이 가운데 일부만 조합하기도 한다.</figcaption>
     </figure>
 
     <p>여러 신호를 이어 붙일 때 가장 조심할 것이 <span class="term">전환점의 SNR 딥</span><span class="en">(SNR Drop at Transition)</span>이다. 어떤 신호가 포화하는 조도에서 다음 신호로 넘어가면, 다음 신호는 감도가 낮거나 노이즈가 커서 SNR이 갑자기 떨어진다. 대·소 PD만 쓰는 경우를 보자.</p>
@@ -399,7 +411,7 @@
           <text x="57" y="142" text-anchor="middle" class="t">RYYCy</text><text x="57" y="164" text-anchor="middle" class="t-dim">감도↑ 색 분리 유지</text>
         </g>
       </svg>
-      <figcaption><b>그림 12-5.</b> 차량용 CFA. 오른쪽으로 갈수록 베이어에서 멀어진다. C는 필터 없는 투명 픽셀, Y는 노랑(R+G 통과), Cy는 청록(G+B 통과).</figcaption>
+      <figcaption><b>그림 15-5.</b> 차량용 CFA. 오른쪽으로 갈수록 베이어에서 멀어진다. C는 필터 없는 투명 픽셀, Y는 노랑(R+G 통과), Cy는 청록(G+B 통과).</figcaption>
     </figure>
 
     <div class="table-wrap"><table>
@@ -463,7 +475,7 @@
         <text x="540" y="272" class="t-mono" style="fill:var(--ok)">+ 패킷 CRC</text>
         <path d="M370 254 H400" class="s-acc"/>
       </svg>
-      <figcaption><b>그림 12-6.</b> 차량용 센서의 자가 진단 지점(초록 글씨). 영상 데이터와 함께 진단 결과와 상태 정보가 매 프레임 내보내진다.</figcaption>
+      <figcaption><b>그림 15-6.</b> 차량용 센서의 자가 진단 지점(초록 글씨). 영상 데이터와 함께 진단 결과와 상태 정보가 매 프레임 내보내진다.</figcaption>
     </figure>
 
     <ul>
@@ -542,7 +554,7 @@
           <text x="150" y="270" class="t-dim" text-anchor="middle">→ 유효 흡수 경로 증가</text>
         </g>
       </svg>
-      <figcaption><b>그림 12-7.</b> 왼쪽: NIR LED를 글로벌 셔터의 짧은 노출에 맞춰 순간적으로 강하게 켠다. 연속광인 태양은 노출 시간만큼만, 펄스광인 LED는 전부 적분된다. 오른쪽: 뒷면의 산란 구조가 빛을 비스듬히 꺾고 DTI와 배선층이 가두어 얇은 실리콘 안에서 경로를 늘린다.</figcaption>
+      <figcaption><b>그림 15-7.</b> 왼쪽: NIR LED를 글로벌 셔터의 짧은 노출에 맞춰 순간적으로 강하게 켠다. 연속광인 태양은 노출 시간만큼만, 펄스광인 LED는 전부 적분된다. 오른쪽: 뒷면의 산란 구조가 빛을 비스듬히 꺾고 DTI와 배선층이 가두어 얇은 실리콘 안에서 경로를 늘린다.</figcaption>
     </figure>
 
     <p>글로벌 셔터가 필요한 또 하나의 이유가 여기 있다. 롤링 셔터에서는 행마다 노출 시점이 달라 LED를 판독 시간 내내 켜 두어야 한다. 글로벌 셔터는 전 화소가 같은 100 µs 동안만 노출하므로 LED도 그 순간만 켜면 된다. 평균 소비 전력과 발열이 줄고, 같은 평균 전력으로 순간 밝기를 수십 배 높일 수 있어 <b>태양광 대비 신호비</b>가 그만큼 좋아진다.</p>

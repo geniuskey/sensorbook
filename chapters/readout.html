@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>픽셀 회로와 리드아웃 · SensorBook</title>
 <meta name="description" content="CCD와 CMOS, 3T/4T APS, 전하 전송, 변환 이득, CDS, 컬럼 병렬 ADC, 칩 아키텍처와 프레임 레이트 — 전하가 숫자가 되기까지.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/readout.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="픽셀 회로와 리드아웃 · SensorBook">
+<meta property="og:description" content="CCD와 CMOS, 3T/4T APS, 전하 전송, 변환 이득, CDS, 컬럼 병렬 ADC, 칩 아키텍처와 프레임 레이트 — 전하가 숫자가 되기까지.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/readout.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"픽셀 회로와 리드아웃","name":"픽셀 회로와 리드아웃 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/readout.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/readout.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":6,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"CCD와 CMOS, 3T/4T APS, 전하 전송, 변환 이득, CDS, 컬럼 병렬 ADC, 칩 아키텍처와 프레임 레이트 — 전하가 숫자가 되기까지."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"06 픽셀 회로와 리드아웃","item":"https://sensorbook.euiyun.com/chapters/readout.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -539,7 +551,7 @@
   <!-- ============================================================ 9 -->
   <section id="arch">
     <h2>칩 아키텍처와 프레임 레이트</h2>
-    <p>지금까지의 부품을 한 칩 위에 배치하면 아래와 같다. 픽셀 어레이가 면적 대부분을 차지하고, 왼쪽(또는 양쪽)에 행 드라이버, 아래(또는 위아래)에 컬럼 ADC, 주변에 타이밍·아날로그 바이어스·디지털 로직과 고속 직렬 인터페이스가 있다. 적층(stacked) 센서에서는 픽셀 어레이만 위 웨이퍼에, 나머지 회로는 아래 로직 웨이퍼에 두고 Cu–Cu 본딩이나 TSV로 연결한다(11장).</p>
+    <p>지금까지의 부품을 한 칩 위에 배치하면 아래와 같다. 픽셀 어레이가 면적 대부분을 차지하고, 왼쪽(또는 양쪽)에 행 드라이버, 아래(또는 위아래)에 컬럼 ADC, 주변에 타이밍·아날로그 바이어스·디지털 로직과 고속 직렬 인터페이스가 있다. 적층(stacked) 센서에서는 픽셀 어레이만 위 웨이퍼에, 나머지 회로는 아래 로직 웨이퍼에 두고 Cu–Cu 본딩이나 TSV로 연결한다(12장).</p>
     <figure class="diagram">
       <svg class="mx" viewBox="0 0 480 400" role="img" aria-label="CMOS 이미지 센서 칩 아키텍처">
         <defs>

@@ -8,6 +8,18 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>최신 센서 기술 · SensorBook</title>
 <meta name="description" content="적층형 센서와 하이브리드 본딩, 듀얼 픽셀 PDAF, 테트라·노나셀 비닝, LOFIC·글로벌 셔터, SPAD dToF와 iToF, 이벤트 센서, SWIR과 나노포토닉스까지 최신 이미지 센서 기술을 시뮬레이터로 살펴본다.">
+<link rel="canonical" href="https://sensorbook.euiyun.com/chapters/advanced.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SensorBook">
+<meta property="og:title" content="최신 센서 기술 · SensorBook">
+<meta property="og:description" content="적층형 센서와 하이브리드 본딩, 듀얼 픽셀 PDAF, 테트라·노나셀 비닝, LOFIC·글로벌 셔터, SPAD dToF와 iToF, 이벤트 센서, SWIR과 나노포토닉스까지 최신 이미지 센서 기술을 시뮬레이터로 살펴본다.">
+<meta property="og:url" content="https://sensorbook.euiyun.com/chapters/advanced.html">
+<meta property="og:image" content="https://sensorbook.euiyun.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"최신 센서 기술","name":"최신 센서 기술 · SensorBook","url":"https://sensorbook.euiyun.com/chapters/advanced.html","mainEntityOfPage":"https://sensorbook.euiyun.com/chapters/advanced.html","inLanguage":"ko","isAccessibleForFree":true,"learningResourceType":"interactive textbook chapter","position":12,"image":"https://sensorbook.euiyun.com/og.png","dateModified":"2026-10-01","isPartOf":{"@type":"Book","@id":"https://sensorbook.euiyun.com/#book","name":"SensorBook — 인터랙티브 이미지 센서 교과서","url":"https://sensorbook.euiyun.com/"},"publisher":{"@type":"Organization","name":"SensorBook","url":"https://sensorbook.euiyun.com/"},"description":"적층형 센서와 하이브리드 본딩, 듀얼 픽셀 PDAF, 테트라·노나셀 비닝, LOFIC·글로벌 셔터, SPAD dToF와 iToF, 이벤트 센서, SWIR과 나노포토닉스까지 최신 이미지 센서 기술을 시뮬레이터로 살펴본다."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SensorBook","item":"https://sensorbook.euiyun.com/"},{"@type":"ListItem","position":2,"name":"12 최신 센서 기술","item":"https://sensorbook.euiyun.com/chapters/advanced.html"}]}]}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -33,7 +45,7 @@
 <body data-chapter="advanced">
 <main class="chapter">
   <header class="chapter-hero">
-    <div class="eyebrow">Chapter 11</div>
+    <div class="eyebrow">Chapter 12</div>
     <h1>최신 센서 기술</h1>
     <p class="lead">지난 15년 동안 이미지 센서는 “평면 위의 픽셀 배열”에서 “여러 층의 웨이퍼를 포갠 3차원 시스템”으로 바뀌었다. 픽셀은 초점을 스스로 재고, 필요에 따라 합쳐지거나 쪼개지며, 광자 하나하나의 도착 시각이나 밝기의 변화만을 보고하기도 한다. 이 장에서는 오늘날의 스마트폰·자동차·로봇 센서를 이루는 핵심 신기술을 원리 중심으로 훑어본다.</p>
     <ul class="objectives">
@@ -100,7 +112,7 @@
         <text x="30" y="266" class="lbl-dim">연결 밀도·픽셀 면적 비율 증가, 기능별 최적 공정 분리</text>
         <text x="730" y="286" text-anchor="end" class="t-mono">파란 사각형: PD 어레이 / 청록: 로직 / 구리색: 연결</text>
       </svg>
-      <figcaption><b>그림 11-1.</b> 적층형 센서의 발전. (a) 기존 BSI는 픽셀 어레이 옆에 주변 회로가 자리를 차지했다. (b) 로직을 아래 웨이퍼로 옮기고 가장자리의 관통 실리콘 비아(TSV)로 연결했다. (c) 두 웨이퍼의 Cu 패드와 절연막을 한 번에 접합하는 하이브리드 본딩으로 연결 피치가 µm 이하까지 줄었다. (d) 픽셀과 로직 사이에 DRAM을 끼워 넣은 3층 구조.</figcaption>
+      <figcaption><b>그림 12-1.</b> 적층형 센서의 발전. (a) 기존 BSI는 픽셀 어레이 옆에 주변 회로가 자리를 차지했다. (b) 로직을 아래 웨이퍼로 옮기고 가장자리의 관통 실리콘 비아(TSV)로 연결했다. (c) 두 웨이퍼의 Cu 패드와 절연막을 한 번에 접합하는 하이브리드 본딩으로 연결 피치가 µm 이하까지 줄었다. (d) 픽셀과 로직 사이에 DRAM을 끼워 넣은 3층 구조.</figcaption>
     </figure>
 
     <div class="sim" id="sim-stk">
@@ -130,7 +142,7 @@
       <li><strong>병렬성·속도:</strong> 하이브리드 본딩으로 픽셀 블록마다 ADC를 붙이는 <em>픽셀 레벨·블록 레벨 ADC</em>가 가능해져 글로벌 셔터와 초고속 읽기가 쉬워졌다.</li>
       <li><strong>메모리:</strong> 3층 적층의 DRAM은 프레임 전체를 수 ms 안에 받아 두었다가 천천히 내보낸다. 롤링 셔터 왜곡(9장)이 줄고, 960 fps 같은 초고속 슬로 모션이 가능해졌다.</li>
     </ul>
-    <div class="callout deep"><strong>하이브리드 본딩</strong><p>두 웨이퍼 표면을 CMP로 원자 수준까지 평탄화한 뒤, 표면의 SiO₂끼리 먼저 상온에서 결합(fusion bond)시키고 열처리로 Cu 패드가 팽창해 금속 결합하게 만든다. 범프(bump)나 접착제가 없어 패드 피치를 1 µm 안팎까지 줄일 수 있다. 정렬 오차(overlay)는 수십~100 nm 수준으로 관리해야 한다.</p></div>
+    <div class="callout deep"><strong>하이브리드 본딩</strong><p>두 웨이퍼 표면을 CMP로 원자 수준까지 평탄화한 뒤, 표면의 SiO₂끼리 먼저 상온에서 결합(fusion bond)시키고 열처리로 Cu 패드가 팽창해 금속 결합하게 만든다. 범프(bump)나 접착제가 없어 패드 피치를 1 µm 안팎까지 줄일 수 있다. 정렬 오차(overlay)는 수십~100 nm 수준으로 관리해야 한다. 공정 변수는 <a href="fabrication.html">13장</a>에서 자세히 본다.</p></div>
   </section>
 
   <!-- ============================================================ 2 -->
@@ -168,7 +180,7 @@
         <text x="410" y="220" class="lbl-dim">PD층 / 픽셀 트랜지스터층 / 로직층</text>
         <text x="410" y="240" class="lbl-dim">→ 풀웰 약 2배, 큰 SF로 노이즈 감소</text>
       </svg>
-      <figcaption><b>그림 11-2.</b> 2층 트랜지스터 픽셀 개념(2021년 발표). PD가 한 층을 독차지하면서 포화 신호량이 대략 두 배가 되고, 아래층의 소스 팔로워 트랜지스터를 크게 만들 수 있어 1/f·RTS 노이즈가 줄어든다. 두 층은 픽셀마다 수직 배선으로 이어진다.</figcaption>
+      <figcaption><b>그림 12-2.</b> 2층 트랜지스터 픽셀 개념(2021년 발표). PD가 한 층을 독차지하면서 포화 신호량이 대략 두 배가 되고, 아래층의 소스 팔로워 트랜지스터를 크게 만들 수 있어 1/f·RTS 노이즈가 줄어든다. 두 층은 픽셀마다 수직 배선으로 이어진다.</figcaption>
     </figure>
     <p>풀웰이 커지면 다이내믹 레인지가, SF가 커지면 읽기 노이즈가 좋아진다(7장). 작은 픽셀에서 “PD 면적 대 트랜지스터 면적”이라는 오래된 제로섬 게임을 3차원으로 풀어낸 셈이다.</p>
   </section>
@@ -215,7 +227,7 @@
         <text x="640" y="234" text-anchor="middle" class="lbl-dim">쿼드 PD는 가로·세로 시차를</text>
         <text x="640" y="252" text-anchor="middle" class="lbl-dim">모두 측정 (세로 줄무늬에도 강함)</text>
       </svg>
-      <figcaption><b>그림 11-3.</b> PDAF 픽셀의 세 세대. (a) 금속 차광막으로 픽셀 절반을 가린 전용 AF 픽셀 쌍. (b) 픽셀 하나의 PD를 좌·우 둘로 나눈 듀얼 픽셀. (c) 이웃 픽셀들이 마이크로렌즈 하나를 공유하는 2×1 OCL, 그리고 2×2 PD로 양방향 시차를 재는 쿼드 PD.</figcaption>
+      <figcaption><b>그림 12-3.</b> PDAF 픽셀의 세 세대. (a) 금속 차광막으로 픽셀 절반을 가린 전용 AF 픽셀 쌍. (b) 픽셀 하나의 PD를 좌·우 둘로 나눈 듀얼 픽셀. (c) 이웃 픽셀들이 마이크로렌즈 하나를 공유하는 2×1 OCL, 그리고 2×2 PD로 양방향 시차를 재는 쿼드 PD.</figcaption>
     </figure>
 
     <div class="sim" id="sim-af">
@@ -267,7 +279,7 @@
         <text x="480" y="236" text-anchor="middle" class="lbl-dim">108 MP → 12 MP</text>
         <text x="670" y="236" text-anchor="middle" class="lbl-dim">200 MP → 12.5 MP</text>
       </svg>
-      <figcaption><b>그림 11-4.</b> 같은 색 블록 크기에 따른 컬러 필터 배열(가는 격자가 실제 픽셀). 블록을 하나의 큰 픽셀로 합치면 다시 일반 베이어 배열이 된다. 16-in-1 센서는 보통 2×2 비닝(50 MP)과 4×4 비닝(12.5 MP)을 모두 지원한다.</figcaption>
+      <figcaption><b>그림 12-4.</b> 같은 색 블록 크기에 따른 컬러 필터 배열(가는 격자가 실제 픽셀). 블록을 하나의 큰 픽셀로 합치면 다시 일반 베이어 배열이 된다. 16-in-1 센서는 보통 2×2 비닝(50 MP)과 4×4 비닝(12.5 MP)을 모두 지원한다.</figcaption>
     </figure>
     <p>두 가지 읽기 모드가 있다.</p>
     <ul>
@@ -331,7 +343,7 @@
         <text x="540" y="210" class="lbl-dim">감도 다른 두 PD를 동시 노출</text>
         <text x="540" y="230" class="lbl-dim">→ 움직임 아티팩트 없는 HDR</text>
       </svg>
-      <figcaption><b>그림 11-5.</b> 단일 노출 HDR을 위한 세 가지 픽셀 구조. 자세한 동작과 수치는 <a href="shutter.html">9장 셔터와 HDR</a>을 참고하자.</figcaption>
+      <figcaption><b>그림 12-5.</b> 단일 노출 HDR을 위한 세 가지 픽셀 구조. 자세한 동작과 수치는 <a href="shutter.html">9장 셔터와 HDR</a>을 참고하자.</figcaption>
     </figure>
     <div class="table-wrap"><table>
       <thead><tr><th>방식</th><th>원리</th><th>장점</th><th>단점</th></tr></thead>
@@ -364,7 +376,7 @@
         <text x="30" y="185" class="lbl-dim">① 전 픽셀 동시에 PD→MN 전송(노출 종료)  ② MN을 줄 단위로 FD→ADC 읽기</text>
         <text x="30" y="205" class="lbl-dim">MN에 새어 들어오는 빛·전하 = 기생 광감도(PLS) → 차광과 광학 분리가 핵심</text>
       </svg>
-      <figcaption><b>그림 11-6.</b> 전하 영역(charge-domain) 글로벌 셔터 픽셀. 메모리 노드가 픽셀 면적을 차지하고 빛에 노출되면 안 되므로, BSI에서는 금속 차광과 DTI, 적층 구조가 함께 쓰인다. 전하 대신 전압을 픽셀 내 커패시터에 저장하는 전압 영역(voltage-domain) 방식도 있다.</figcaption>
+      <figcaption><b>그림 12-6.</b> 전하 영역(charge-domain) 글로벌 셔터 픽셀. 메모리 노드가 픽셀 면적을 차지하고 빛에 노출되면 안 되므로, BSI에서는 금속 차광과 DTI, 적층 구조가 함께 쓰인다. 전하 대신 전압을 픽셀 내 커패시터에 저장하는 전압 영역(voltage-domain) 방식도 있다.</figcaption>
     </figure>
     <p>GS 센서의 성능 지표로는 <strong>기생 광감도</strong><span class="en">(Parasitic Light Sensitivity, PLS)</span>가 중요하다. 메모리에 보관 중인 전하가 대기 시간 동안 새로 들어온 빛에 오염되는 비율로, 좋은 센서는 −100 dB 수준(10만 분의 1)까지 낮춘다. 적층형·하이브리드 본딩 기술은 메모리를 아래층으로 보내 픽셀 크기를 줄인 GS 센서를 가능하게 했다.</p>
   </section>
@@ -405,7 +417,7 @@
         <text x="380" y="200" class="lbl-dim">d = c·Δt / 2  (1 ns ↔ 15 cm)</text>
         <text x="380" y="222" class="lbl-dim">수백~수천 펄스를 반복해 도착 시각 분포를 쌓는다</text>
       </svg>
-      <figcaption><b>그림 11-7.</b> 왼쪽: SPAD의 가이거 모드 사이클(무장 → 애벌랜치 → 소멸 → 재충전). 오른쪽: 직접 비행시간 측정. 레이저 펄스를 쏜 시각과 SPAD가 광자를 검출한 시각의 차이를 시간-디지털 변환기(TDC)로 잰다.</figcaption>
+      <figcaption><b>그림 12-7.</b> 왼쪽: SPAD의 가이거 모드 사이클(무장 → 애벌랜치 → 소멸 → 재충전). 오른쪽: 직접 비행시간 측정. 레이저 펄스를 쏜 시각과 SPAD가 광자를 검출한 시각의 차이를 시간-디지털 변환기(TDC)로 잰다.</figcaption>
     </figure>
     <p><span class="term">dToF</span><span class="en">(direct Time-of-Flight)</span>는 이 시간 차로 거리를 구한다. 한 번의 펄스에서 되돌아오는 광자는 확률적으로만 검출되고, 햇빛 같은 배경광 광자도 무작위로 섞인다. 그래서 펄스를 수백~수천 번 반복해 도착 시각의 <strong>히스토그램</strong>을 만들고, 배경 위로 솟은 봉우리를 찾는다.</p>
     <div class="formula">$$d = \frac{c\,\Delta t}{2},\qquad \sigma_d \approx \frac{c}{2}\,\frac{\sigma_t}{\sqrt{N_\text{sig}}}$$<div class="where">\(\sigma_t\)는 레이저 펄스 폭·SPAD 지터·TDC 분해능을 합친 시간 퍼짐, \(N_\text{sig}\)는 봉우리에 쌓인 신호 광자 수. 배경광이 강하면 SPAD가 먼저 배경 광자에 반응해 데드 타임에 빠지므로, 먼 거리의 신호가 가려지는 <strong>파일업</strong>(pile-up)이 생긴다.</div></div>
@@ -452,7 +464,7 @@
         <text x="330" y="190" text-anchor="middle" class="t-mono">Q0</text><text x="390" y="190" text-anchor="middle" class="t-mono">Q90</text><text x="450" y="190" text-anchor="middle" class="t-mono">Q180</text><text x="510" y="190" text-anchor="middle" class="t-mono">Q270</text>
         <text x="60" y="214" class="lbl-dim">φ = 2π f_mod Δt — 네 위상 창에 쌓인 전하로 위상을 계산</text>
       </svg>
-      <figcaption><b>그림 11-8.</b> iToF의 4위상 샘플링. 되돌아온 변조광이 각 위상 창과 겹치는 정도가 위상 지연에 따라 달라진다. dToF보다 픽셀이 작고(수 µm) 해상도가 높지만, 먼 거리·강한 배경광·다중 반사(multipath)에 약하다.</figcaption>
+      <figcaption><b>그림 12-8.</b> iToF의 4위상 샘플링. 되돌아온 변조광이 각 위상 창과 겹치는 정도가 위상 지연에 따라 달라진다. dToF보다 픽셀이 작고(수 µm) 해상도가 높지만, 먼 거리·강한 배경광·다중 반사(multipath)에 약하다.</figcaption>
     </figure>
     <div class="table-wrap"><table>
       <thead><tr><th>항목</th><th>dToF (SPAD)</th><th>iToF (lock-in)</th></tr></thead>
@@ -497,7 +509,7 @@
   <section id="beyond">
     <h2>SWIR 센서와 나노포토닉스</h2>
     <h3>단파적외선(SWIR)</h3>
-    <p>실리콘의 밴드갭(1.12 eV)은 약 1.1 µm보다 긴 빛을 흡수하지 못한다(2장). 0.9~1.7 µm의 <span class="term">단파적외선</span><span class="en">(Short-Wave Infrared, SWIR)</span>은 안개·연기를 잘 통과하고, 물·플라스틱의 흡수 특성으로 재료를 구별할 수 있으며, 1.4 µm 이상은 눈에 안전한 레이저를 쓸 수 있어 산업 검사·자율주행·보안에 유용하다.</p>
+    <p>실리콘의 밴드갭(1.12 eV)은 약 1.1 µm보다 긴 빛을 흡수하지 못한다(2장). 약 1~2.5 µm의 <span class="term">단파적외선</span><span class="en">(Short-Wave Infrared, SWIR)</span>은 안개·연기를 잘 통과하고, 물·플라스틱의 흡수 특성으로 재료를 구별할 수 있으며, 1.4 µm 이상은 눈에 안전한 레이저를 쓸 수 있어 산업 검사·자율주행·보안에 유용하다. 표준 InGaAs 센서의 감도 범위는 이 가운데 0.9~1.7 µm다.</p>
     <figure class="diagram">
       <svg viewBox="0 0 720 250" role="img" aria-label="광검출 재료별 감도 파장 범위">
         <path d="M120 200H690" class="s-axis"/>
@@ -513,7 +525,7 @@
         <text x="20" y="146" class="lbl">InGaAs</text><rect x="357" y="132" width="333" height="20" rx="4" fill="var(--warn)" opacity=".45" stroke="var(--warn)"/>
         <text x="20" y="182" class="lbl">양자점 (PbS)</text><rect x="120" y="168" width="570" height="20" rx="4" fill="var(--ok)" opacity=".3" stroke="var(--ok)"/>
       </svg>
-      <figcaption><b>그림 11-9.</b> 광검출 재료별 대략적 감도 범위. InGaAs 센서는 InGaAs 광흡수층 웨이퍼를 실리콘 읽기 회로(ROIC)에 Cu–Cu 본딩이나 범프로 붙이고, 양자점 센서는 콜로이드 PbS 양자점 박막을 ROIC 위에 코팅해 만든다. 양자점은 크기로 흡수 파장을 조절할 수 있어 저가 SWIR의 유력 후보다.</figcaption>
+      <figcaption><b>그림 12-9.</b> 광검출 재료별 대략적 감도 범위. InGaAs 센서는 InGaAs 광흡수층 웨이퍼를 실리콘 읽기 회로(ROIC)에 Cu–Cu 본딩이나 범프로 붙이고, 양자점 센서는 콜로이드 PbS 양자점 박막을 ROIC 위에 코팅해 만든다. 양자점은 크기로 흡수 파장을 조절할 수 있어 저가 SWIR의 유력 후보다.</figcaption>
     </figure>
 
     <h3>메타렌즈와 나노포토닉 컬러 라우터</h3>
@@ -545,7 +557,7 @@
         <text x="460" y="186" text-anchor="middle" class="t-mono">R</text><text x="540" y="186" text-anchor="middle" class="t-mono">G</text><text x="620" y="186" text-anchor="middle" class="t-mono">B</text>
         <text x="540" y="222" text-anchor="middle" class="lbl-dim">나노 기둥 배열이 파장별로 빛의 방향을 나눔</text>
       </svg>
-      <figcaption><b>그림 11-10.</b> 흡수형 컬러 필터 대 컬러 라우터. 라우터는 한 픽셀 위에 떨어진 빛 중 다른 색 성분을 이웃 픽셀로 보내 준다. 같은 원리로 평면 나노 구조로 렌즈 기능을 구현한 <strong>메타렌즈</strong>(metalens)는 마이크로렌즈 대체, 초박형 카메라 모듈, 편광·분광 카메라 등에 연구되고 있다.</figcaption>
+      <figcaption><b>그림 12-10.</b> 흡수형 컬러 필터 대 컬러 라우터. 라우터는 한 픽셀 위에 떨어진 빛 중 다른 색 성분을 이웃 픽셀로 보내 준다. 같은 원리로 평면 나노 구조로 렌즈 기능을 구현한 <strong>메타렌즈</strong>(metalens)는 마이크로렌즈 대체, 초박형 카메라 모듈, 편광·분광 카메라 등에 연구되고 있다.</figcaption>
     </figure>
   </section>
 
@@ -557,15 +569,15 @@
       <thead><tr><th>흐름</th><th>내용</th><th>관련 장</th></tr></thead>
       <tbody>
         <tr><td>픽셀 미세화의 한계</td><td>0.5 µm 이하에서는 회절·풀웰·크로스토크가 근본 제약. 픽셀 수보다 픽셀당 성능과 비닝 유연성이 중요해진다.</td><td>3, 5, 7장</td></tr>
-        <tr><td>다층 적층</td><td>PD층 / 픽셀 트랜지스터층 / 메모리 / 로직의 3~4층 적층, 픽셀 단위 하이브리드 본딩과 픽셀 레벨 ADC.</td><td>6, 11장</td></tr>
+        <tr><td>다층 적층</td><td>PD층 / 픽셀 트랜지스터층 / 메모리 / 로직의 3~4층 적층, 픽셀 단위 하이브리드 본딩과 픽셀 레벨 ADC.</td><td>6, 12장</td></tr>
         <tr><td>인센서 컴퓨팅</td><td>로직층에 AI 가속기를 넣어 센서가 영상 대신 “인식 결과”를 내보냄 → 전력·프라이버시 이점.</td><td>10장</td></tr>
         <tr><td>글로벌 셔터의 대중화</td><td>적층 GS로 작은 픽셀의 GS 구현, AR/VR 추적·머신비전·모바일로 확산.</td><td>9장</td></tr>
-        <tr><td>광자 계수·3D 센싱</td><td>SPAD 어레이의 고해상도화, 모바일·차량 LiDAR, 저조도 광자 계수 영상.</td><td>11장</td></tr>
+        <tr><td>광자 계수·3D 센싱</td><td>SPAD 어레이의 고해상도화, 모바일·차량 LiDAR, 저조도 광자 계수 영상.</td><td>12장</td></tr>
         <tr><td>새로운 흡수 재료</td><td>양자점·유기 광전막(OPF)·Ge로 SWIR 확장, 광전 변환층을 회로 위에 올려 필 팩터 100%.</td><td>2장</td></tr>
         <tr><td>나노포토닉스</td><td>컬러 라우터, 메타렌즈, 분광·편광 픽셀로 “색 이상의 정보”를 측정.</td><td>4, 5장</td></tr>
       </tbody>
     </table></div>
-    <div class="callout"><strong>연결해서 보기</strong><p>이 장의 기술들은 모두 앞 장의 기초 위에 서 있다. 적층형 센서는 3장의 BSI 웨이퍼 본딩에서, PDAF는 5장의 동공과 마이크로렌즈에서, 비닝의 SNR 이득은 7장의 샷 노이즈에서, SPAD는 2장의 PN 접합과 항복 현상에서 출발한다. <a href="design.html">14장 설계 플레이그라운드</a>에서 이 지식을 종합해 직접 센서 사양을 정해 보자.</p></div>
+    <div class="callout"><strong>연결해서 보기</strong><p>이 장의 기술들은 모두 앞 장의 기초 위에 서 있다. 적층형 센서는 3장의 BSI 웨이퍼 본딩에서, PDAF는 5장의 동공과 마이크로렌즈에서, 비닝의 SNR 이득은 7장의 샷 노이즈에서, SPAD는 2장의 PN 접합과 항복 현상에서 출발한다. <a href="design.html">18장 설계 플레이그라운드</a>에서 이 지식을 종합해 직접 센서 사양을 정해 보자.</p></div>
   </section>
 
   <!-- ============================================================ summary -->
