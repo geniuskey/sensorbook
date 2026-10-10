@@ -452,7 +452,7 @@
   <section id="itof">
     <h2>간접 비행시간(iToF)</h2>
     <p><span class="term">iToF</span><span class="en">(indirect Time-of-Flight)</span>는 광자 하나하나의 시각을 재는 대신, 수십~수백 MHz로 세기가 변조된 빛을 비추고 되돌아온 빛의 <strong>위상 지연</strong>을 잰다. 픽셀은 PD의 전하를 두 개(또는 네 개)의 탭으로 번갈아 보내는 구조(lock-in pixel)를 가지고, 변조 주기의 0°, 90°, 180°, 270° 구간에 쌓인 전하 \(Q_0,Q_{90},Q_{180},Q_{270}\)로 위상을 구한다.</p>
-    <div class="formula">$$\varphi = \arctan\frac{Q_{90}-Q_{270}}{Q_{0}-Q_{180}},\qquad d = \frac{c}{4\pi f_\text{mod}}\,\varphi,\qquad d_\text{max} = \frac{c}{2 f_\text{mod}}$$<div class="where">\(f_\text{mod}=100\) MHz이면 최대 거리 1.5 m에서 위상이 한 바퀴 돌아 모호성이 생긴다. 그래서 여러 주파수(예: 20 MHz와 100 MHz)를 섞어 모호성을 풀면서 정밀도를 유지한다. 차분(\(Q_0-Q_{180}\))을 쓰므로 일정한 배경광은 상쇄되지만, 그 샷 노이즈는 남는다.</div></div>
+    <div class="formula">$$\varphi = \operatorname{atan2}(Q_{90}-Q_{270},\ Q_0-Q_{180})\bmod 2\pi,\qquad d = \frac{c}{4\pi f_\text{mod}}\,\varphi,\qquad d_\text{max} = \frac{c}{2 f_\text{mod}}$$<div class="where">atan2로 사분면을 보존하고 위상을 \([0,2\pi)\)로 감싼다. 단순 arctan의 비율은 반 바퀴 떨어진 거리를 구분하지 못한다. \(f_\text{mod}=100\) MHz이면 최대 거리 1.5 m에서 위상이 한 바퀴 돌아 모호성이 생긴다. 그래서 여러 주파수(예: 20 MHz와 100 MHz)를 섞어 모호성을 풀면서 정밀도를 유지한다. 차분(\(Q_0-Q_{180}\))을 쓰므로 일정한 배경광은 상쇄되지만, 그 샷 노이즈는 남는다.</div></div>
     <figure class="diagram">
       <svg viewBox="0 0 720 220" role="img" aria-label="iToF 4위상 샘플링">
         <path d="M60 70H680M60 170H680" class="s-axis"/>

@@ -143,8 +143,8 @@
   <section id="linearity">
     <h2>선형성과 포화: 풀웰은 하나가 아니다</h2>
     <p>광량을 0부터 포화까지 올리며 평균 출력을 기록한 것이 <span class="term">응답 곡선</span><span class="en">(Response Curve)</span>이다. 이상적으로는 원점을 지나는 직선이다가 풀웰에서 갑자기 꺾여야 하지만, 실제 곡선은 포화가 가까워지면 서서히 눕는다. 직선에서 벗어난 정도를 <span class="term">선형성 오차</span><span class="en">(Linearity Error)</span>로 수치화한다.</p>
-    <div class="formula">$$\delta_i = \frac{y_i - (a + b\,H_i)}{a + b\,H_i}\times 100\ \%,\qquad \mathrm{LE} = \frac{\max_i \delta_i - \min_i \delta_i}{2}$$
-      <div class="where">\(H_i\): i번째 노출량, \(y_i\): 암 레벨을 뺀 평균 출력. 직선 \(a + bH\)는 포화 출력의 5~95 % 구간 데이터에 최소자승으로 맞춘다(EMVA 1288 방식). 구간과 맞춤 방법이 달라지면 같은 센서의 LE도 달라진다.</div>
+    <div class="formula">$$\delta_i = \frac{y_i - (a + b\,H_i)}{a + b\,H_i}\times 100\ \%,\qquad \mathrm{LE} = \frac{1}{n}\sum_{i=1}^{n}|\delta_i|$$
+      <div class="where">\(H_i\): i번째 노출량, \(y_i\): 암 레벨을 뺀 평균 출력. 직선 \(a + bH\)는 포화 출력의 5~95 % 구간 데이터에 가중치 \(1/y_i^2\)를 주어 상대 편차의 제곱합을 최소화한다. LE는 같은 구간의 절대 상대 편차 평균이다(EMVA 1288 4.0 Linear §6.9). 구간과 맞춤 방법이 달라지면 같은 센서의 LE도 달라진다.</div>
     </div>
     <p>비선형의 원인은 신호 체인 곳곳에 있다(<a href="readout.html">6장</a>).</p>
     <ul>
@@ -181,7 +181,7 @@
       <thead><tr><th>이름</th><th>정의</th><th>쓰임</th></tr></thead>
       <tbody>
         <tr><td><b>선형 풀웰</b> (Linear FWC)</td><td>응답이 직선에서 정해진 기준(회사마다 1~5 %) 이상 벗어나기 직전의 신호</td><td>정량 측정, HDR 합성, 색 정확도가 유지되는 한계</td></tr>
-        <tr><td><b>포화 풀웰</b> (Saturation FWC)</td><td>출력이 더 증가하지 않는 최대 신호. EMVA 1288은 PTC에서 분산이 최대인 점으로 정의</td><td>다이내믹 레인지 계산, 광고용 수치</td></tr>
+        <tr><td><b>포화 풀웰</b> (Saturation FWC)</td><td>출력이 더 증가하지 않는 최대 신호. EMVA 1288은 최대 출력에 도달한 픽셀이 전체의 0.1~0.2%인 노출에서 측정(분산 최대점과 항상 일치하지 않음)</td><td>다이내믹 레인지 계산, 광고용 수치</td></tr>
         <tr><td>ADC 포화</td><td>아날로그 게인이 높을 때 ADC 최대 코드가 먼저 도달</td><td>고게인 모드의 실제 최대 신호</td></tr>
       </tbody>
     </table></div>
@@ -205,7 +205,7 @@
         <div class="stat"><span class="k">포화 풀웰</span><span class="v" id="o-ln-sat">—</span></div>
         <div class="stat"><span class="k">선형 / 포화</span><span class="v" id="o-ln-r">—</span></div>
       </div>
-      <div class="sim-note">센서 가정: 포화 약 10,000 e⁻, K = 2.5 e⁻/DN, 읽기 노이즈 2 e⁻. 노출량을 48단계로 올리며 평균 출력을 '측정'한다. 위: 응답 곡선(점)과 5~95 % 구간(음영)에 맞춘 직선(점선). 아래: 직선 대비 편차 δ와 판정 기준선. 해볼 것: 무릎을 4로 낮추면 포화 풀웰은 그대로인데 선형 풀웰이 크게 줄어든다. 평균 픽셀 수를 1로 줄이면 샷 노이즈 때문에 선형성 자체를 판단할 수 없다. 선형성 측정에는 큰 영역 평균이 필요한 이유다.</div>
+      <div class="sim-note">센서 가정: 포화 약 10,000 e⁻, K = 2.5 e⁻/DN, 읽기 노이즈 2 e⁻. 노출량을 48단계로 올리며 평균 출력을 '측정'한다. 위: 응답 곡선(점)과 5~95 % 구간(음영)에 맞춘 직선(점선). 아래: 직선 대비 편차 δ와 판정 기준선. 해볼 것: 무릎을 4로 낮추면 응답이 일찍 눕고 선형 풀웰이 줄어든다. 여기서 포화 풀웰 표시는 유한한 노출 범위의 최대 평균 출력이며 표준의 히스토그램 판정까지 재현한 값은 아니다. 평균 픽셀 수를 1로 줄이면 샷 노이즈 때문에 선형성 자체를 판단할 수 없다. 선형성 측정에는 큰 영역 평균이 필요한 이유다.</div>
     </div>
   </section>
 
@@ -563,7 +563,7 @@
     <h2>핵심 정리</h2>
     <ol>
       <li>특성 평가는 렌즈 없이 균일광과 암흑에서 평균과 분산을 재는 일이다. EMVA 1288은 선형·정상·균일·푸아송 가정의 블랙박스 모델을 쓰며, 측정의 절반은 그 가정의 한계를 확인하는 것이다.</li>
-      <li>선형성 오차는 5~95 % 구간 최소자승 직선 대비 편차로 정의한다. 직선에서 벗어나기 시작하는 선형 풀웰과 출력이 멈추는 포화 풀웰은 다른 값이다.</li>
+      <li>선형성 오차는 5~95 % 구간의 가중 최소자승 직선 대비 절대 상대 편차 평균으로 정의한다. 직선에서 벗어나기 시작하는 선형 풀웰과 출력이 멈추는 포화 풀웰은 다른 값이다.</li>
       <li>암전류는 분포로 본다. 확산 성분(\(E_a\) ≈ 1.1 eV)과 생성 성분(≈ 0.56 eV)의 온도 의존성이 달라, 배증 온도는 300 K에서 각각 약 5 K와 10 K다. 핫 픽셀은 생성형이어서 온도에 덜 민감하다.</li>
       <li>RTS는 소스 팔로워의 트랩 하나가 만드는 두 레벨 노이즈로, CDS 후 세 봉우리 히스토그램이 된다. 읽기 노이즈 분포의 꼬리를 만들며, 중앙값 표기는 이 꼬리를 숨긴다.</li>
       <li>행·열 줄무늬는 같은 RMS의 픽셀 노이즈보다 훨씬 잘 보여 1/10 이하로 억제해야 한다. 행 평균·열 평균의 분산으로 성분을 분리한다.</li>
@@ -638,6 +638,17 @@
     const gAvg = SB.range("ln-avg", (v) => Math.pow(4, v).toLocaleString("en-US") + " 픽셀", upd);
     const gThr = SB.range("ln-thr", (v) => "±" + v.toFixed(1) + " %", upd);
     function reseed() { const r = rng(seed++); z = []; for (let i = 0; i < NP; i++) z.push(gauss(r)); }
+    // EMVA 1288 4.0 Linear §6.9: minimize relative squared errors.
+    function linearityFit(points) {
+      let sw = 0, sx = 0, sy = 0, sxx = 0, sxy = 0;
+      points.forEach(([x, y]) => {
+        const w = 1 / (y * y);
+        sw += w; sx += w * x; sy += w * y; sxx += w * x * x; sxy += w * x * y;
+      });
+      const b = (sw * sxy - sx * sy) / (sw * sxx - sx * sx), c = (sy - b * sx) / sw;
+      const le = points.reduce((sum, [x, y]) => sum + Math.abs(100 * (y - c - b * x) / (c + b * x)), 0) / points.length;
+      return { b, c, le };
+    }
     function measure() {
       const a = gNl() / 100, n = gKnee(), nav = Math.pow(4, gAvg()), thr = gThr();
       pts = [];
@@ -650,16 +661,14 @@
       }
       let ysat = 0; pts.forEach((p) => { ysat = Math.max(ysat, p[1]); });
       const inr = (y) => y >= 0.05 * ysat && y <= 0.95 * ysat;
-      let m = 0, sx = 0, sy = 0, sxx = 0, sxy = 0, x5 = null, x95 = 0;
-      pts.forEach(([x, y]) => { if (!inr(y)) return; m++; sx += x; sy += y; sxx += x * x; sxy += x * y; if (x5 === null) x5 = x; x95 = x; });
-      const b = (m * sxy - sx * sy) / (m * sxx - sx * sx), c = (sy - b * sx) / m;
+      const fitPoints = pts.filter((p) => inr(p[1]));
+      const { b, c, le } = linearityFit(fitPoints);
+      const x5 = fitPoints[0][0], x95 = fitPoints[fitPoints.length - 1][0];
       const dev = pts.map(([x, y]) => [x, (100 * (y - (c + b * x))) / Math.max(1e-9, c + b * x)]);
-      let dmax = -1e9, dmin = 1e9;
-      pts.forEach((p, i) => { if (inr(p[1])) { dmax = Math.max(dmax, dev[i][1]); dmin = Math.min(dmin, dev[i][1]); } });
       let lin = pts[0];
       for (let i = 0; i < NP; i++) { if (pts[i][1] > 0.5 * ysat && Math.abs(dev[i][1]) > thr) break; lin = pts[i]; }
-      res = { b, c, dev, ysat, x5, x95, le: (dmax - dmin) / 2, lin: lin[1] * K, sat: ysat * K, thr };
-      SB.stat("o-ln-le", "±" + res.le.toFixed(2) + "<small>%</small>");
+      res = { b, c, dev, ysat, x5, x95, le, lin: lin[1] * K, sat: ysat * K, thr };
+      SB.stat("o-ln-le", res.le.toFixed(2) + "<small>%</small>");
       SB.stat("o-ln-lin", Math.round(res.lin).toLocaleString("en-US") + "<small>e⁻</small>");
       SB.stat("o-ln-sat", Math.round(res.sat).toLocaleString("en-US") + "<small>e⁻</small>");
       SB.stat("o-ln-r", ((100 * res.lin) / res.sat).toFixed(0) + "<small>%</small>");

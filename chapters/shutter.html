@@ -413,8 +413,8 @@
   <section id="hdr-synth">
     <h2>HDR 합성과 톤 매핑</h2>
     <p>긴 노출 신호 \(S_L\)(시간 \(t_L\))과 짧은 노출 신호 \(S_S\)(시간 \(t_S = t_L/R\))를 얻었다고 하자. 각 신호를 노출 시간으로 나누면 같은 물리량, 즉 장면 조도(Radiance)의 추정치가 된다. 포화된 값은 버리고, 남은 추정치를 신뢰도로 가중 평균하면 <span class="term">HDR 방사 휘도 맵</span><span class="en">(Radiance Map)</span>을 얻는다.</p>
-    <div class="formula">$$\hat E(x) = \frac{\sum_i w_i(x)\,S_i(x)/t_i}{\sum_i w_i(x)},\qquad w_i \propto t_i\cdot h\!\left(\frac{S_i}{N_{\text{FWC}}}\right)$$
-      <div class="where">\(h\)는 포화 근처에서 0으로 떨어지는 모자(Hat) 함수. 샷 노이즈 한계에서 추정치의 분산은 \(E/t_i\)이므로 역분산 가중은 \(t_i\)에 비례한다 — 긴 노출을 쓸 수 있는 곳에서는 긴 노출을 믿는다.</div>
+    <div class="formula">$$\hat E(x) = \frac{\sum_i w_i(x)\,S_i(x)/t_i}{\sum_i w_i(x)},\qquad w_i \propto \frac{t_i^2}{S_i+\sigma_r^2}\,h\!\left(\frac{S_i}{N_{\text{FWC}}}\right)$$
+      <div class="where">\(h\)는 포화 근처에서 0으로 떨어지는 모자(Hat) 함수. 신호를 전자 수로 표현하면 읽기 노이즈를 포함한 분산 추정은 \((S_i+\sigma_r^2)/t_i^2\)다. 샷 노이즈 한계에서 추정치의 분산은 \(E/t_i\)이므로 역분산 가중은 \(t_i\)에 비례한다 — 긴 노출을 쓸 수 있는 곳에서는 긴 노출을 믿는다.</div>
     </div>
     <p>합성된 방사 휘도 맵은 10⁵ : 1의 범위를 가지지만 모니터는 약 1000 : 1, 8비트 sRGB는 그보다 좁다. 넓은 범위를 좁은 표시 범위로 압축하는 과정이 <span class="term">톤 매핑</span><span class="en">(Tone Mapping)</span>이다. 가장 유명한 전역 연산자인 Reinhard 톤 매핑은</p>
     <div class="formula">$$L_m = \frac{a}{\bar L_w}\,L_w,\qquad \bar L_w = \exp\!\Big(\frac1N\sum\ln(\delta + L_w)\Big),\qquad L_d = \frac{L_m\,(1+L_m/L_{\text{white}}^2)}{1+L_m}$$
@@ -886,6 +886,9 @@
     let R = 16, kL = 158;
     let SL, SS, Ehat, Lum;
     const TM = new Float32Array(W * H * 3);
+    function hdrWeight(k, signal) {
+      return k * k / (Math.max(0, signal) + RN * RN);
+    }
     function compute() {
       R = Math.pow(2, gR()); kL = Math.pow(10, gE());
       const kS = kL / R;
@@ -911,7 +914,7 @@
           let E;
           if (hard) E = sL < 0.9 * FWC ? sL / kL : sS / kS;
           else {
-            const wL = kL * hat(sL / FWC), wS = kS * hat(sS / FWC);
+            const wL = hdrWeight(kL, sL) * hat(sL / FWC), wS = hdrWeight(kS, sS) * hat(sS / FWC);
             E = wL + wS > 0 ? (wL * (sL / kL) + wS * (sS / kS)) / (wL + wS) : FWC / kS;
           }
           Ehat[q] = Math.max(E, 1e-3);

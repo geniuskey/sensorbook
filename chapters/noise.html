@@ -603,7 +603,7 @@
         <div class="stat"><span class="k">암전하</span><span class="v" id="im-o5">—</span></div>
         <div class="stat"><span class="k">FWC / 클립 신호</span><span class="v" id="im-o6">—</span></div>
       </div>
-      <div class="sim-note">해볼 것: ① 광량을 낮추면 샷 노이즈로 거칠어진다. ② 픽셀 크기를 0.7 µm로 줄이면 같은 조명에서도 광자가 1/4로 줄어 노이즈가 커진다. ③ 온도 90 °C + 긴 노출이면 암전류로 전체가 뜨고 얼룩진다(FPN을 켜면 핫 픽셀). ④ 어두운 장면에서 ISO를 올리면 SNR이 약간 좋아지지만(후단 노이즈 억제) 밝은 패치가 먼저 포화된다. ⑤ 8비트 + 저조도면 히스토그램이 몇 개의 막대로 뭉친다(양자화). 아래 그래프는 18% 패치의 DN 히스토그램이다.</div>
+      <div class="sim-note">해볼 것: ① 광량을 낮추면 샷 노이즈로 거칠어진다. ② 픽셀 크기를 0.7 µm로 줄이면 같은 조명에서도 광자가 1/4로 줄어 노이즈가 커진다. ③ 온도 90 °C + 긴 노출이면 암전류로 전체가 뜨고 얼룩진다(FPN을 켜면 핫 픽셀). ④ 어두운 장면에서 ISO를 올리면 SNR이 약간 좋아지지만(후단 노이즈 억제) 밝은 패치가 먼저 포화된다. ⑤ 8비트 + 저조도면 히스토그램이 몇 개의 막대로 뭉친다(양자화). 아래 그래프는 18% 패치의 DN 히스토그램이다. 패치가 풀웰 또는 ADC 한계에 닿으면 클리핑이 분산을 줄이므로 측정·이론 SNR을 포화로 표시한다. 이론 SNR은 암전하 평균을 뺀 광신호 기준이며, 측정치는 블랙레벨만 뺀 공간 통계라 암전하·FPN이 있으면 서로 달라진다.</div>
     </div>
   </section>
 
@@ -981,6 +981,12 @@
   var liveEl = document.getElementById("im-live");
   var RAW = new Uint16Array(NPX), off = document.createElement("canvas"); off.width = IW; off.height = IH;
   var offCtx = off.getContext("2d"), IMGD = offCtx.createImageData(IW, IH), IMP = {};
+  function patchTheory(M) {
+    // The painted gray patch is round(0.19 * 255), not exactly 0.19.
+    var Sg = M.eW * (48 / 255), qn = (M.K0 / M.G) / Math.sqrt(12);
+    var clip = Math.min(M.FWC, M.FWC / M.G), saturated = Sg + M.dark >= clip;
+    return { Sg: Sg, saturated: saturated, snr: saturated ? null : Sg / Math.sqrt(Sg + M.dark + M.sr * M.sr + qn * qn) };
+  }
   function model() {
     var p = imP(), A = p * p, flux = logv(imL(), 0.2, 2000), tms = logv(imT(), 0.1, 1000);
     var QE = 0.6, eW = flux * A * tms * QE, FWC = Math.round(5000 * A);
@@ -1010,14 +1016,14 @@
     var vals = [];
     for (var yy = PATCH.y0; yy < PATCH.y1; yy++) for (var xx = PATCH.x0; xx < PATCH.x1; xx++) vals.push(RAW[yy * IW + xx] - M.BL);
     var st = sdev(vals);
-    var Sg = Math.min(M.eW * 0.19, M.FWC), qn = (M.K0 / M.G) / Math.sqrt(12);
-    var snrT = Sg / Math.sqrt(Sg + M.dark + M.sr * M.sr + qn * qn);
+    var theory = patchTheory(M), Sg = theory.Sg, snrT = theory.snr;
     IMP = { M: M, vals: vals, st: st, snrT: snrT, Sg: Sg };
     var snrM = st.s > 0 ? st.m / st.s : Infinity;
+    var clipped = theory.saturated || vals.some(function (v) { return v + M.BL >= M.FS; });
     SB.stat("im-o1", eFmt(M.eW) + "<small>e⁻" + (M.eW > M.FWC || M.eW > M.FWC / M.G ? " 포화" : "") + "</small>");
-    SB.stat("im-o2", eFmt(M.eW * 0.19) + "<small>e⁻</small>");
-    SB.stat("im-o3", isFinite(snrM) && snrM > 0 ? SB.fmt(snrM, 3) + "<small>(" + dB(snrM).toFixed(1) + " dB)</small>" : "—");
-    SB.stat("im-o4", SB.fmt(snrT, 3) + "<small>(" + dB(snrT).toFixed(1) + " dB)</small>");
+    SB.stat("im-o2", eFmt(Sg) + "<small>e⁻</small>");
+    SB.stat("im-o3", clipped ? "포화<small>측정 제외</small>" : isFinite(snrM) && snrM > 0 ? SB.fmt(snrM, 3) + "<small>(" + dB(snrM).toFixed(1) + " dB)</small>" : "—");
+    SB.stat("im-o4", clipped ? "포화<small>선형 모델 범위 밖</small>" : SB.fmt(snrT, 3) + "<small>(" + dB(snrT).toFixed(1) + " dB)</small>");
     SB.stat("im-o5", eFmt(M.dark) + "<small>e⁻</small>");
     SB.stat("im-o6", eFmt(M.FWC) + " / " + eFmt(Math.min(M.FWC, M.FWC / M.G)) + "<small>e⁻</small>");
     cvImg.redraw(); cvHist.redraw();
