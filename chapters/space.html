@@ -496,9 +496,9 @@
         <div class="stat"><span class="k">TDI SNR</span><span class="v" id="o-tdi-sn">—</span></div>
         <div class="stat"><span class="k">SNR 이득</span><span class="v" id="o-tdi-g">—</span></div>
         <div class="stat"><span class="k">누적 번짐</span><span class="v" id="o-tdi-sm">—</span></div>
-        <div class="stat"><span class="k">나이퀴스트 MTF</span><span class="v" id="o-tdi-mtf">—</span></div>
+        <div class="stat"><span class="k">나이퀴스트 번짐 MTF</span><span class="v" id="o-tdi-mtf">—</span></div>
       </div>
-      <div class="sim-note">위: 주기가 12 → 2픽셀로 점점 촘촘해지는 막대 패턴을 1단(라인 스캔)과 N단 TDI로 찍은 영상. 읽기 노이즈 5 e⁻ 가정. 아래: 단 수에 따른 SNR(점선)과 SNR × 나이퀴스트 MTF(실선). 해볼 것: 불일치 0 %에서 단 수를 올리면 노이즈가 걷히며 가는 막대까지 보인다. 불일치를 1 %로 두고 256단까지 올리면 2.56픽셀이 번져 가는 막대가 뭉개진다. 불일치가 있으면 단 수에 최적값이 생긴다.</div>
+      <div class="sim-note">위: 주기가 12 → 2픽셀로 점점 촘촘해지는 막대 패턴을 1단(라인 스캔)과 N단 TDI로 찍은 영상. 읽기 노이즈 5 e⁻ 가정. 아래: 단 수에 따른 SNR(점선)과 SNR × 나이퀴스트 번짐 MTF(실선). 영상에는 1픽셀 개구와 속도 불일치 번짐을 차례로 합성곱하며, 아래 MTF는 개구를 제외한 불일치만의 대비 손실이다. 해볼 것: 불일치 0 %에서 단 수를 올리면 노이즈가 걷히며 가는 막대까지 보인다. 불일치를 1 %로 두고 256단까지 올리면 2.56픽셀이 번져 가는 막대가 뭉개진다. 불일치가 있으면 단 수에 최적값이 생긴다.</div>
     </div>
   </section>
 
@@ -544,7 +544,7 @@
         <div class="stat"><span class="k">EMCCD = sCMOS 교차점</span><span class="v" id="o-pc-x2">—</span></div>
         <div class="stat"><span class="k">선택 신호에서 최고</span><span class="v" id="o-pc-best">—</span></div>
       </div>
-      <div class="sim-note">가로축: 픽셀당 광전자 수 S(로그). 세로축: 읽기 노이즈가 0인 이상적 검출기 대비 SNR 비율(1이면 샷 노이즈 한계). 모든 검출기의 QE는 같다고 가정하고, EMCCD 출력 증폭기 노이즈는 50 e⁻, 과잉 잡음은 \(F^2 = 2-1/G\), 스키퍼는 0.1 e⁻로 고정했다. 해볼 것: EM 이득이 충분하면 EMCCD 곡선은 어디서나 \(1/\sqrt2\approx0.71\)에 붙는다. 교차점은 대략 \(S\approx\sigma_r^2\)이다. sCMOS 노이즈를 0.3 e⁻로 낮추면 EMCCD가 이기는 영역이 거의 사라진다.</div>
+      <div class="sim-note">가로축: 픽셀당 광전자 수 S(로그). 세로축: 읽기 노이즈가 0인 이상적 검출기 대비 SNR 비율(1이면 샷 노이즈 한계). 모든 검출기의 QE는 같다고 가정하고, EMCCD 출력 증폭기 노이즈는 50 e⁻, 과잉 잡음은 \(F^2 = 2-1/G\), 스키퍼는 0.1 e⁻로 고정했다. 이 비교는 문턱 계수 없는 아날로그 출력 모드다. 해볼 것: 증폭기 읽기 노이즈가 증배된 샷 노이즈보다 충분히 작아지는 신호 범위에서 EMCCD 곡선은 \(1/\sqrt2\approx0.71\)에 붙는다. 교차점은 대략 \(S\approx\sigma_r^2\)이다. sCMOS 노이즈를 0.3 e⁻로 낮추면 EMCCD가 이기는 영역이 거의 사라진다.</div>
     </div>
   </section>
 
@@ -578,7 +578,7 @@
       <li>1.1 µm 너머는 HgCdTe가 맡는다. 조성으로 차단 파장을 고르고, 인듐 범프로 실리콘 ROIC에 접합한다. 차단 파장이 길수록 더 차갑게 식혀야 한다.</li>
       <li>비파괴 판독으로 up-the-ramp 샘플링을 하면 읽기 노이즈가 \(\sqrt{12/N}\,\sigma_r\)까지 줄고, 노출 중 우주선 히트를 램프의 계단으로 찾아낼 수 있다.</li>
       <li>TDI는 상의 이동에 맞춰 전하를 옮겨 노출을 N배로 늘린다. 읽기는 한 번뿐이라 SNR이 \(\sqrt N\) 이상 좋아지지만, 속도가 어긋나면 \(N\varepsilon\) 픽셀만큼 번진다.</li>
-      <li>EMCCD는 증배로 읽기 노이즈를 없애지만 과잉 잡음 \(\sqrt2\)를 치른다. sCMOS는 증배 없이 1 e⁻ 이하로, 스키퍼 CCD는 반복 측정으로 0.1 e⁻ 이하로 내려간다.</li>
+      <li>EMCCD는 증배로 입력 환산 읽기 노이즈를 낮추지만 아날로그 모드에서는 과잉 잡음 \(\sqrt2\)를 치른다. 문턱 계수 모드에서는 과잉 잡음을 피할 수 있으나 광자 중첩과 문턱 손실을 관리해야 한다. sCMOS는 증배 없이 1 e⁻ 이하로, 스키퍼 CCD는 반복 측정으로 0.1 e⁻ 이하로 내려간다.</li>
     </ol>
   </section>
 
@@ -838,7 +838,7 @@
 
   /* =================================================== Sim 3: TDI */
   (function () {
-    const W = 180, H = 30, RN = 5, K = 8, PER = [12, 8, 5, 3, 2], BLK = W / PER.length;
+    const W = 180, H = 30, RN = 5, PER = [12, 8, 5, 3, 2], BLK = W / PER.length;
     const z1 = new Float32Array(W * H * 2), z2 = new Float32Array(W * H * 2);
     for (let i = 0; i < z1.length; i++) { z1[i] = SB.randn(); z2[i] = SB.randn(); }
     const nOf = (v) => Math.pow(2, v), sOf = (v) => Math.pow(10, v);
@@ -852,12 +852,34 @@
       for (let k = 0; k <= 8; k++) { const v = eff(nOf(k), s, e); if (v > bv) { bv = v; bk = k; } }
       gN.set(bk);
     });
-    const pat = (x) => { if (x < 0 || x >= W) return 0; const p = PER[Math.min(PER.length - 1, Math.floor(x / BLK))]; const u = x / p; return u - Math.floor(u) < 0.5 ? 1 : 0; };
-    function line(blur) {
-      const o = new Float32Array(W), n = Math.max(K, Math.ceil((1 + blur) * K));
-      for (let i = 0; i < W; i++) { let s = 0; for (let k = 0; k < n; k++) s += pat(i - blur / 2 + ((k + 0.5) / n) * (1 + blur)); o[i] = 0.12 + 0.88 * (s / n); }
+    const bright = [];
+    PER.forEach((period, block) => {
+      const lo = block * BLK, hi = lo + BLK;
+      for (let k = Math.floor(lo / period); k * period < hi; k++) {
+        const a = Math.max(lo, k * period), b = Math.min(hi, (k + 0.5) * period);
+        if (b > a) bright.push([a, b]);
+      }
+    });
+    // Exact convolution of a unit pixel aperture and uniform mismatch smear.
+    function tdiProfile(intervals, width, blur) {
+      const o = new Float32Array(width);
+      function cdf(x) {
+        if (blur === 0) return Math.max(0, Math.min(1, x));
+        const t = x + blur / 2, short = Math.min(1, blur), long = Math.max(1, blur);
+        if (t <= 0) return 0;
+        if (t >= 1 + blur) return 1;
+        if (t < short) return t * t / (2 * blur);
+        if (t < long) return (t - short / 2) / long;
+        return 1 - (1 + blur - t) ** 2 / (2 * blur);
+      }
+      for (let i = 0; i < width; i++) {
+        let sum = 0;
+        for (const [a, b] of intervals) sum += cdf(b - i) - cdf(a - i);
+        o[i] = sum;
+      }
       return o;
     }
+    function line(blur) { return tdiProfile(bright, W, blur).map(v => 0.12 + 0.88 * v); }
     const off = document.createElement("canvas"); off.width = W; off.height = H;
     const img = new ImageData(W, H);
     function strip(ctx, prof, tot, zo, x, y, w, h) {
@@ -900,7 +922,7 @@
       });
       ctx.font = font(11); ctx.textAlign = "left"; ctx.textBaseline = "top";
       ctx.fillStyle = P.dim; ctx.fillText("점선: SNR", 66, 20);
-      ctx.fillStyle = P.accent; ctx.fillText("실선: SNR × 나이퀴스트 MTF", 66, 34);
+      ctx.fillStyle = P.accent; ctx.fillText("실선: SNR × 나이퀴스트 번짐 MTF", 66, 34);
     }
     const cvA = SB.canvas($("cv-tdi"), draw, { aspect: 0.4, minHeight: 170, maxHeight: 250 });
     const cvB = SB.canvas($("cv-tdic"), drawC, { aspect: 0.42, minHeight: 170, maxHeight: 230 });
